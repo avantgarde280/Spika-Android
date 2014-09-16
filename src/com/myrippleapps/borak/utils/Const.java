@@ -41,13 +41,13 @@ public class Const {
 	public static final String SUPPORT_USER				= "1";
 	public static final String API_FOLDER				= "api/";
 	public static final String INFORMATION_FOLDER		= "page/information/";
-	public static final String API_URL                 	= ConstServer.BASE_URL;
+//	public static final String API_URL                 	= ConstServer.BASE_URL;
 	public static final String AUTH_URL                	= "auth?";
 	public static final String SEARCH_USERS_URL        	= "searchUsers?";
 	public static final String SEARCH_GROUPS_URL       	= "searchGroups/name/";
 	public static final String FILE_UPLOADER_URL       	= "fileuploader";
     public static final String FILE_DOWNLOADER_URL     	= "filedownloader?";
-    public static final String CHECKUNIQUE_URL         	= /*ConstServer.BASE_URL + */"checkUnique?";
+//    public static final String CHECKUNIQUE_URL         	= /*ConstServer.BASE_URL + */"checkUnique?";
     public static final String FIND_USER_BY_NAME       	= "findUser/name/";
     public static final String FIND_USER_BY_EMAIL      	= "findUser/email/";
     public static final String FIND_USER_BY_ID			= "findUser/id/";
