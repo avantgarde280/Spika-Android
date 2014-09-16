@@ -63,13 +63,13 @@ public class Const {
     public static final String FIND_GROUP_BY_NAME		= "findGroup/name/";
     public static final String FIND_GROUP_BY_CATEGORY_ID= "findGroup/categoryId/";
     public static final String FIND_GROUP_CATEGORIES	= "findAllGroupCategory";
-    public static final String DEFAULT_SERVER_NAME		= "Snappy Chat";    
+    public static final String DEFAULT_SERVER_NAME		= "MiliTalk";    
     public static final String FIND_MEMBERS             = "groupUsers/";
     
     
     public static final String PASSWORDREMINDER_URL    	= "resetPassword?";
     public static final String UNREGISTER_PUSH_URL     	= "unregistToken?";
-    public static final String DATABASE                	= "borak";
+    public static final String DATABASE                	= "myripple_chatdb";
     
     public static final String CREATE_USER 				= "create_user";
 	public static final String UPDATE_USER 				= "updateUser";
