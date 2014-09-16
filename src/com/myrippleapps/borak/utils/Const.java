@@ -69,7 +69,7 @@ public class Const {
     
     public static final String PASSWORDREMINDER_URL    	= "resetPassword?";
     public static final String UNREGISTER_PUSH_URL     	= "unregistToken?";
-    public static final String DATABASE                	= "spika";
+    public static final String DATABASE                	= "borak";
     
     public static final String CREATE_USER 				= "create_user";
 	public static final String UPDATE_USER 				= "updateUser";
@@ -206,7 +206,7 @@ public class Const {
 	public static final String MESSAGE_ID = "message_id";
 	
 	/* Push notification constants */
-	public static final String PUSH_SENDER_ID = "231801848270";
+	public static final String PUSH_SENDER_ID = "592200737922";
 	public static final String PUSH_MESSAGE = "message";
 	public static final String PUSH_FROM_USER_ID = "fromUser";
 	public static final String PUSH_FROM_NAME= "fromUserName";
