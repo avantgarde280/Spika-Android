@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/background_repeat" >
 
-        <com.cloverstudio.spika.view.CroppedImageView
+        <com.myrippleapps.borak.view.CroppedImageView
             android:id="@+id/ivCameraCropPhoto"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"

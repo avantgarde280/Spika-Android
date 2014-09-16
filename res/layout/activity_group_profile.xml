@@ -33,7 +33,7 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true" >
 
-                <com.cloverstudio.spika.view.AspectRatioImageView
+                <com.myrippleapps.borak.view.AspectRatioImageView
                     android:id="@+id/ivGroupImage"
                     android:layout_width="match_parent"
                     android:layout_height="500px"
@@ -98,7 +98,7 @@
                     android:layout_marginTop="5dp"
                     android:background="@android:color/white" >
 
-                    <com.cloverstudio.spika.view.MyriadProTextView
+                    <com.myrippleapps.borak.view.MyriadProTextView
                         android:id="@+id/tvCategory"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                     android:layout_below="@+id/rlCategory"
                     android:background="@android:color/white" >
 
-                    <com.cloverstudio.spika.view.MyriadProTextView
+                    <com.myrippleapps.borak.view.MyriadProTextView
                         android:id="@+id/tvGroupName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                         android:background="@android:color/white"
                         android:minHeight="47dp" >
 
-                        <com.cloverstudio.spika.view.MyriadProTextView
+					<com.myrippleapps.borak.view.MyriadProTextView
                             android:id="@+id/tvPassword"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
                     android:layout_marginTop="5dp"
                     android:background="@drawable/white_selector" >
 
-                    <com.cloverstudio.spika.view.MyriadProTextView
+                    <com.myrippleapps.borak.view.MyriadProTextView
                         android:id="@+id/tvOwner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -212,7 +212,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
-                    <com.cloverstudio.spika.view.MyriadProTextView
+                    <com.myrippleapps.borak.view.MyriadProTextView
                         android:id="@+id/tvGroupOwner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -242,7 +242,7 @@
                     android:background="@android:color/white"
                     android:minHeight="47dp" >
 
-                    <com.cloverstudio.spika.view.MyriadProTextView
+                    <com.myrippleapps.borak.view.MyriadProTextView
                         android:id="@+id/tvDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -252,7 +252,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
-                    <com.cloverstudio.spika.view.MyriadProTextView
+                    <com.myrippleapps.borak.view.MyriadProTextView
                         android:id="@+id/tvGroupDescription"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

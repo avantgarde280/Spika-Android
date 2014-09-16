@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cloverstudio.spika"
-    android:versionCode="14"
-    android:versionName="1.31" >
+    package="com.myrippleapps.borak"
+    android:versionCode="100"
+    android:versionName="0.2" >
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -28,16 +28,16 @@
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <permission
-        android:name="com.cloverstudio.spika.permission.C2D_MESSAGE"
+        android:name="com.myrippleapps.borak.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.cloverstudio.spika.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.myrippleapps.borak.permission.C2D_MESSAGE" />
 
     <permission
-        android:name="com.cloverstudio.spika.permission.MAPS_RECEIVE"
+        android:name="com.myrippleapps.borak.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.cloverstudio.spika.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.myrippleapps.borak.permission.MAPS_RECEIVE" />
     
     
     <!-- App receives GCM messages. -->
@@ -48,7 +48,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name="com.cloverstudio.spika.SpikaApp"
+        android:name="com.myrippleapps.borak.SpikaApp"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
@@ -57,13 +57,13 @@
         
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyAEjfVThq8_-mHeitjZYanpI_XALIyRSAU" />
+            android:value="AIzaSyDSzAWZVWc6ff1O69DxLkIXY8FbEVH9akk" />
         
         <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
         
 
         <activity
-            android:name="com.cloverstudio.spika.SplashScreenActivity"
+            android:name="com.myrippleapps.borak.SplashScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -84,134 +84,134 @@
 			</intent-filter>
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.SignInActivity"
+            android:name="com.myrippleapps.borak.SignInActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:launchMode="singleTop" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.WallActivity"
+            android:name="com.myrippleapps.borak.WallActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             android:launchMode="singleTask" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.extendables.SideBarActivity"
+            android:name="com.myrippleapps.borak.extendables.SideBarActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.extendables.HookUpActivity"
+            android:name="com.myrippleapps.borak.extendables.HookUpActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.extendables.HookUpFragmentActivity"
+            android:name="com.myrippleapps.borak.extendables.HookUpFragmentActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.PasscodeActivity"
+            android:name="com.myrippleapps.borak.PasscodeActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.UsersActivity"
+            android:name="com.myrippleapps.borak.UsersActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.GroupsActivity"
+            android:name="com.myrippleapps.borak.GroupsActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.PhotoActivity"
+            android:name="com.myrippleapps.borak.PhotoActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.CreateGroupActivity"
+            android:name="com.myrippleapps.borak.CreateGroupActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
              >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.CameraCropActivity"
+            android:name="com.myrippleapps.borak.CameraCropActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.MyProfileActivity"
+            android:name="com.myrippleapps.borak.MyProfileActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.UserProfileActivity"
+            android:name="com.myrippleapps.borak.UserProfileActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.GroupProfileActivity"
+            android:name="com.myrippleapps.borak.GroupProfileActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.MembersActivity"
+            android:name="com.myrippleapps.borak.MembersActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.LocationActivity"
+            android:name="com.myrippleapps.borak.LocationActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.RecordingActivity"
+            android:name="com.myrippleapps.borak.RecordingActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.VoiceActivity"
+            android:name="com.myrippleapps.borak.VoiceActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.InformationActivity"
+            android:name="com.myrippleapps.borak.InformationActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.SettingsActivity"
+            android:name="com.myrippleapps.borak.SettingsActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.VideoActivity"
+            android:name="com.myrippleapps.borak.VideoActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask" 
             android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.RecordingVideoActivity"
+            android:name="com.myrippleapps.borak.RecordingVideoActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.RecentActivityActivity"
+            android:name="com.myrippleapps.borak.RecentActivityActivity"
             android:launchMode="singleTask"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.dialog.Tutorial"
+            android:name="com.myrippleapps.borak.dialog.Tutorial"
             android:screenOrientation="portrait"
             android:theme="@style/TransparentDialogTheme" >
         </activity>
         <activity
-            android:name="com.cloverstudio.spika.ServersListActivity"
+            android:name="com.myrippleapps.borak.ServersListActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
 
-        <service android:name="com.cloverstudio.spika.GCMIntentService" />
+        <service android:name="com.myrippleapps.borak.GCMIntentService" />
 
 
         <receiver
@@ -221,18 +221,18 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <category android:name="com.cloverstudio.spika" />
+                <category android:name="com.myrippleapps.borak" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.cloverstudio.spika.management.ConnectionChangeReceiver" >
+        <receiver android:name="com.myrippleapps.borak.management.ConnectionChangeReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.ConnectivityManager.CONNECTIVITY_ACTION" />
             </intent-filter>
         </receiver>
         
-        <receiver android:name="com.cloverstudio.spika.management.LogoutReceiver">
+        <receiver android:name="com.myrippleapps.borak.management.LogoutReceiver">
           <intent-filter>
           <action android:name=".management.LogoutReceiver.LOGOUT">
           </action>

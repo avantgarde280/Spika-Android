@@ -35,7 +35,7 @@
             android:visibility="gone" />
     </RelativeLayout>
 
-    <com.cloverstudio.spika.view.MyriadProTextView
+    <com.myrippleapps.borak.view.MyriadProTextView
         android:id="@+id/tvMessage"
         android:text="Support posted message to group Clover Studio"
         android:ellipsize="end"
@@ -67,7 +67,7 @@
             android:background="@drawable/sidebar_notification_balloon"
             android:contentDescription="@null" />
 
-        <com.cloverstudio.spika.view.MyriadProTextView
+        <com.myrippleapps.borak.view.MyriadProTextView
             android:id="@+id/tvNotificationsNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
