@@ -275,7 +275,7 @@ public class SendMessageAsync extends SpikaAsync<Object, Void, Boolean> {
 		super.onPostExecute(result);
 		MessagesUpdater.update(true);
 		if (result) {
-			//Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
+			Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
 		} else {
 			Toast.makeText(mContext, "message has been sent", Toast.LENGTH_SHORT).show();
 		}
