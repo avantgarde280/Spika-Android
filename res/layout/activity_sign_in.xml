@@ -73,7 +73,7 @@
         <com.myrippleapps.borak.view.MyriadProTextView
             android:id="@+id/tvSignInTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="@string/SIGN_IN"
@@ -376,7 +376,7 @@
 	
 	<Button
 	    android:id="@+id/btnSendPassword"
-	    android:layout_width="wrap_content"
+	    android:layout_width="match_parent"
 	    android:layout_height="36dp"
 	    android:layout_alignParentRight="true"
 	    android:background="@drawable/positiveleftrect"
