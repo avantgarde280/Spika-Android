@@ -9,12 +9,21 @@
         android:id="@+id/rlServerField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rlSignInTitle"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="36dp"
-        android:padding="20dp"
-        android:background="@color/sign_in_gray" >
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        android:background="@android:color/transparent"
+	>
+	
+	<TextView
+	    android:text="@string/MAIN_TITLE"
+	    android:textSize="60sp"
+	    android:textColor="#c0392b"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:textStyle="bold"
+	    android:gravity="center"
+	    android:textAppearance="?android:attr/textAppearanceLarge"
+	/>
 
         <ImageView
             android:id="@+id/ivServerIcon"
@@ -22,7 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:contentDescription="@null"
-            android:src="@drawable/icon_server" />
+            android:src="@drawable/icon_server"
+	    android:visibility="invisible"/>
 
         <com.myrippleapps.borak.view.SimpleAutoFitTextView
             android:id="@+id/tvServerSelect"
@@ -37,7 +47,8 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+	    android:visibility="invisible"/>
 
         <ImageView
             android:id="@+id/ivArrowIcon"
@@ -46,17 +57,58 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:contentDescription="@null"
-            android:src="@drawable/icon_server_select" />
+            android:src="@drawable/icon_server_select"
+	    android:visibility="invisible"/>
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/rlSignInTitle"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+	android:layout_below="@+id/rlServerField"
+	android:layout_marginLeft="20dp"
+	android:layout_marginRight="20dp"
+        android:background="@drawable/top_rect" >
+
+        <com.myrippleapps.borak.view.MyriadProTextView
+            android:id="@+id/tvSignInTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/SIGN_IN"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="85dp"
+            android:layout_height="36dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/negativeleftrect"
+            android:gravity="center"
+            android:text="@string/BACK"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+	
+	<View
+	    android:layout_width="match_parent"
+	    android:layout_height="1dp"
+	    android:layout_below="@+id/tvSignInTitle"
+	    android:background="@drawable/sign_in_divider" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rlSignInForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rlServerField"
+        android:layout_below="@+id/rlSignInTitle"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp" >
+        android:layout_marginTop="0dp"
+	android:layout_marginBottom="0dp">
 
         <LinearLayout
             android:id="@+id/llSignInBody"
@@ -133,7 +185,11 @@
                     android:inputType="textPassword"
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
-            </RelativeLayout>
+	    </RelativeLayout>
+	    <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/sign_in_divider" />
         </LinearLayout>
 
         <LinearLayout
@@ -246,6 +302,10 @@
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
             </RelativeLayout>
+	    <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/sign_in_divider" />
         </LinearLayout>
 
         <LinearLayout
@@ -289,68 +349,80 @@
                     android:textColor="@android:color/white"
                     android:textSize="18sp" />
             </RelativeLayout>
+	    <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/sign_in_divider" />
         </LinearLayout>
     </RelativeLayout>
+    
+    <RelativeLayout
+	android:id="@+id/bottom_rect_container"
+	android:layout_width="match_parent"
+	android:layout_height="36dp"
+	android:layout_below="@+id/rlSignInForm"
+	android:layout_marginLeft="20dp"
+	android:layout_marginRight="20dp"
+	android:gravity="center_vertical|right"
+	android:background="@drawable/bottom_rect" >   
 
-    <Button
-        android:id="@+id/btnForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/rlSignInForm"
-        android:layout_below="@+id/rlSignInForm"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
-        android:background="@null"
-        android:text="@string/forgot_password"
-        android:textColor="@android:color/white" />
+	<Button android:id="@+id/btnForgotPassword"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginRight="5dp"
+	    android:background="@null"
+	    android:text="@string/forgot_password"
+	    android:textColor="@android:color/white" />
+	
+	<Button
+	    android:id="@+id/btnSendPassword"
+	    android:layout_width="wrap_content"
+	    android:layout_height="36dp"
+	    android:layout_alignParentRight="true"
+	    android:background="@drawable/positiveleftrect"
+	    android:gravity="center"
+	    android:text="@string/SEND_PASSWORD"
+	    android:textColor="@android:color/white"
+	    android:textStyle="bold"
+	    android:visibility="gone" />
 
-    <Button
-        android:id="@+id/btnSendPassword"
-        android:layout_width="175dp"
-        android:layout_height="35dp"
-        android:layout_below="@+id/rlSignInTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="355dp"
-        android:background="@drawable/rounded_rect_positive_selector"
-        android:gravity="center"
-        android:text="@string/SEND_PASSWORD"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:visibility="gone" />
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/btnActive"
-        android:layout_width="175dp"
-        android:layout_height="35dp"
-        android:layout_below="@+id/rlSignInTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="355dp"
-        android:background="@drawable/rounded_rect_positive_selector"
-        android:gravity="center"
-        android:text="@string/SIGN_IN"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:visibility="visible" />
+    <LinearLayout android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:gravity="center_horizontal"
+	android:layout_below="@+id/bottom_rect_container"
+	android:padding="10dp">
+    
+        <Button
+            android:id="@+id/btnActive"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:background="@drawable/rounded_rect_positive_selector"
+            android:layout_margin="10dp"
+            android:text="@string/SIGN_IN"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:visibility="visible" />
 
-    <Button
-        android:id="@+id/btnInactive"
-        android:layout_width="175dp"
-        android:layout_height="35dp"
-        android:layout_below="@+id/btnActive"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:background="@drawable/rounded_rect_neutral_selector"
-        android:gravity="center"
-        android:text="@string/SIGN_UP"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:visibility="visible" />
+        <Button
+            android:id="@+id/btnInactive"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:background="@drawable/rounded_rect_neutral_selector"
+            android:layout_margin="10dp"
+            android:text="@string/SIGN_UP"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:visibility="visible" />
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/rlNoInternetNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rlSignInTitle"
+        android:layout_above="@+id/rlServerField"
         android:visibility="gone" >
 
         <include layout="@layout/no_internet_notification" />
@@ -360,41 +432,10 @@
         android:id="@+id/rlPushNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rlSignInTitle"
+        android:layout_above="@+id/rlServerField"
         android:visibility="gone" >
 
         <include layout="@layout/push_notification" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rlSignInTitle"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_alignParentTop="true"
-        android:background="@android:color/transparent" >
-
-        <com.myrippleapps.borak.view.MyriadProTextView
-            android:id="@+id/tvSignInTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/SIGN_IN"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="85dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/positive_selector"
-            android:gravity="center"
-            android:text="@string/BACK"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:visibility="gone" />
     </RelativeLayout>
 
 </RelativeLayout>
