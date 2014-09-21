@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/header"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/main_background"
+        android:background="@color/loading_background"
         android:fadingEdge="none"
         android:overScrollMode="never" >
 
@@ -170,7 +170,7 @@
                         android:background="@android:color/white"
                         android:minHeight="47dp" >
 
-					<com.myrippleapps.borak.view.MyriadProTextView
+			<com.myrippleapps.borak.view.MyriadProTextView
                             android:id="@+id/tvPassword"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

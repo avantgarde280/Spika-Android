@@ -40,8 +40,8 @@ public class Preferences {
 	private static final String USER_PASSWORD = "password";
 	private static final String USER_EMAIL = "email";
 	private static final String USER_PUSH_TOKEN = "user_push_token";
-    private static final String USER_TOKEN = "user_token";
-    private static final String USER_ID = "user_id";
+        private static final String USER_TOKEN = "user_token";
+        private static final String USER_ID = "user_id";
 	private static final String PASSCODE = "passcode";
 	private static final String PASSCODE_PROTECT = "passcode_protect";
 	private static final String SHOW_TUTORIAL = "show_tutorial";
@@ -170,43 +170,43 @@ public class Preferences {
 		editor.commit();
 	}
 
-    public void setUserId(String id) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(USER_ID, id);
-        editor.commit();
-    }
-    public String getUserId() {
-        return sharedPreferences.getString(USER_ID, "");
-    }
+        public void setUserId(String id) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(USER_ID, id);
+            editor.commit();
+        }
+        public String getUserId() {
+            return sharedPreferences.getString(USER_ID, "");
+        }
 
-    public void savePasswordForGroup (String groupId, String password) {
-    	SharedPreferences.Editor editor = sharedPreferences.edit();
-    	editor.putString(GROUP_PASSWORD + groupId, password);
-    	editor.commit();
-    }
+        public void savePasswordForGroup (String groupId, String password) {
+    	    SharedPreferences.Editor editor = sharedPreferences.edit();
+    	    editor.putString(GROUP_PASSWORD + groupId, password);
+    	    editor.commit();
+        }
     
-    public String getSavedPasswordForGroup (String groupId) {
-    	return sharedPreferences.getString(GROUP_PASSWORD + groupId, "");
-    }
+        public String getSavedPasswordForGroup (String groupId) {
+    	    return sharedPreferences.getString(GROUP_PASSWORD + groupId, "");
+        }
     
-    public void setUserServerURL (String url) {
-    	SharedPreferences.Editor editor = sharedPreferences.edit();
-    	editor.putString(USER_SERVER_URL, url);
-    	editor.commit();
-    }
+        public void setUserServerURL (String url) {
+    	    SharedPreferences.Editor editor = sharedPreferences.edit();
+    	    editor.putString(USER_SERVER_URL, url);
+    	    editor.commit();
+        }
     
-    public String getUserServerURL () {
-    	return sharedPreferences.getString(USER_SERVER_URL, ConstServer.BASE_URL);
-    }
+        public String getUserServerURL () {
+    	    return sharedPreferences.getString(USER_SERVER_URL, ConstServer.BASE_URL);
+        }
     
-    public void setUserServerName (String name) {
-    	SharedPreferences.Editor editor = sharedPreferences.edit();
-    	editor.putString(USER_SERVER_NAME, name);
-    	editor.commit();
-    }
+        public void setUserServerName (String name) {
+    	    SharedPreferences.Editor editor = sharedPreferences.edit();
+    	    editor.putString(USER_SERVER_NAME, name);
+    	    editor.commit();
+        }
     
-    public String getUserServerName () {
-    	return sharedPreferences.getString(USER_SERVER_NAME, Const.DEFAULT_SERVER_NAME);
-    }
+        public String getUserServerName () {
+    	    return sharedPreferences.getString(USER_SERVER_NAME, Const.DEFAULT_SERVER_NAME);
+        }
     
 }

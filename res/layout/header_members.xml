@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="44dp"
     android:layout_alignParentTop="true"
-    android:background="@drawable/header_background" >
+    android:background="@color/sidemenu_header" >
 
     <com.myrippleapps.borak.view.MyriadProTextView
         android:id="@+id/tvTitle"

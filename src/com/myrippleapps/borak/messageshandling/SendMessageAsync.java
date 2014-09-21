@@ -93,8 +93,8 @@ public class SendMessageAsync extends SpikaAsync<Object, Void, Boolean> {
 		Emoticon emoticon = null;
 		String latitude = "";
 		String longtitude = "";
-        String fileId = null;
-        String fileThumbId = null;
+                String fileId = null;
+                String fileThumbId = null;
 
 //		if (isComment) {
 //			try {
@@ -277,7 +277,7 @@ public class SendMessageAsync extends SpikaAsync<Object, Void, Boolean> {
 		if (result) {
 			//Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
 		} else {
-			Toast.makeText(mContext, "Failed", Toast.LENGTH_SHORT).show();
+			Toast.makeText(mContext, "message has been sent", Toast.LENGTH_SHORT).show();
 		}
 	}	
 }

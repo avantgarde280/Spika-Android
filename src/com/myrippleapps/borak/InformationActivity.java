@@ -51,8 +51,8 @@ public class InformationActivity extends SideBarActivity {
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
 			mProgressDialog.show();
 			mWebView.loadUrl(url);
-			return true;
-//			return super.shouldOverrideUrlLoading(view, url);
+			//return true;
+			return super.shouldOverrideUrlLoading(view, url);
 		}
 	}
 	

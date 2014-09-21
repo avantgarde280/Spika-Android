@@ -788,7 +788,7 @@ public class ConnectionHandler {
 	
 	public static String getError (InputStream inputStream) throws IOException, JSONException {
 		
-		String error = "Unknown Spika Error: ";
+		String error = "Unknown Error: ";
 		
 		String jsonString = getString(inputStream);
 		JSONObject jsonObject = jObjectFromString(jsonString);
@@ -805,7 +805,7 @@ public class ConnectionHandler {
 	
 	public static String getError (JSONObject jsonObject) {
 		
-		String error = "Unknown Spika Error: ";
+		String error = "Unknown Error: ";
 		
 		if (jsonObject.has("message"))
 		{

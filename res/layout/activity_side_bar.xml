@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@drawable/menu_header" >
+        android:background="@color/sidemenu_header" >
 
         <com.myrippleapps.borak.view.MyriadProTextView
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
                     android:focusable="true" >
 
 
-				<com.myrippleapps.borak.view.MyriadProTextView
+		    <com.myrippleapps.borak.view.MyriadProTextView
                         android:id="@+id/tvNotificationsTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

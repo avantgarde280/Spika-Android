@@ -111,12 +111,12 @@ public class User {
 	@SerializedName("max_contact_count")
 	@Expose
 	private int mMaxContactCount;
-    @SerializedName("max_favorite_count")
-    @Expose
-    private int mMaxFavoriteCount;
-    @SerializedName("avatar_thumb_file_id")
-    @Expose
-    private String mAvatarThumbFileId;
+        @SerializedName("max_favorite_count")
+        @Expose
+        private int mMaxFavoriteCount;
+        @SerializedName("avatar_thumb_file_id")
+        @Expose
+        private String mAvatarThumbFileId;
 
 	private List<String> mContactIds = new ArrayList<String>();
 	private List<String> mGroupIds = new ArrayList<String>();

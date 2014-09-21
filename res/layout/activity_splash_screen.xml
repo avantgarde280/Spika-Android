@@ -3,8 +3,8 @@
     android:id="@+id/relativeLayout_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000" >
-
+    android:background="#2c3e50" >
+    
     <ImageView
         android:id="@+id/ivSplashScreen"
         android:layout_width="match_parent"
@@ -12,5 +12,24 @@
         android:padding="0px"
         android:scaleType="centerCrop"
         android:src="@drawable/splash" />
+
+        <TextView android:gravity="center"
+	    android:text="MILYTALK™"
+	    android:textSize="60sp"
+	    android:textColor="#c0392b"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:textStyle="bold"
+	    android:textAppearance="?android:attr/textAppearanceLarge"
+	    />
+    
+        <TextView android:gravity="center"
+	    android:text="©2014 Myrippleapps. version test-test aje"
+	    android:textSize="14sp"
+	    android:textColor="#c0392b"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:textAppearance="?android:attr/textAppearanceSmall"
+	    android:layout_alignBottom="@id/ivSplashScreen"/>
 
 </RelativeLayout>
