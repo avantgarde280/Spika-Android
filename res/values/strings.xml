@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MilyTalk</string>
+    <string name="app_name">MILYTALK</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="SIGN_IN">SIGN IN</string>
@@ -58,7 +58,7 @@
     <string name="ADD_CONTACT">ADD TO CONTACTS</string>
     <string name="REMOVE_CONTACT">REMOVE FROM CONTACTS</string>
     <string name="LAST_LOGIN">LAST LOGIN:</string>
-    <string name="ABOUT">ABOUT:</string>
+    <string name="ABOUT">ABOUT ME:</string>
     <string name="BIRTHDAY">BIRTHDAY:</string>
     <string name="GENDER">GENDER:</string>
     <string name="GROUP_OWNER">GROUP OWNER:</string>
@@ -118,7 +118,7 @@
     <string name="can_not_connect_to_server">Can\'t connect to server</string>
     <string name="an_internal_error_has_occurred">An internal error has occurred. (%1$s)</string>
     <string name="token_expired_error">Cant connect to server! Please try later</string>
-    <string name="exit_app_message">Are you sure you want to exit MilyTalk?</string>
+    <string name="exit_app_message">Are you sure you want to exit MILYTALK™?</string>
     <string name="please_enter_server_url">PLEASE ENTER CHANNEL URL</string>
     <string name="please_enter_passcode">PLEASE ENTER CURRENT PASSCODE</string>
     <string name="please_enter_new_passcode">PLEASE ENTER NEW PASSCODE</string>
@@ -191,15 +191,15 @@
     <string name="max_contacts_alert">You have already added maximum number of contacts</string>
     <string name="max_favorites_alert">You have already added maximum number of favorite groups</string>
     <string name ="email_ok">Email OK</string>
-    <string name="name_error">Name should contain more than 1 character in length</string>
+    <string name="name_error">Name should contain more than 1(one) character.</string>
     <string name="name_ok">Name OK</string>
     <string name="no_camera">No camera on device</string>
-    <string name="username_and_email_taken">Both username and email have to be unique</string>
-    <string name="username_taken">Username has to be unique</string>
-    <string name="email_taken">Email has to be unique</string>
+    <string name="username_and_email_taken">You already registered.</string>
+    <string name="username_taken">Username has been taken. Please try another</string>
+    <string name="email_taken">Email account already registered. Please sign in.</string>
     <string name="email_notexists">Email does not exist</string>
-    <string name="groupname_taken">Group name has to be unique</string>
-    <string name="email_sent">Password is sent to your email address</string>
+    <string name="groupname_taken">Group name already taken. Please choose another</string>
+    <string name="email_sent">Password sent to your email address!</string>
     <string name="exceed_video_duration">Video should be less than 30 seconds</string>
     <string name="exceed_voice_duration">Voice should be less than 3 minutes</string>
     <string name="my_groups">My Groups</string>
@@ -217,18 +217,18 @@
     <string name="tutorial_nofavorite">You have no groups subscribed. Subscribe your favorite group and get notifications when someone post to wall.</string>
     
     <string name="OPEN_WEB">Open Browser</string>
-    <string name="USER_SUPPORT">User Support</string>
-    <string name="logout_message">Do you want to logout?</string>
+    <string name="USER_SUPPORT">BETA Feedback</string>
+    <string name="logout_message">Do you want to logout from MILYTALK™?</string>
 
 
-    <string name="tutorial_login">Thank you for downloading MILYTALK™. Macam? Senang je pun rupenye buat whatsapp. Ni namenye proof of concept. Mcm biasa, jgn komplen macam² sebab banyak lg tak siap ni.</string>
+    <string name="tutorial_login">Welcome to MILYTALK™. This is proof of concept using server side communication. Any feedback please use BETA Feedback at main menu.</string>
     <string name="tutorial_recent">Thank you for signing up! This screen shows all of your unread messages. It\'s empty at the moment but soon it will be full of messages and updates from your friends</string>
     <string name="tutorial_wall">This is the place where you can chat to a friend or post anything in a group. You can also send photo, voice and video. Try sending something to us!</string>
     <string name="tutorial_users">Find your friends here! You can search by name, explore by gender or age. Also, you can add friends to contact list so you could find conversations with them more easily.</string>
     <string name="tutorial_groups">Here you can find the groups that you like. Subscribe to your favorite group and you will be notified whenever someone posts on that group\'s wall. You can also create your own group.</string>
     <string name="tutorial_group_add">You can secure your group with a password so only people you\'ve shared it with can access the wall. Also, your group is automatically added to the subscribers list. Be careful not to exceeed the limit!</string>
-    <string name="tutorial_userprofile">You can add your friends to contacts, but be careful, number of contacts is limited to 20 for now as MILYTALK™ is still in development and we will change to unlimited soon after release.</string>
-    <string name="tutorial_groupprofile">You can subscribe to a group and you will get notified when someone posts to the wall in that group, but be careful, number of group subscriptions is limited to 10 for now.</string>
+    <string name="tutorial_userprofile">You can add your friends to contacts, but be careful, number of contacts is limited to 20 for now as MILYTALK™ is still in beta phase and will be unlimited soon after release.</string>
+    <string name="tutorial_groupprofile">You can subscribe to a group and you will get notified when someone posts to the wall in that group, but be careful, number of group subscriptions is limited to 10 for this beta.</string>
 
 
     <string name="no_recent_activities">No recent activities</string>
@@ -247,7 +247,7 @@
     <string name="delete_after_user_sees_it">When user sees it</string>
     <string name="delete_close">OK</string>
     
-    <string name="select_server">SELECET CHANNEL</string>
+    <string name="select_server">SELECT CHANNEL(BETA)</string>
     <string name="add_server">Add Channel</string>
     
 </resources>

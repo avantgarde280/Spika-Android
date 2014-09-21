@@ -51,7 +51,7 @@
     <color name="settings_text">#000000</color>
     
     <color name="sidemenu_background">#c0392b</color>
-    <color name="sidemenu_header">#c0392b</color>
+    <color name="sidemenu_header">#e74c3c</color>
     <color name="sidemenu_divider">#e74c3c</color>
     
     <color name="sidemenu_button_off">#c0392b</color>

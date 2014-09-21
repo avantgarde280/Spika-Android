@@ -42,13 +42,13 @@ public class Const
     public static final String SUPPORT_USER			= "1";
     public static final String API_FOLDER			= "api/";
     public static final String INFORMATION_FOLDER		= "page/information/";
-//	public static final String API_URL                 	= ConstServer.BASE_URL;
+//    public static final String API_URL                 	        = ConstServer.BASE_URL;
     public static final String AUTH_URL                	        = "auth?";
     public static final String SEARCH_USERS_URL        	        = "searchUsers?";
     public static final String SEARCH_GROUPS_URL       	        = "searchGroups/name/";
     public static final String FILE_UPLOADER_URL       	        = "fileuploader";
     public static final String FILE_DOWNLOADER_URL     	        = "filedownloader?";
-//      public static final String CHECKUNIQUE_URL         	= /*ConstServer.BASE_URL + */"checkUnique?";
+//    public static final String CHECKUNIQUE_URL         	        = /*ConstServer.BASE_URL + */"checkUnique?";
     public static final String FIND_USER_BY_NAME       	        = "findUser/name/";
     public static final String FIND_USER_BY_EMAIL      	        = "findUser/email/";
     public static final String FIND_USER_BY_ID	                = "findUser/id/";
@@ -64,7 +64,7 @@ public class Const
     public static final String FIND_GROUP_BY_NAME		= "findGroup/name/";
     public static final String FIND_GROUP_BY_CATEGORY_ID        = "findGroup/categoryId/";
     public static final String FIND_GROUP_CATEGORIES	        = "findAllGroupCategory";
-    public static final String DEFAULT_SERVER_NAME		= "MiliTalk";    
+    public static final String DEFAULT_SERVER_NAME		= "MILYTALK™";    
     public static final String FIND_MEMBERS                     = "groupUsers/";
 
 
@@ -165,7 +165,7 @@ public class Const
     /* Group category constants */
     public static final String GROUP_CATEGORY = "group_category";
     public static final String TITLE = "title";
-    public static final String GROUP_CATEGORY_AVATAR = "avatar.png";
+    public static final String GROUP_CATEGORY_AVATAR = "picture.png";
 
     /* User group constants */
     public static final String USER_GROUP = "user_group";
@@ -261,5 +261,5 @@ public class Const
 
     /* Error constants */
     public static final String ERROR = "Ops something goes wrong";
-    public static final String INVALID_TOKEN = "Can't connect to server, Please try later";
+    public static final String INVALID_TOKEN = "Invalid token";
 }

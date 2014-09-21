@@ -9,7 +9,7 @@
         android:layout_height="182dp"
         android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
-        android:background="@color/loading_background" >
+        android:background="@drawable/tutorial_background" >
 
         <com.myrippleapps.borak.view.MyriadProTextView
             android:id="@+id/tvTutorialText"
@@ -53,3 +53,4 @@
     </RelativeLayout>
 
 </RelativeLayout>
+

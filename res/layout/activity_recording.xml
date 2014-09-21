@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
-        android:background="#66000000"
+        android:background="#e74c3c"
         android:padding="10dp" >
 
         <ImageView

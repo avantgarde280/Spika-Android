@@ -247,8 +247,8 @@ public class RecentActivityActivity extends SideBarActivity {
 		GCMRegistrar.checkManifest(getApplicationContext());
 		
 		String registrationId = GCMRegistrar.getRegistrationId(getApplicationContext());
-
-        GCMRegistrar.register(getApplicationContext(), Const.PUSH_SENDER_ID);
+		
+		GCMRegistrar.register(getApplicationContext(), Const.PUSH_SENDER_ID);
 
 		if (registrationId.equals("") || registrationId.equals(null)) {
 

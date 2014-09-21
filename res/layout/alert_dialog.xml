@@ -6,10 +6,12 @@
 
     <RelativeLayout
         android:id="@+id/rlAlertDialogLayout"
-        android:layout_width="285dp"
-        android:layout_height="222dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/dialog_bg" >
+	android:layout_marginRight="48dp"
+	android:layout_marginLeft="48dp"
+        android:background="@color/loading_background" >
         
         <com.myrippleapps.borak.view.MyriadProTextView
             android:id="@+id/tvMessage"
@@ -28,11 +30,12 @@
 
         <LinearLayout
             android:id="@+id/llControlButtons"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="24dp"
             android:layout_marginLeft="20dp"
+	    android:layout_marginRight="20dp"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="14dp" >
