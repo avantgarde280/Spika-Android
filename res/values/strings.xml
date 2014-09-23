@@ -20,8 +20,8 @@
     <string name="BACK">BACK</string>
     <string name="users">Contacts</string>
     <string name="groups">Groups</string>
-    <string name="profile">Profile</string>
-    <string name="information">Board</string>
+    <string name="profile">My Profile</string>
+    <string name="information">InfoBoard</string>
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
     <string name="search">Search</string>
@@ -96,6 +96,7 @@
     <string name="location">Location</string>
     <string name="record">Record</string>
     <string name="MAIN_TITLE">MILYTALK™</string>
+    <string name="MAIN_MENU">MAIN MENU</string>
     <string name="about">about</string>
     <string name="male">male</string>
     <string name="female">female</string>
@@ -106,7 +107,7 @@
     <string name="hookup_date_format">MMM dd, yyyy</string>
     <string name="hookup_date_time_format">MMM dd, HH:mm</string>
     <string name="loading">LOADING...</string>
-    <string name="RECENT_ACTIVITY">MILYTALK™</string>
+    <string name="RECENT_ACTIVITY">MILYTALK™ MESSENGGER</string>
     <string name="CHAT_ACTIVITY">CHAT ACTIVITY</string>
     <string name="GROUPS_ACTIVITY">GROUPS ACTIVITY</string>
     <string name="USERS_ACTIVITY">USERS ACTIVITY</string>
@@ -123,10 +124,10 @@
     <string name="please_enter_passcode">PLEASE ENTER CURRENT PASSCODE</string>
     <string name="please_enter_new_passcode">PLEASE ENTER NEW PASSCODE</string>
     <string name="please_enter_new_passcode_again">PLEASE ENTER NEW PASSCODE AGAIN</string>
-    <string name="server_url_hint">http:// ...</string>
+    <string name="server_url_hint">This is developer option</string>
     <string name="CLEAR_CACHE">CLEAR CACHE</string>
     <string name="passcode_protect">PASSCODE PROTECT</string>
-    <string name="clear_cache_message">Are you sure you want to clear memory cache?</string>
+    <string name="clear_cache_message">Are you sure you want to clear all cache?</string>
     <string name="FAIL">FAIL</string>
     <string name="SUCCESS">SUCCESS</string>
     <string name="EDIT">EDIT</string>
@@ -135,7 +136,7 @@
     <string-array name="gender">
         <item>Male</item>
         <item>Female</item>
-        <item>No declaration</item>
+        <item>Not Sure</item>
     </string-array>
     <string-array name="online_status">
         <item>Online</item>
@@ -160,7 +161,7 @@
     <string name="SEND_PASSWORD">SEND PASSWORD</string>
     <string name="FORGOT_PASSWORD">SEND PASSWORD</string>
     <string name="send_password">Send password to: </string>
-    <string name="confirm_email">Please check your email and open given link.</string>
+    <string name="confirm_email">For security matter, We\'ve send reset password link to your registered e-mail.</string>
     <string name="USER">USER</string>
     <string name="my_contacts">My Contacts</string>
     <string name="favorite_groups">Favorite groups</string>
@@ -193,13 +194,13 @@
     <string name ="email_ok">Email OK</string>
     <string name="name_error">Name should contain more than 1(one) character.</string>
     <string name="name_ok">Name OK</string>
-    <string name="no_camera">No camera on device</string>
+    <string name="no_camera">Camera not detected!</string>
     <string name="username_and_email_taken">You already registered.</string>
     <string name="username_taken">Username has been taken. Please try another</string>
     <string name="email_taken">Email account already registered. Please sign in.</string>
-    <string name="email_notexists">Email does not exist</string>
+    <string name="email_notexists">Email does not exist, Please register to continue</string>
     <string name="groupname_taken">Group name already taken. Please choose another</string>
-    <string name="email_sent">Password sent to your email address!</string>
+    <string name="email_sent">Password sent to your registered email address!</string>
     <string name="exceed_video_duration">Video should be less than 30 seconds</string>
     <string name="exceed_voice_duration">Voice should be less than 3 minutes</string>
     <string name="my_groups">My Groups</string>
@@ -212,23 +213,24 @@
     <string name="OPEN_CONVERSATION">OPEN CONVERSATION</string>
     <string name="enter_group_password">Enter group password</string>
     <string name="MEMBER">MEMBERS</string>
+    <string name="copyright">©2014 Myrippleapps.me\nhttp://chat.myrippleapps.me/client</string>
     
-    <string name="tutorial_nocontact">You have no contacts yet! Add some friends to your contact so you can each them easy.</string>
-    <string name="tutorial_nofavorite">You have no groups subscribed. Subscribe your favorite group and get notifications when someone post to wall.</string>
+    <string name="tutorial_nocontact">You have no contacts yet! Add some friends to your contact so you can reach them easily.</string>
+    <string name="tutorial_nofavorite">You have no groups subscribed. Subscribe your favorite group and get notified when someone post to wall or bring new updates.</string>
     
-    <string name="OPEN_WEB">Open Browser</string>
+    <string name="OPEN_WEB">MORE</string>
     <string name="USER_SUPPORT">BETA Feedback</string>
     <string name="logout_message">Do you want to logout from MILYTALK™?</string>
 
 
-    <string name="tutorial_login">Welcome to MILYTALK™. This is proof of concept using server side communication. Any feedback please use BETA Feedback at main menu.</string>
-    <string name="tutorial_recent">Thank you for signing up! This screen shows all of your unread messages. It\'s empty at the moment but soon it will be full of messages and updates from your friends</string>
+    <string name="tutorial_login">Welcome to MILYTALK™ Messengger. This is my proof of concept using server side communication between mobile and even with desktop computer. Visit http://chat.myrippleapps.me/client for more. Any feedback or suggestion please use BETA Feedback at main menu.</string>
+    <string name="tutorial_recent">Thank you for signing up! This screen shows all of your unread messages. It\'s empty at the moment but sooner or later it will be full of messages and updates from your friends</string>
     <string name="tutorial_wall">This is the place where you can chat to a friend or post anything in a group. You can also send photo, voice and video. Try sending something to us!</string>
     <string name="tutorial_users">Find your friends here! You can search by name, explore by gender or age. Also, you can add friends to contact list so you could find conversations with them more easily.</string>
     <string name="tutorial_groups">Here you can find the groups that you like. Subscribe to your favorite group and you will be notified whenever someone posts on that group\'s wall. You can also create your own group.</string>
     <string name="tutorial_group_add">You can secure your group with a password so only people you\'ve shared it with can access the wall. Also, your group is automatically added to the subscribers list. Be careful not to exceeed the limit!</string>
-    <string name="tutorial_userprofile">You can add your friends to contacts, but be careful, number of contacts is limited to 20 for now as MILYTALK™ is still in beta phase and will be unlimited soon after release.</string>
-    <string name="tutorial_groupprofile">You can subscribe to a group and you will get notified when someone posts to the wall in that group, but be careful, number of group subscriptions is limited to 10 for this beta.</string>
+    <string name="tutorial_userprofile">You can add your friends to contacts, but for now, number of contacts is limited to 20 for now as MILYTALK™ is still in beta phase and will be unlimited soon after release.</string>
+    <string name="tutorial_groupprofile">You can subscribe to a group and you will get notified when someone posts to the wall in that group, but remember, number of group subscriptions is limited to 10 for this beta.</string>
 
 
     <string name="no_recent_activities">No recent activities</string>

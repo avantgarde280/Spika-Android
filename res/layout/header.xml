@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="44dp"
     android:layout_alignParentTop="true"
-    android:background="@color/sidemenu_header" >
+    android:background="@drawable/header_top_rect" >
 
     <ImageButton
         android:id="@+id/btnOpenSideBar"

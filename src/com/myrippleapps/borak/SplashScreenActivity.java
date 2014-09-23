@@ -43,7 +43,7 @@ import com.myrippleapps.borak.extendables.SideBarActivity;
 import com.myrippleapps.borak.management.UsersManagement;
 import com.myrippleapps.borak.utils.Const;
 import com.myrippleapps.borak.utils.Preferences;
-import com.crittercism.app.Crittercism;
+//import com.crittercism.app.Crittercism;
 
 /**
  * SplashScreenActivity
@@ -66,7 +66,7 @@ public class SplashScreenActivity extends Activity {
 		setContentView(R.layout.activity_splash_screen);
 
 		/* Initiate Crittercism */
-		Crittercism.init(getApplicationContext(), Const.CRITTERCISM_APP_ID);
+//		Crittercism.init(getApplicationContext(), Const.CRITTERCISM_APP_ID);
 
 		new CouchDB();
 		// new UsersManagement();

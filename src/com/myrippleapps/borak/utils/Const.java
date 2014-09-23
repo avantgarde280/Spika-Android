@@ -35,7 +35,7 @@ public class Const
 {
 
     /* Debug/Production variables */
-    public static final boolean IS_DEBUG = true;
+    public static final boolean IS_DEBUG = false;
 
 
 
@@ -232,7 +232,7 @@ public class Const
     public static final String LOGIN_SUCCESS = "login_success";
 
     /* Crittercism constants */
-    public static final String CRITTERCISM_APP_ID = "51938f2e97c8f20789000010";
+//    public static final String CRITTERCISM_APP_ID = "51938f2e97c8f20789000010";
 
     /* Display image size constants */
     public static final int PROFILE_REQUIRED_SIZE = 400;

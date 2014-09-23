@@ -303,7 +303,7 @@ public class UsersActivity extends SubMenuActivity {
 		});
 
 		firstMeasure = true;
-		final View seekBar = (View) findViewById(R.id.seekBar);
+		final View seekBar = findViewById(R.id.seekBar);
 		final RelativeLayout rlSeekBar = (RelativeLayout) findViewById(R.id.rlSeekBar);
 
 		final int MARGIN_SIZE = (int) getResources().getDimension(

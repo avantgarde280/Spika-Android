@@ -50,6 +50,7 @@ import com.myrippleapps.borak.management.UsersManagement;
 import com.myrippleapps.borak.utils.Const;
 import com.myrippleapps.borak.utils.Logger;
 import com.google.android.gcm.GCMBaseIntentService;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 /**
  * GCMIntentService
@@ -63,6 +64,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 	private static int mNotificationCounter = 1;
 	public final static String PUSH = "com.myrippleapps.borak.GCMIntentService.PUSH";
 	private static final Intent mPushBroadcast = new Intent(PUSH);
+	GoogleCloudMessaging gcm;
 
 	public GCMIntentService() {
 		super(Const.PUSH_SENDER_ID);

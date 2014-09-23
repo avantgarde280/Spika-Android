@@ -135,23 +135,23 @@ public class SpikaApp extends Application {
 		mSlideInLeft.setDuration(slidingDuration);
 		// mSlideInLeft.setFillAfter(true); // hmm not sure
 		mSlideInLeft.setFillEnabled(false);
-		mSlideInLeft.setInterpolator(linearInterpolator);
+		mSlideInLeft.setInterpolator(accDecInterpolator);
 
 		mSlideOutRight = new TranslateAnimation(0, mTransport, 0, 0);
 		mSlideOutRight.setDuration(slidingDuration);
 		mSlideOutRight.setFillAfter(true);
 		mSlideOutRight.setFillEnabled(true);
-		mSlideOutRight.setInterpolator(linearInterpolator);
+		mSlideOutRight.setInterpolator(accDecInterpolator);
 
 		mSlideOutLeft = new TranslateAnimation(0, -mTransport, 0, 0);
 		mSlideOutLeft.setDuration(slidingDuration);
-		mSlideOutLeft.setInterpolator(linearInterpolator);
+		mSlideOutLeft.setInterpolator(accDecInterpolator);
 
 		mSlideInRight = new TranslateAnimation(mTransport, 0, 0, 0);
 		mSlideInRight.setDuration(slidingDuration);
 		mSlideInRight.setFillAfter(true);
 		mSlideInRight.setFillEnabled(true);
-		mSlideInRight.setInterpolator(linearInterpolator);
+		mSlideInRight.setInterpolator(accDecInterpolator);
 
 		mSlideFromTop.setFillAfter(true);
 		mSlideFromTop.setFillEnabled(true);

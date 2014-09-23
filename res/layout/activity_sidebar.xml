@@ -404,14 +404,20 @@
         </RelativeLayout>
     </ScrollView>
 
-    <ImageView
+    <TextView
         android:id="@+id/sidemenu_shadow"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/sidemenu_shadow"
+	android:text="@string/copyright"
+	android:textSize="12sp"
+	android:gravity="center"
+	android:textColor="@color/loading_background"
+	android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+	android:layout_marginBottom="2dp"
+	android:paddingTop="2dp"
+        android:background="@null"
         android:contentDescription="@null"
-	android:visibility="gone">
-    </ImageView>
+	android:visibility="visible">
+    </TextView>
 
 </RelativeLayout>
