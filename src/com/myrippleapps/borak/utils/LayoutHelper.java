@@ -133,14 +133,14 @@ public class LayoutHelper {
 	 *            - with this koeficient width of the screen will be divided
 	 * @param imageView
 	 */
-	 public static void scaleWidthAndHeightLinearLayout(Context context, float
-	 koef, ImageView imageView) {
-	 int screenWidth = context.getResources().getDisplayMetrics().widthPixels;
-	 android.widget.LinearLayout.LayoutParams params =
-	 (android.widget.LinearLayout.LayoutParams) imageView.getLayoutParams();
-	 params.width = (int) (screenWidth / koef);
-	 params.height = (int) (screenWidth / koef);
-	 imageView.setLayoutParams(params);
-	 }
+//	 public static void scaleWidthAndHeightLinearLayout(Context context, float
+//	 koef, ImageView imageView) {
+//	 int screenWidth = context.getResources().getDisplayMetrics().widthPixels;
+//	 android.widget.LinearLayout.LayoutParams params =
+//	 (android.widget.LinearLayout.LayoutParams) imageView.getLayoutParams();
+//	 params.width = (int) (screenWidth / koef);
+//	 params.height = (int) (screenWidth / koef);
+//	 imageView.setLayoutParams(params);
+//	 }
 
 }

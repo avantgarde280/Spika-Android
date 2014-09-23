@@ -43,6 +43,7 @@ import com.myrippleapps.borak.extendables.SideBarActivity;
 import com.myrippleapps.borak.management.UsersManagement;
 import com.myrippleapps.borak.utils.Const;
 import com.myrippleapps.borak.utils.Preferences;
+import com.winsontan520.wversionmanager.library.WVersionManager;
 //import com.crittercism.app.Crittercism;
 
 /**
@@ -57,6 +58,10 @@ public class SplashScreenActivity extends Activity {
 	private String mSavedPassword;
 	public static SplashScreenActivity sInstance = null;
 	private User mUser;
+	private static final String mUpdateUrl = "http://chat.myrippleapps.me/assets/version.json";
+	private static final String mApkUrl = "http://chat.myrippleapps.me/assets/milytalk.apk";
+//	public static final int mRemindMe = 1;
+    
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +92,7 @@ public class SplashScreenActivity extends Activity {
 					public void run() {
 						startActivity(new Intent(SplashScreenActivity.this,
 								SignInActivity.class));
+						checkVersion();
 						finish();
 					}
 				}, 2000);
@@ -105,6 +111,14 @@ public class SplashScreenActivity extends Activity {
 				}
 			}, 2000);
 		}
+	}
+	
+	private void checkVersion() {
+                WVersionManager versionManager = new WVersionManager(this);
+		versionManager.setVersionContentUrl(mUpdateUrl);
+		versionManager.setUpdateUrl(mApkUrl);
+//		versionManager.setReminderTimer(mRemindMe);
+		versionManager.checkVersion();
 	}
 	
 	private boolean checkIfUserSignIn() {
@@ -159,6 +173,7 @@ public class SplashScreenActivity extends Activity {
 			
 		intent.putExtra(Const.SIGN_IN, true);
 		SplashScreenActivity.this.startActivity(intent);
+		checkVersion();
 		
 		finish();
 	}

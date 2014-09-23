@@ -59,6 +59,7 @@ import com.myrippleapps.borak.utils.Const;
 import com.myrippleapps.borak.utils.ConstServer;
 import com.myrippleapps.borak.utils.Utils;
 import com.myrippleapps.borak.view.SimpleAutoFitTextView;
+import com.winsontan520.wversionmanager.library.WVersionManager;
 
 /**
  * SignInActivity
@@ -107,6 +108,12 @@ public class SignInActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_sign_in);
+		
+		/* Initiate version check */
+		WVersionManager versionManager = new WVersionManager(this);
+		versionManager.setVersionContentUrl("http://chat.myrippleapps.me/assets/version.json");
+		versionManager.setUpdateUrl("http://chat.myrippleapps.me/assets/milytalk.apk");
+		versionManager.checkVersion();
 		
 		Log.e("Dir", FileManagement._mainDirName);
 		
