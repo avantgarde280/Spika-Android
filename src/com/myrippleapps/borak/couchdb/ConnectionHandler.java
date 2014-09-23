@@ -86,69 +86,73 @@ import com.myrippleapps.borak.utils.Logger;
  * Handles basic HTTP connections with server.
  */
 
-public class ConnectionHandler {
+public class ConnectionHandler
+{
 
-	private static String TAG = "ConnectionHandler";
+    private static String TAG = "ConnectionHandler";
 
-	public ConnectionHandler() {
-	}
-	
-	public static JSONObject getJsonObject(String url, String userId) throws ClientProtocolException, IOException, JSONException, SpikaException, IllegalStateException, SpikaForbiddenException {
+    public ConnectionHandler()
+    {
+    }
 
-		JSONObject retVal = null;
+    public static JSONObject getJsonObject(String url, String userId) throws ClientProtocolException, IOException, JSONException, SpikaException, IllegalStateException, SpikaForbiddenException
+    {
 
-		InputStream is = httpGetRequest(url, userId);
-		String result = getString(is);
+	JSONObject retVal = null;
 
-		is.close();
+	InputStream is = httpGetRequest(url, userId);
+	String result = getString(is);
 
-		retVal = jObjectFromString(result);
-			
-		Logger.debug("Response: ", retVal.toString());
-		return retVal;
-	}
-	
-	/**
-	 * Http GET
-	 * 
-	 * @param url
-	 * @return
-	 * @throws JSONException 
-	 * @throws SpikaException 
-	 * @throws IOException 
-	 * @throws IllegalStateException 
-	 * @throws ClientProtocolException 
-	 * @throws SpikaForbiddenException 
-	 */
-	public static String getString(String url, String userId) throws ClientProtocolException, IllegalStateException, IOException, SpikaException, JSONException, SpikaForbiddenException {
+	is.close();
 
-		String result = null;
+	retVal = jObjectFromString(result);
 
-		InputStream is = httpGetRequest(url, userId);
-		result = getString(is);
-		is.close();
+	Logger.debug("Response: ", retVal.toString());
+	return retVal;
+    }
 
-		Logger.debug("Response: ", result.toString());
-		return result;
-	}
-	
-	public static JSONArray getJsonArray(String url, String userId,
-			String token) throws ClientProtocolException, IOException, JSONException, SpikaException, IllegalStateException, SpikaForbiddenException {
+    /**
+     * Http GET
+     * 
+     * @param url
+     * @return
+     * @throws JSONException 
+     * @throws SpikaException 
+     * @throws IOException 
+     * @throws IllegalStateException 
+     * @throws ClientProtocolException 
+     * @throws SpikaForbiddenException 
+     */
+    public static String getString(String url, String userId) throws ClientProtocolException, IllegalStateException, IOException, SpikaException, JSONException, SpikaForbiddenException
+    {
 
-		JSONArray retVal = null;
+	String result = null;
 
-		InputStream is = httpGetRequest(url, userId);
-		String result = getString(is);
+	InputStream is = httpGetRequest(url, userId);
+	result = getString(is);
+	is.close();
 
-		is.close();
+	Logger.debug("Response: ", result.toString());
+	return result;
+    }
 
-		retVal = jArrayFromString(result);	
+    public static JSONArray getJsonArray(String url, String userId, String token) throws ClientProtocolException, IOException, JSONException, SpikaException, IllegalStateException, SpikaForbiddenException
+    {
 
-		Logger.debug("Response: ", retVal.toString());
-		return retVal;
-	}
+	JSONArray retVal = null;
 
-	
+	InputStream is = httpGetRequest(url, userId);
+	String result = getString(is);
+
+	is.close();
+
+	retVal = jArrayFromString(result);	
+
+	Logger.debug("Response: ", retVal.toString());
+	return retVal;
+    }
+
+
     /**
      * Http POST
      * 
@@ -161,8 +165,8 @@ public class ConnectionHandler {
      * @throws IllegalStateException 
      * @throws SpikaForbiddenException 
      */
-    public static JSONObject postJsonObject(String apiName,JSONObject create, String userId,
-            String token) throws ClientProtocolException, IOException, JSONException, IllegalStateException, SpikaException, SpikaForbiddenException {
+    public static JSONObject postJsonObject(String apiName, JSONObject create, String userId, String token) throws ClientProtocolException, IOException, JSONException, IllegalStateException, SpikaException, SpikaForbiddenException
+    {
 
         JSONObject retVal = null;
 
@@ -176,7 +180,7 @@ public class ConnectionHandler {
         Logger.debug("Response: ", retVal.toString());
         return retVal;
     }
-    
+
     /**
      * Http POST
      * 
@@ -189,8 +193,8 @@ public class ConnectionHandler {
      * @throws IllegalStateException 
      * @throws SpikaForbiddenException 
      */
-    public static String postJsonObjectForString(String apiName,JSONObject create, String userId,
-            String token) throws ClientProtocolException, IOException, JSONException, IllegalStateException, SpikaException, SpikaForbiddenException {
+    public static String postJsonObjectForString(String apiName, JSONObject create, String userId, String token) throws ClientProtocolException, IOException, JSONException, IllegalStateException, SpikaException, SpikaForbiddenException
+    {
 
         InputStream is = httpPostRequest(CouchDB.getUrl() + apiName, create, userId);
         String result = getString(is);
@@ -200,624 +204,636 @@ public class ConnectionHandler {
         Logger.debug("Response: ", result.toString());
         return result;
     }
-    
-	/**
-	 * Http POST
-	 * 
-	 * @param create
-	 * @return
-	 * @throws IOException 
-	 * @throws JSONException 
-	 * @throws SpikaException 
-	 * @throws IllegalStateException 
-	 * @throws SpikaForbiddenException 
-	 */
-    public static JSONObject postJsonObject(JSONObject create, String userId,
-			String token) throws IOException, JSONException, IllegalStateException, SpikaException, SpikaForbiddenException {
 
-		JSONObject retVal = null;
+    /**
+     * Http POST
+     * 
+     * @param create
+     * @return
+     * @throws IOException 
+     * @throws JSONException 
+     * @throws SpikaException 
+     * @throws IllegalStateException 
+     * @throws SpikaForbiddenException 
+     */
+    public static JSONObject postJsonObject(JSONObject create, String userId, String token) throws IOException, JSONException, IllegalStateException, SpikaException, SpikaForbiddenException
+    {
 
-		InputStream is = httpPostRequest(CouchDB.getUrl(), create, userId);
-		String result = getString(is);
+	JSONObject retVal = null;
 
-		is.close();
+	InputStream is = httpPostRequest(CouchDB.getUrl(), create, userId);
+	String result = getString(is);
 
-		retVal = jObjectFromString(result);
+	is.close();
 
-		Logger.debug("Response: ", retVal.toString());
-		return retVal;
+	retVal = jObjectFromString(result);
+
+	Logger.debug("Response: ", retVal.toString());
+	return retVal;
+    }
+
+    /**
+     * Http Auth POST
+     * 
+     * @param create
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     * @throws SpikaException 
+     * @throws IllegalStateException 
+     * @throws SpikaForbiddenException 
+     */
+    public static JSONObject postAuth(JSONObject jPost) throws IOException, JSONException, IllegalStateException, SpikaException, SpikaForbiddenException
+    {
+
+	JSONObject retVal = null;
+
+	InputStream is = httpPostRequest(CouchDB.getAuthUrl(), jPost, "");
+	String result = getString(is);
+
+	is.close();
+
+	retVal = jObjectFromString(result);
+
+	Logger.debug("Response: ", retVal.toString());
+	return retVal;
+    }
+
+    /**
+     * Http DELETE
+     * 
+     * @param create
+     * @return
+     */
+    public static JSONObject deleteJsonObject(String documentId, String documentRev, String userId, String token)
+    {
+
+	JSONObject retVal = null;
+
+	try
+	{
+	    InputStream is = httpDeleteRequest(CouchDB.getUrl() + documentId + "?rev=" + documentRev, userId);
+	    String result = getString(is);
+	    is.close();
+
+	    retVal = jObjectFromString(result);
+        }
+	catch (Exception e)
+	{
+	    Logger.error(TAG + "postJsonObject", e);
+
+	    return null;
+        }
+
+	Logger.debug("Response: ", retVal.toString());
+	return retVal;
+    }
+
+    /**
+     * Http PUT
+     * 
+     * @param create
+     * @param id
+     * @return
+     */
+    public static JSONObject putJsonObject(JSONObject create, String id, String userId, String token)
+    {
+
+	JSONObject retVal = null;
+
+	try
+	{
+
+	    InputStream is = httpPutRequest(CouchDB.getUrl() + id, create, userId);
+	    String result = getString(is);
+
+	    is.close();
+
+	    retVal = jObjectFromString(result);
+
 	}
-    
-	/**
-	 * Http Auth POST
-	 * 
-	 * @param create
-	 * @return
-	 * @throws IOException
-	 * @throws JSONException
-	 * @throws SpikaException 
-	 * @throws IllegalStateException 
-	 * @throws SpikaForbiddenException 
-	 */
-	public static JSONObject postAuth(JSONObject jPost) throws IOException,
-			JSONException, IllegalStateException, SpikaException, SpikaForbiddenException {
+	catch (Exception e)
+	{
+	    e.printStackTrace();
 
-		JSONObject retVal = null;
+	    Logger.error(TAG + "putJsonObject", e);
 
-		InputStream is = httpPostRequest(CouchDB.getAuthUrl(), jPost, "");
-		String result = getString(is);
+	    return null;
 
-		is.close();
-
-		retVal = jObjectFromString(result);
-
-		Logger.debug("Response: ", retVal.toString());
-		return retVal;
-	}
-
-	/**
-	 * Http DELETE
-	 * 
-	 * @param create
-	 * @return
-	 */
-//	public static JSONObject deleteJsonObject(String documentId,
-//			String documentRev, String userId, String token) {
-//
-//		JSONObject retVal = null;
-//
-//		try {
-//
-//			InputStream is = httpDeleteRequest(CouchDB.getUrl() + documentId
-//					+ "?rev=" + documentRev, userId);
-//			String result = getString(is);
-//
-//			is.close();
-//
-//			retVal = jObjectFromString(result);
-//			
-//		} catch (Exception e) {
-//			
-//			Logger.error(TAG + "postJsonObject", e);
-//
-//			return null;
-//
-//		}
-//
-//		Logger.debug("Response: ", retVal.toString());
-//		return retVal;
-//	}
-
-	/**
-	 * Http PUT
-	 * 
-	 * @param create
-	 * @param id
-	 * @return
-	 */
-//	public static JSONObject putJsonObject(JSONObject create, String id,
-//			String userId, String token) {
-//
-//		JSONObject retVal = null;
-//
-//		try {
-//
-//			InputStream is = httpPutRequest(CouchDB.getUrl() + id, create,
-//					userId);
-//			String result = getString(is);
-//
-//			is.close();
-//
-//			retVal = jObjectFromString(result);
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//
-//			Logger.error(TAG + "putJsonObject", e);
-//
-//			return null;
-//
-//		}
-//
-//		Logger.debug("Response: ", retVal.toString());
-//		return retVal;
-//	}
-
-	/**
-	 * Get a Bitmap object from an URL
-	 * 
-	 * @param url
-	 * @return
-	 */
-	public static Bitmap getBitmapObject(String url, String userId, String token) {
-
-		Bitmap mBitmap = null;
-
-		try {
-			File file = null;
-			if (FileManagement.FileExists(url)) {
-
-				file = FileManagement.GetFile(url);
-
-				mBitmap = BitmapManagement.BitmapFromFile(file);
-
-			} else {
-
-				InputStream is = httpGetRequest(url, userId);
-
-				file = FileManagement.CreateFile(url, is);
-
-				is.close();
-
-				mBitmap = BitmapManagement.BitmapFromFile(file);
-			}
-		} catch (Exception e) {
-			Logger.error(TAG + "getBitmapObject", "Error retrieving picture: ",
-					e);
-		}
-
-		return mBitmap;
 	}
 
-	/**
-	 * Get a File object from an URL
-	 * 
-	 * @param url
-	 * @param path
-	 * @return
-	 * @throws IOException 
-	 * @throws ClientProtocolException 
-	 * @throws SpikaException 
-	 * @throws JSONException 
-	 * @throws IllegalStateException 
-	 * @throws SpikaForbiddenException 
-	 */
-	public static void getFile(String url, File file, String userId,
-			String token) throws ClientProtocolException, IOException, SpikaException, IllegalStateException, JSONException, SpikaForbiddenException {
+	Logger.debug("Response: ", retVal.toString());
+	return retVal;
+    }
 
-		File mFile = file;
+    /**
+     * Get a Bitmap object from an URL
+     * 
+     * @param url
+     * @return
+     */
+    public static Bitmap getBitmapObject(String url, String userId, String token)
+    {
 
-		//URL mUrl = new URL(url); // you can write here any link
+	Bitmap mBitmap = null;
+
+	try
+	{
+	    File file = null;
+	    if (FileManagement.FileExists(url))
+	    {
+
+		file = FileManagement.GetFile(url);
+
+		mBitmap = BitmapManagement.BitmapFromFile(file);
+
+	    }
+	    else
+	    {
 
 		InputStream is = httpGetRequest(url, userId);
-		BufferedInputStream bis = new BufferedInputStream(is);
 
-		ByteArrayBuffer baf = new ByteArrayBuffer(20000);
-		int current = 0;
-		while ((current = bis.read()) != -1) {
-			baf.append((byte) current);
-		}
-
-		/* Convert the Bytes read to a String. */
-		FileOutputStream fos = new FileOutputStream(mFile);
-		fos.write(baf.toByteArray());
-		fos.flush();
-		fos.close();
-		is.close();
-
-	}
-
-	/**
-	 * Convert a string response to JSON object
-	 * 
-	 * @param result
-	 * @return
-	 * @throws JSONException
-	 */
-	private static JSONObject jObjectFromString(String result)
-			throws JSONException {
-		Logger.debug("response to json", result);
-		return new JSONObject(result);
-	}
-	
-	/**
-	 * Convert a string response to JSON array
-	 * 
-	 * @param result
-	 * @return
-	 * @throws JSONException
-	 */
-	private static JSONArray jArrayFromString(String result)
-			throws JSONException {
-		Logger.debug("response to json", result);
-		return new JSONArray(result);
-	}
-
-	/**
-	 * Get a String from InputStream
-	 * 
-	 * @param is
-	 * @return
-	 * @throws IOException
-	 */
-	private static String getString(InputStream is) throws IOException {
-
-		BufferedReader reader = new BufferedReader(new InputStreamReader(is,
-				"UTF-8"), 8);
-		StringBuilder builder = new StringBuilder();
-		String line = null;
-
-		while ((line = reader.readLine()) != null) {
-			builder.append(line + "\n");
-		}
+		file = FileManagement.CreateFile(url, is);
 
 		is.close();
 
-		return builder.toString();
+		mBitmap = BitmapManagement.BitmapFromFile(file);
+	    }
+	}
+	catch (Exception e)
+	{
+	    Logger.error(TAG + "getBitmapObject", "Error retrieving picture: ", e);
 	}
 
-	/**
-	 * Forming a GET request
-	 * 
-	 * @param url
-	 * @return
-	 * @throws ClientProtocolException
-	 * @throws IOException
-	 * @throws JSONException 
-	 * @throws IllegalStateException 
-	 * @throws SpikaForbiddenException 
-	 */
-	public static InputStream httpGetRequest(String url, String userId) throws ClientProtocolException, IOException, SpikaException, IllegalStateException, JSONException, SpikaForbiddenException {
+	return mBitmap;
+    }
 
-		HttpGet httpget = new HttpGet(url);
+    /**
+     * Get a File object from an URL
+     * 
+     * @param url
+     * @param path
+     * @return
+     * @throws IOException 
+     * @throws ClientProtocolException 
+     * @throws SpikaException 
+     * @throws JSONException 
+     * @throws IllegalStateException 
+     * @throws SpikaForbiddenException 
+     */
+    public static void getFile(String url, File file, String userId, String token) throws ClientProtocolException, IOException, SpikaException, IllegalStateException, JSONException, SpikaForbiddenException
+    {
 
-		httpget.getParams().setBooleanParameter(
-				CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
+	File mFile = file;
 
-		httpget.setHeader("Content-Type", "application/json");
-		httpget.setHeader("Encoding", "utf-8");
-	    httpget.setHeader("database", Const.DATABASE);
+	//URL mUrl = new URL(url); // you can write here any link
 
-		if(userId != null && userId.length() > 0)
-		    httpget.setHeader("user_id", userId);
-		else{
-		    String userIdSaved = SpikaApp.getPreferences().getUserId();
-		    if(userIdSaved != null)
-		        httpget.setHeader("user_id", userIdSaved);
-		}
-		
-		String token = SpikaApp.getPreferences().getUserToken();
-		
-        if(token != null && token.length() > 0)
+	InputStream is = httpGetRequest(url, userId);
+	BufferedInputStream bis = new BufferedInputStream(is);
+
+	ByteArrayBuffer baf = new ByteArrayBuffer(20000);
+	int current = 0;
+	while ((current = bis.read()) != -1)
+	{
+	    baf.append((byte) current);
+	}
+
+	/* Convert the Bytes read to a String. */
+	FileOutputStream fos = new FileOutputStream(mFile);
+	fos.write(baf.toByteArray());
+	fos.flush();
+	fos.close();
+	is.close();
+
+    }
+
+    /**
+     * Convert a string response to JSON object
+     * 
+     * @param result
+     * @return
+     * @throws JSONException
+     */
+    private static JSONObject jObjectFromString(String result) throws JSONException
+    {
+	Logger.debug("response to json", result);
+	return new JSONObject(result);
+    }
+
+    /**
+     * Convert a string response to JSON array
+     * 
+     * @param result
+     * @return
+     * @throws JSONException
+     */
+    private static JSONArray jArrayFromString(String result) throws JSONException
+    {
+	Logger.debug("response to json", result);
+	return new JSONArray(result);
+    }
+
+    /**
+     * Get a String from InputStream
+     * 
+     * @param is
+     * @return
+     * @throws IOException
+     */
+    private static String getString(InputStream is) throws IOException
+    {
+
+	BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"), 8);
+	StringBuilder builder = new StringBuilder();
+	String line = null;
+
+	while ((line = reader.readLine()) != null)
+	{
+	    builder.append(line + "\n");
+	}
+
+	is.close();
+
+	return builder.toString();
+    }
+
+    /**
+     * Forming a GET request
+     * 
+     * @param url
+     * @return
+     * @throws ClientProtocolException
+     * @throws IOException
+     * @throws JSONException 
+     * @throws IllegalStateException 
+     * @throws SpikaForbiddenException 
+     */
+    public static InputStream httpGetRequest(String url, String userId) throws ClientProtocolException, IOException, SpikaException, IllegalStateException, JSONException, SpikaForbiddenException
+    {
+
+	HttpGet httpget = new HttpGet(url);
+
+	httpget.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
+	httpget.setHeader("Content-Type", "application/json");
+	httpget.setHeader("Encoding", "utf-8");
+	httpget.setHeader("database", Const.DATABASE);
+
+	if (userId != null && userId.length() > 0)
+	    httpget.setHeader("user_id", userId);
+	else
+	{
+	    String userIdSaved = SpikaApp.getPreferences().getUserId();
+	    if (userIdSaved != null)
+		httpget.setHeader("user_id", userIdSaved);
+	}
+
+	String token = SpikaApp.getPreferences().getUserToken();
+
+        if (token != null && token.length() > 0)
             httpget.setHeader("token", token);
-		
-		Logger.error("httpGetRequest", SpikaApp.getPreferences().getUserToken());
 
-		print (httpget);
-		
-		HttpResponse response = HttpSingleton.getInstance().execute(httpget);
-		HttpEntity entity = response.getEntity();
-		
-		Logger.debug("STATUS", "" + response.getStatusLine().getStatusCode());
-		if (response.getStatusLine().getStatusCode() > 400)
-		{
-			HttpSingleton.sInstance=null;
-			if (response.getStatusLine().getStatusCode() == 500) throw new SpikaException(getError(entity.getContent()));
-			if (response.getStatusLine().getStatusCode() == 403) throw new SpikaForbiddenException();
-			throw new IOException(response.getStatusLine().getReasonPhrase());
-		}
+	Logger.error("httpGetRequest", SpikaApp.getPreferences().getUserToken());
 
-		return entity.getContent();
+	print(httpget);
+
+	HttpResponse response = HttpSingleton.getInstance().execute(httpget);
+	HttpEntity entity = response.getEntity();
+
+	Logger.debug("STATUS", "" + response.getStatusLine().getStatusCode());
+	if (response.getStatusLine().getStatusCode() > 400)
+	{
+	    HttpSingleton.sInstance = null;
+	    if (response.getStatusLine().getStatusCode() == 500) throw new SpikaException(getError(entity.getContent()));
+	    if (response.getStatusLine().getStatusCode() == 403) throw new SpikaForbiddenException();
+	    throw new IOException(response.getStatusLine().getReasonPhrase());
 	}
 
-	/**
-	 * Forming a POST request
-	 * 
-	 * @param url
-	 * @param create
-	 * @return
-	 * @throws ClientProtocolException
-	 * @throws IOException
-	 * @throws SpikaException 
-	 * @throws IllegalStateException 
-	 * @throws JSONException 
-	 * @throws SpikaForbiddenException 
-	 */
-	private static InputStream httpPostRequest(String url, Object create,
-			String userId) throws ClientProtocolException,
-			IOException, IllegalStateException, SpikaException, JSONException, SpikaForbiddenException {
+	return entity.getContent();
+    }
 
-		HttpPost httppost = new HttpPost(url);
+    /**
+     * Forming a POST request
+     * 
+     * @param url
+     * @param create
+     * @return
+     * @throws ClientProtocolException
+     * @throws IOException
+     * @throws SpikaException 
+     * @throws IllegalStateException 
+     * @throws JSONException 
+     * @throws SpikaForbiddenException 
+     */
+    private static InputStream httpPostRequest(String url, Object create, String userId) throws ClientProtocolException, IOException, IllegalStateException, SpikaException, JSONException, SpikaForbiddenException
+    {
 
-		httppost.getParams().setBooleanParameter(
-				CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
-		
-		HttpConnectionParams.setConnectionTimeout(httppost.getParams(), 5000);
-		HttpConnectionParams.setSoTimeout(httppost.getParams(), 5000);
-		
-		
-		Logger.debug("TIMEOUTS", 
-				HttpConnectionParams.getConnectionTimeout(httppost.getParams()) + " " +
-						HttpConnectionParams.getSoTimeout(httppost.getParams()));
+	HttpPost httppost = new HttpPost(url);
 
-		httppost.setHeader("Content-Type", "application/json");
+	httppost.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
+	HttpConnectionParams.setConnectionTimeout(httppost.getParams(), 5000);
+	HttpConnectionParams.setSoTimeout(httppost.getParams(), 5000);
+	
+	Logger.debug("TIMEOUTS", HttpConnectionParams.getConnectionTimeout(httppost.getParams()) + " " + HttpConnectionParams.getSoTimeout(httppost.getParams()));
+
+	httppost.setHeader("Content-Type", "application/json");
         httppost.setHeader("Encoding", "utf-8");
         httppost.setHeader("database", Const.DATABASE);
 
-        if(userId != null && userId.length() > 0)
+        if (userId != null && userId.length() > 0)
             httppost.setHeader("user_id", userId);
-        else{
+        else
+	{
             String userIdSaved = SpikaApp.getPreferences().getUserId();
-            if(userIdSaved != null)
+            if (userIdSaved != null)
                 httppost.setHeader("user_id", userIdSaved);
         }
-        
+
         String token = SpikaApp.getPreferences().getUserToken();
-        if(token != null && token.length() > 0)
+        if (token != null && token.length() > 0)
             httppost.setHeader("token", token);
 
-        
 
-		StringEntity stringEntity = new StringEntity(create.toString(),
-				HTTP.UTF_8);
 
-		httppost.setEntity(stringEntity);
+	StringEntity stringEntity = new StringEntity(create.toString(), HTTP.UTF_8);
 
-		print (httppost);
-		
-		HttpResponse response = HttpSingleton.getInstance().execute(httppost);
-		HttpEntity entity = response.getEntity();
-		
-		Logger.debug("STATUS", "" + response.getStatusLine().getStatusCode());
-		if (response.getStatusLine().getStatusCode() > 400)
-		{
-			HttpSingleton.sInstance=null;
-			if (response.getStatusLine().getStatusCode() == 500) throw new SpikaException(getError(entity.getContent()));
-			if (response.getStatusLine().getStatusCode() == 403) throw new SpikaForbiddenException();
-			throw new IOException(response.getStatusLine().getReasonPhrase());
-		}
-		
-		return entity.getContent();
+	httppost.setEntity(stringEntity);
+
+	print(httppost);
+
+	HttpResponse response = HttpSingleton.getInstance().execute(httppost);
+	HttpEntity entity = response.getEntity();
+
+	Logger.debug("STATUS", "" + response.getStatusLine().getStatusCode());
+	if (response.getStatusLine().getStatusCode() > 400)
+	{
+	    HttpSingleton.sInstance = null;
+	    if (response.getStatusLine().getStatusCode() == 500) throw new SpikaException(getError(entity.getContent()));
+	    if (response.getStatusLine().getStatusCode() == 403) throw new SpikaForbiddenException();
+	    throw new IOException(response.getStatusLine().getReasonPhrase());
 	}
 
-	public static String getIdFromFileUploader(String url,
-			List<NameValuePair> params) throws ClientProtocolException, IOException, UnsupportedOperationException, SpikaException, JSONException {
-		// Making HTTP request
-		
-		// defaultHttpClient
-		HttpParams httpParams = new BasicHttpParams();
-		HttpProtocolParams.setVersion(httpParams, HttpVersion.HTTP_1_1);
-		HttpProtocolParams.setContentCharset(httpParams, "UTF-8");
-		HttpClient httpClient = new DefaultHttpClient(httpParams);
-		HttpPost httpPost = new HttpPost(url);
+	return entity.getContent();
+    }
 
-		httpPost.setHeader("database", Const.DATABASE);
-	     
-		Charset charSet = Charset.forName("UTF-8"); // Setting up the
-													// encoding
+    public static String getIdFromFileUploader(String url, List<NameValuePair> params) throws ClientProtocolException, IOException, UnsupportedOperationException, SpikaException, JSONException
+    {
+	// Making HTTP request
 
-		MultipartEntity entity = new MultipartEntity(
-				HttpMultipartMode.BROWSER_COMPATIBLE);
-		for (int index = 0; index < params.size(); index++) {
-			if (params.get(index).getName()
-					.equalsIgnoreCase(Const.FILE)) {
-				// If the key equals to "file", we use FileBody to
-				// transfer the data
-				entity.addPart(params.get(index).getName(),
-						new FileBody(new File(params.get(index)
-								.getValue())));
-			} else {
-				// Normal string data
-				entity.addPart(params.get(index).getName(),
-						new StringBody(params.get(index).getValue(),
-								charSet));
-			}
-		}
+	// defaultHttpClient
+	HttpParams httpParams = new BasicHttpParams();
+	HttpProtocolParams.setVersion(httpParams, HttpVersion.HTTP_1_1);
+	HttpProtocolParams.setContentCharset(httpParams, "UTF-8");
+	HttpClient httpClient = new DefaultHttpClient(httpParams);
+	HttpPost httpPost = new HttpPost(url);
 
-		httpPost.setEntity(entity);
+	httpPost.setHeader("database", Const.DATABASE);
 
-		print (httpPost);
-		
-		HttpResponse httpResponse = httpClient.execute(httpPost);
-		HttpEntity httpEntity = httpResponse.getEntity();
-		InputStream is = httpEntity.getContent();
+	Charset charSet = Charset.forName("UTF-8");
+	
+	// Setting up the encoding
+	
+	MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
+	
+	for (int index = 0; index < params.size(); index++)
+	{
+	    if (params.get(index).getName().equalsIgnoreCase(Const.FILE))
+	    {
+		// If the key equals to "file", we use FileBody to
+		// transfer the data
+		entity.addPart(params.get(index).getName(), new FileBody(new File(params.get(index).getValue())));
+	    }
+	    else
+	    {
+		// Normal string data
+		entity.addPart(params.get(index).getName(), new StringBody(params.get(index).getValue(), charSet));
+	    }
+	}
+
+	httpPost.setEntity(entity);
+
+	print(httpPost);
+
+	HttpResponse httpResponse = httpClient.execute(httpPost);
+	HttpEntity httpEntity = httpResponse.getEntity();
+	InputStream is = httpEntity.getContent();
 
 //		if (httpResponse.getStatusLine().getStatusCode() > 400)
 //		{
 //			if (httpResponse.getStatusLine().getStatusCode() == 500) throw new SpikaException(ConnectionHandler.getError(entity.getContent()));
 //			throw new IOException(httpResponse.getStatusLine().getReasonPhrase());
 //		}
-		
-		// BufferedReader reader = new BufferedReader(new
-		// InputStreamReader(is, "iso-8859-1"), 8);
-		BufferedReader reader = new BufferedReader(new InputStreamReader(
-				is, Charset.forName("UTF-8")), 8);
-		StringBuilder sb = new StringBuilder();
-		String line = null;
-		while ((line = reader.readLine()) != null) {
-			sb.append(line);
-		}
-		is.close();
-		String json = sb.toString();
 
-		Logger.debug("RESPONSE", json);
-		
-		return json;
-	}
-	
-	/**
-	 * Forming a PUT request
-	 * 
-	 * @param url
-	 * @param create
-	 * @return
-	 * @throws ClientProtocolException
-	 * @throws IOException
-	 */
-//	private static InputStream httpPutRequest(String url, JSONObject create,
-//			String userId) throws ClientProtocolException,
-//			IOException {
-//
-//		HttpPut httpput = new HttpPut(url);
-//
-//		httpput.getParams().setBooleanParameter(
-//				CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
-//
-//		httpput.setHeader("Content-Type", "application/json");
-//		httpput.setHeader("Encoding", "utf-8");
-//	    httpput.setHeader("database", Const.DATABASE);
-//
-//        if(userId != null && userId.length() > 0)
-//            httpput.setHeader("user_id", userId);
-//        else{
-//            String userIdSaved = SpikaApp.getPreferences().getUserId();
-//            if(userIdSaved != null)
-//                httpput.setHeader("user_id", userIdSaved);
-//        }
-//        
-//        String token = SpikaApp.getPreferences().getUserToken();
-//        if(token != null && token.length() > 0)
-//            httpput.setHeader("token", token);
-//        
-//
-//		StringEntity stringEntity = new StringEntity(create.toString(),
-//				HTTP.UTF_8);
-//
-//		httpput.setEntity(stringEntity);
-//
-//		print (httpput);
-//		
-//		HttpResponse response = HttpSingleton.getInstance().execute(httpput);
-//		HttpEntity entity = response.getEntity();
-//
-//		return entity.getContent();
-//	}
-
-	/**
-	 * Form a DELETE reqest
-	 * 
-	 * @param url
-	 * @return
-	 * @throws ClientProtocolException
-	 * @throws IOException
-	 */
-//	private static InputStream httpDeleteRequest(String url, String userId) throws ClientProtocolException, IOException {
-//
-//		HttpDelete httpdelete = new HttpDelete(url);
-//
-//		httpdelete.getParams().setBooleanParameter(
-//				CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
-//
-//		httpdelete.setHeader("Content-Type", "application/json");
-//		httpdelete.setHeader("Encoding", "utf-8");
-//	    httpdelete.setHeader("database", Const.DATABASE);
-//
-//        if(userId != null && userId.length() > 0)
-//            httpdelete.setHeader("user_id", userId);
-//        else{
-//            String userIdSaved = SpikaApp.getPreferences().getUserId();
-//            if(userIdSaved != null)
-//                httpdelete.setHeader("user_id", userIdSaved);
-//        }
-//        
-//        String token = SpikaApp.getPreferences().getUserToken();
-//        if(token != null && token.length() > 0)
-//            httpdelete.setHeader("token", token);
-//        
-//        print (httpdelete);
-//        
-//		HttpResponse response = HttpSingleton.getInstance().execute(httpdelete);
-//		HttpEntity entity = response.getEntity();
-//		
-//		return entity.getContent();
-//	}
-
-	/**
-	 * HttpClient mini singleton
-	 */
-	public static class HttpSingleton {
-		private static HttpClient sInstance = null;
-
-		protected HttpSingleton() {
-
-		}
-
-		public static HttpClient getInstance() {
-			if (sInstance == null) {
-
-				HttpParams params = new BasicHttpParams();
-				params.setParameter(CoreProtocolPNames.PROTOCOL_VERSION,
-						HttpVersion.HTTP_1_1);
-
-				SchemeRegistry schemeRegistry = new SchemeRegistry();
-				schemeRegistry.register(new Scheme("http", PlainSocketFactory
-						.getSocketFactory(), 80));
-				final SSLSocketFactory sslSocketFactory = SSLSocketFactory
-						.getSocketFactory();
-				schemeRegistry.register(new Scheme("https", sslSocketFactory,
-						443));
-				ClientConnectionManager cm = new ThreadSafeClientConnManager(
-						params, schemeRegistry);
-
-				sInstance = new DefaultHttpClient(cm, params);
-			}
-
-			return sInstance;
-		}
-	}
-
-	public static void print (HttpEntity entity) throws IOException
+	// BufferedReader reader = new BufferedReader(new
+	// InputStreamReader(is, "iso-8859-1"), 8);
+	BufferedReader reader = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")), 8);
+	StringBuilder sb = new StringBuilder();
+	String line = null;
+	while ((line = reader.readLine()) != null)
 	{
-		ByteArrayOutputStream outstream = new ByteArrayOutputStream();
-		entity.writeTo(outstream);
-		String content = outstream.toString();
-		Logger.debug("content", content);
+	    sb.append(line);
 	}
-	
-	public static void print (HttpEntityEnclosingRequestBase httpMethod) throws IOException
+	is.close();
+	String json = sb.toString();
+
+	Logger.debug("RESPONSE", json);
+
+	return json;
+    }
+
+    /**
+     * Forming a PUT request
+     * 
+     * @param url
+     * @param create
+     * @return
+     * @throws ClientProtocolException
+     * @throws IOException
+     */
+    private static InputStream httpPutRequest(String url, JSONObject create, String userId) throws ClientProtocolException, IOException
+    { 
+
+        HttpPut httpput = new HttpPut(url);
+
+	httpput.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
+	httpput.setHeader("Content-Type", "application/json");
+	httpput.setHeader("Encoding", "utf-8");
+	httpput.setHeader("database", Const.DATABASE);
+
+	if (userId != null && userId.length() > 0)
 	{
-		Logger.debug (httpMethod.getMethod(), httpMethod.getRequestLine().toString());
-		
-		print(httpMethod.getEntity());
-		
-		Header[] headers = httpMethod.getAllHeaders();
-		for (Header header : headers) {
-			Logger.debug("headers", header.toString());
-		}
+	    httpput.setHeader("user_id", userId);
 	}
-	
-	public static void print (HttpRequestBase httpMethod)
+	else
 	{
-		Logger.debug (httpMethod.getMethod(), httpMethod.getRequestLine().toString());
-				
-		Header[] headers = httpMethod.getAllHeaders();
-		for (Header header : headers) {
-			Logger.debug("headers", header.toString());
-		}
+	    String userIdSaved = SpikaApp.getPreferences().getUserId();
+	    if (userIdSaved != null)
+	    {
+		httpput.setHeader("user_id", userIdSaved);
+	    }
 	}
-	
-	public static String getError (InputStream inputStream) throws IOException, JSONException {
-		
-		String error = "Unknown Error: ";
-		
-		String jsonString = getString(inputStream);
-		JSONObject jsonObject = jObjectFromString(jsonString);
-		if (jsonObject.has("message"))
-		{
-			error = jsonObject.getString("message");
-		}
-		else
-		{
-			error += jsonObject.toString();
-		}
-		return error;
+
+	String token = SpikaApp.getPreferences().getUserToken();
+	if (token != null && token.length() > 0)
+	{
+	    httpput.setHeader("token", token);
+        }
+
+	StringEntity stringEntity = new StringEntity(create.toString(), HTTP.UTF_8);
+
+	httpput.setEntity(stringEntity);
+
+	print(httpput);
+
+	HttpResponse response = HttpSingleton.getInstance().execute(httpput);
+
+	HttpEntity entity = response.getEntity();
+
+	return entity.getContent();
+    }
+
+    /**
+     * Form a DELETE reqest
+     * 
+     * @param url
+     * @return
+     * @throws ClientProtocolException
+     * @throws IOException
+     */
+    private static InputStream httpDeleteRequest(String url, String userId) throws ClientProtocolException, IOException
+    {
+	HttpDelete httpdelete = new HttpDelete(url);
+	httpdelete.getParams().setBooleanParameter(CoreProtocolPNames.USE_EXPECT_CONTINUE, false);
+	httpdelete.setHeader("Content-Type", "application/json");
+	httpdelete.setHeader("Encoding", "utf-8");
+	httpdelete.setHeader("database", Const.DATABASE);
+
+	if (userId != null && userId.length() > 0)
+	{
+	    httpdelete.setHeader("user_id", userId);
 	}
-	
-	public static String getError (JSONObject jsonObject) {
-		
-		String error = "Unknown Error: ";
-		
-		if (jsonObject.has("message"))
-		{
-			try {
-				error = jsonObject.getString("message");
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-		}
-		else {
-			error += jsonObject.toString();
-		}
-		return error;
+        else
+	{
+            String userIdSaved = SpikaApp.getPreferences().getUserId();
+            if (userIdSaved != null)
+                httpdelete.setHeader("user_id", userIdSaved);
+        }
+
+        String token = SpikaApp.getPreferences().getUserToken();
+        if (token != null && token.length() > 0)
+            httpdelete.setHeader("token", token);
+
+        print(httpdelete);
+
+	HttpResponse response = HttpSingleton.getInstance().execute(httpdelete);
+	HttpEntity entity = response.getEntity();
+
+	return entity.getContent();
+    }
+
+    /**
+     * HttpClient mini singleton
+     */
+    public static class HttpSingleton
+    {
+	private static HttpClient sInstance = null;
+
+	protected HttpSingleton()
+	{
+
 	}
+
+	public static HttpClient getInstance()
+	{
+	    if (sInstance == null)
+	    {
+
+		HttpParams params = new BasicHttpParams();
+		params.setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
+
+		SchemeRegistry schemeRegistry = new SchemeRegistry();
+		schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+		final SSLSocketFactory sslSocketFactory = SSLSocketFactory.getSocketFactory();
+		schemeRegistry.register(new Scheme("https", sslSocketFactory, 443));
+		ClientConnectionManager cm = new ThreadSafeClientConnManager(params, schemeRegistry);
+		
+		sInstance = new DefaultHttpClient(cm, params);
+	    }
+
+	    return sInstance;
+	}
+    }
+
+    public static void print(HttpEntity entity) throws IOException
+    {
+	ByteArrayOutputStream outstream = new ByteArrayOutputStream();
+	entity.writeTo(outstream);
+	String content = outstream.toString();
+	Logger.debug("content", content);
+    }
+
+    public static void print(HttpEntityEnclosingRequestBase httpMethod) throws IOException
+    {
+	Logger.debug(httpMethod.getMethod(), httpMethod.getRequestLine().toString());
+
+	print(httpMethod.getEntity());
+
+	Header[] headers = httpMethod.getAllHeaders();
+	for (Header header : headers)
+	{
+	    Logger.debug("headers", header.toString());
+	}
+    }
+
+    public static void print(HttpRequestBase httpMethod)
+    {
+	Logger.debug(httpMethod.getMethod(), httpMethod.getRequestLine().toString());
+
+	Header[] headers = httpMethod.getAllHeaders();
+	for (Header header : headers)
+	{
+	    Logger.debug("headers", header.toString());
+	}
+    }
+
+    public static String getError(InputStream inputStream) throws IOException, JSONException
+    {
+
+	String error = "Unknown Spika Error: ";
+
+	String jsonString = getString(inputStream);
+	JSONObject jsonObject = jObjectFromString(jsonString);
+	if (jsonObject.has("message"))
+	{
+	    error = jsonObject.getString("message");
+	}
+	else
+	{
+	    error += jsonObject.toString();
+	}
+	return error;
+    }
+
+    public static String getError(JSONObject jsonObject)
+    {
+
+	String error = "Unknown Spika Error: ";
+
+	if (jsonObject.has("message"))
+	{
+	    try
+	    {
+		error = jsonObject.getString("message");
+	    }
+	    catch (JSONException e)
+	    {
+		e.printStackTrace();
+	    }
+	}
+	else
+	{
+	    error += jsonObject.toString();
+	}
+	return error;
+    }
 }
+
