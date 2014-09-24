@@ -136,15 +136,11 @@ public class SendMessageAsync extends SpikaAsync<Object, Void, Boolean> {
 					Log.v(TAG, body);
 
 					if (UsersManagement.getToUser() != null) {
-						message = MessageManagement.createMessage(Const.TEXT,
-								Const.USER, body, latitude, longtitude, "", "",
-								"", "","","");
+						message = MessageManagement.createMessage(Const.TEXT, Const.USER, body, latitude, longtitude, "", "", "", "","","");
 						isSuccess = CouchDB.sendMessageToUser(message);
 					}
 					if (UsersManagement.getToGroup() != null) {
-						message = MessageManagement.createMessage(Const.TEXT,
-								Const.GROUP, body, latitude, longtitude, "",
-								"", "", "","","");
+						message = MessageManagement.createMessage(Const.TEXT, Const.GROUP, body, latitude, longtitude, "", "", "", "","","");
 						isSuccess = CouchDB.sendMessageToGroup(message);
 					}
 
