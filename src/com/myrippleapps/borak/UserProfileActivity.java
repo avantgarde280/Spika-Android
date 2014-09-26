@@ -79,7 +79,7 @@ public class UserProfileActivity extends SpikaActivity {
 	private Spinner mSpinnerStatus;
 	private String mUserOnlineStatus;
 	private Button mBtnOpenWall;
-	private boolean mIsUpdated = false;
+	// private boolean mIsUpdated = false;
 
 	private static final int ADD = 1000;
 	private static final int REMOVE = 1001;

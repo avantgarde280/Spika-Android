@@ -81,7 +81,8 @@ public class Tutorial extends Activity {
 		LayoutParams params = getWindow().getAttributes();
 		params.height = LayoutParams.MATCH_PARENT;
 		params.width = LayoutParams.MATCH_PARENT;
-		getWindow().setAttributes(params);
+		getWindow().setAttributes(
+				(android.view.WindowManager.LayoutParams) params);
 
 		setDuration(LONG_ANIM_DURATION);
 		mTutorialLayout = (RelativeLayout) findViewById(R.id.rlTutorial);

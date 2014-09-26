@@ -85,7 +85,7 @@ public class AndroidVideoCapture extends Activity implements
 		CamcorderProfile camcorderProfile_LOW = CamcorderProfile
 				.get(CamcorderProfile.QUALITY_LOW);
 		mediaRecorder.setProfile(camcorderProfile_LOW);
-		mediaRecorder.setOutputFile("/sdcard/hookupvideo.mp4");
+		mediaRecorder.setOutputFile("/sdcard/milytalkvideo.mp4");
 		mediaRecorder.setMaxDuration(30000); // Set max duration 60 sec.
 		mediaRecorder.setMaxFileSize(5000000); // Set max file size 5M
 	}

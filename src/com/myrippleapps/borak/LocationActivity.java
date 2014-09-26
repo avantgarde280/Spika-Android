@@ -111,7 +111,7 @@ public class LocationActivity extends SpikaFragmentActivity
 		mLatitude = mExtras.getDouble(Const.LATITUDE);
 		mLongitude = mExtras.getDouble(Const.LONGITUDE);
 
-		Log.e("Location", mTypeOfLocation + " " + mLatitude + " " + mLongitude);
+		Log.e("Loaction", mTypeOfLocation + " " + mLatitude + " " + mLongitude);
 
 		initialization();
 
@@ -157,7 +157,8 @@ public class LocationActivity extends SpikaFragmentActivity
 		{
 			mBtnSend.setVisibility(View.INVISIBLE);
 		}
-		mMapPinBlue = BitmapFactory.decodeResource(getResources(), R.drawable.location_more_icon_active);
+		mMapPinBlue = BitmapFactory.decodeResource(getResources(),
+												   R.drawable.location_more_icon_active);
 
 		TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
 		tvTitle.setText(getString(R.string.LOCATION));
@@ -173,9 +174,12 @@ public class LocationActivity extends SpikaFragmentActivity
 			mLatitude = mGpsTracker.getLatitude();
 			mLongitude = mGpsTracker.getLongitude();
 
-			mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(mLatitude, mLongitude), 16));
+			mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+																  mLatitude, mLongitude), 16));
 
-			final Marker myMarker=mMap.addMarker(new MarkerOptions().position(new LatLng(mLatitude, mLongitude)).icon(BitmapDescriptorFactory.fromBitmap(mMapPinBlue)));
+			final Marker myMarker=mMap.addMarker(new MarkerOptions().position(
+													 new LatLng(mLatitude, mLongitude)).icon(
+													 BitmapDescriptorFactory.fromBitmap(mMapPinBlue)));
 
 //			mMap.addMarker(
 //					new MarkerOptions().position(
@@ -191,7 +195,8 @@ public class LocationActivity extends SpikaFragmentActivity
 						mLatitude = point.latitude;
 						mLongitude = point.longitude;
 						mMap.clear();
-						mMap.addMarker(new MarkerOptions().position(point).icon(BitmapDescriptorFactory.fromBitmap(mMapPinBlue)));
+						mMap.addMarker(new MarkerOptions().position(point).icon(
+										   BitmapDescriptorFactory.fromBitmap(mMapPinBlue)));
 					}
 			});
 
@@ -216,9 +221,10 @@ public class LocationActivity extends SpikaFragmentActivity
 	private void setLocation(double lat, double lon)
 	{
 
-		Log.e("set location", "" + lat + "" + lon);
+		Log.e("set location", "" + lat + " " + lon);
 
-		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lon), 16));
+		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lon),
+														  16));
 
 		markerOfUser = new MarkerOptions().position(new LatLng(lat, lon)).icon(
 			BitmapDescriptorFactory.fromBitmap(mMapPinBlue));
@@ -236,7 +242,10 @@ public class LocationActivity extends SpikaFragmentActivity
 			double myLat = mGpsTracker.getLatitude();
 			double myLon = mGpsTracker.getLongitude();
 
-			mMap.addMarker(new MarkerOptions().position(new LatLng(myLat, myLon)).icon(BitmapDescriptorFactory.fromResource(R.drawable.location_more_icon)));
+			mMap.addMarker(new MarkerOptions().position(
+							   new LatLng(myLat, myLon)).icon(
+							   BitmapDescriptorFactory
+							   .fromResource(R.drawable.location_more_icon)));
 
 		}
 	}
@@ -252,8 +261,8 @@ public class LocationActivity extends SpikaFragmentActivity
 					// (just latitude and longitude)
 					new GetCityAsync(LocationActivity.this).execute();
 				}
-		});
-                mBtnBack.setOnClickListener(new OnClickListener() {
+			});
+		mBtnBack.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v)
@@ -261,7 +270,7 @@ public class LocationActivity extends SpikaFragmentActivity
 					setResult(RESULT_CANCELED);
 					finish();
 				}
-		});
+			});
 	}
 
 	private void setAvatarAndName(boolean isMe)
@@ -276,8 +285,11 @@ public class LocationActivity extends SpikaFragmentActivity
 		if (isMe)
 		{
 			avatarId = UsersManagement.getLoginUser().getAvatarFileId();
-			tvNameOfUser.setText(UsersManagement.getLoginUser().getName().toUpperCase() + "'S LOCATION");
-			Utils.displayImage(avatarId,ivAvatar, ImageLoader.SMALL, R.drawable.user_stub, false);
+			tvNameOfUser.setText(UsersManagement.getLoginUser().getName()
+								 .toUpperCase()
+								 + "'S LOCATION");
+			Utils.displayImage(avatarId,
+							   ivAvatar, ImageLoader.SMALL, R.drawable.user_stub, false);
 
 		}
 		else
@@ -398,7 +410,8 @@ public class LocationActivity extends SpikaFragmentActivity
 		@Override
 		protected Void backgroundWork(Void... params)
 		{
-			Geocoder geocoder = new Geocoder(LocationActivity.this, Locale.getDefault());
+			Geocoder geocoder = new Geocoder(LocationActivity.this,
+											 Locale.getDefault());
 			List<Address> addresses = null;
 			try
 			{
@@ -463,12 +476,15 @@ public class LocationActivity extends SpikaFragmentActivity
 
 			if (mLoaded == true)
 			{
-				new SendMessageAsync(getApplicationContext(), SendMessageAsync.TYPE_LOCATION).execute(mAddressText, false, false, Double.toString(mLatitude), Double.toString(mLongitude));
+				new SendMessageAsync(getApplicationContext(),
+									 SendMessageAsync.TYPE_LOCATION).execute(mAddressText, false, false, Double.toString(mLatitude),
+																			 Double.toString(mLongitude));
 				finish();
 			}
 			else
 			{
-				Toast.makeText(LocationActivity.this, "Getting location failed", Toast.LENGTH_SHORT).show();
+				Toast.makeText(LocationActivity.this,
+							   "Getting location failed", Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

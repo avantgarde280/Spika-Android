@@ -93,8 +93,8 @@ public class SendMessageAsync extends SpikaAsync<Object, Void, Boolean> {
 		Emoticon emoticon = null;
 		String latitude = "";
 		String longtitude = "";
-                String fileId = null;
-                String fileThumbId = null;
+        String fileId = null;
+        String fileThumbId = null;
 
 //		if (isComment) {
 //			try {
@@ -136,11 +136,15 @@ public class SendMessageAsync extends SpikaAsync<Object, Void, Boolean> {
 					Log.v(TAG, body);
 
 					if (UsersManagement.getToUser() != null) {
-						message = MessageManagement.createMessage(Const.TEXT, Const.USER, body, latitude, longtitude, "", "", "", "","","");
+						message = MessageManagement.createMessage(Const.TEXT,
+								Const.USER, body, latitude, longtitude, "", "",
+								"", "","","");
 						isSuccess = CouchDB.sendMessageToUser(message);
 					}
 					if (UsersManagement.getToGroup() != null) {
-						message = MessageManagement.createMessage(Const.TEXT, Const.GROUP, body, latitude, longtitude, "", "", "", "","","");
+						message = MessageManagement.createMessage(Const.TEXT,
+								Const.GROUP, body, latitude, longtitude, "",
+								"", "", "","","");
 						isSuccess = CouchDB.sendMessageToGroup(message);
 					}
 
@@ -270,10 +274,10 @@ public class SendMessageAsync extends SpikaAsync<Object, Void, Boolean> {
 	protected void onPostExecute(Boolean result) {
 		super.onPostExecute(result);
 		MessagesUpdater.update(true);
-		if (result) {
-			Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
-		} else {
-			Toast.makeText(mContext, "message has been sent", Toast.LENGTH_SHORT).show();
-		}
+//		if (result) {
+//			//Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
+//		} else {
+//			Toast.makeText(mContext, "", Toast.LENGTH_SHORT).show();
+//		}
 	}	
 }

@@ -58,8 +58,8 @@ public class SplashScreenActivity extends Activity {
 	private String mSavedPassword;
 	public static SplashScreenActivity sInstance = null;
 	private User mUser;
-	private static final String mUpdateUrl = "http://chat.myrippleapps.me/assets/version.json";
-	private static final String mApkUrl = "http://chat.myrippleapps.me/assets/milytalk.apk";
+	public static String mUpdateUrl = "http://chat.myrippleapps.me/assets/version.json";
+	public static String mApkUrl = "http://chat.myrippleapps.me/assets/milytalk.apk";
 //	public static final int mRemindMe = 1;
     
 	
@@ -113,7 +113,7 @@ public class SplashScreenActivity extends Activity {
 		}
 	}
 	
-	private void checkVersion() {
+	public void checkVersion() {
                 WVersionManager versionManager = new WVersionManager(this);
 		versionManager.setVersionContentUrl(mUpdateUrl);
 		versionManager.setUpdateUrl(mApkUrl);
@@ -174,7 +174,6 @@ public class SplashScreenActivity extends Activity {
 		intent.putExtra(Const.SIGN_IN, true);
 		SplashScreenActivity.this.startActivity(intent);
 		checkVersion();
-		
 		finish();
 	}
 	
@@ -186,6 +185,7 @@ public class SplashScreenActivity extends Activity {
 					PasscodeActivity.class);
 			passcode.putExtra("protect", true);
 			SplashScreenActivity.this.startActivityForResult(passcode, 0);
+			checkVersion();
 		} 
 		else
 		{

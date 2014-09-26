@@ -74,7 +74,6 @@ import com.myrippleapps.borak.messageshandling.UpdateMessagesInListView;
 import com.myrippleapps.borak.messageshandling.WallScrollListener;
 import com.myrippleapps.borak.utils.Const;
 import com.myrippleapps.borak.view.EmoticonsLayout;
-//import com.winsontan520.wversionmanager.library.WVersionManager;
 
 /**
  * WallActivity
@@ -133,10 +132,6 @@ public class WallActivity extends SideBarActivity {
 	private ReloadTimerTask timerTask;
 	private Timer timer;
 	
-//	private static final String mUpdateUrl = "http://chat.myrippleapps.me/assets/version.json";
-//	private static final String mApkUrl = "http://chat.myrippleapps.me/assets/milytalk.apk";
-//	private static final int mRemindMe = 5;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -145,7 +140,6 @@ public class WallActivity extends SideBarActivity {
 		setContentView(R.layout.activity_wall);
 		setSideBar(getString(R.string.WALL));
 		initialization();
-//		checkVersion();
 		onClickListeners();
 
 	}
@@ -401,17 +395,6 @@ public class WallActivity extends SideBarActivity {
 		mButtonsLayout = null;
 		super.setObjectsNull();
 	}
-	
-//        private void checkVersion() {
-//	        WVersionManager versionManager = new WVersionManager(this);
-//
-//	        versionManager.setVersionContentUrl(mUpdateUrl);
-//	        versionManager.setUpdateUrl(mApkUrl);
-//	        
-//	        versionManager.setReminderTimer(mRemindMe);
-//
-//	        versionManager.checkVersion();
-//        }
 
 	private void onClickListeners() {
 

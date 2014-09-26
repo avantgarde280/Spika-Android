@@ -44,7 +44,6 @@ import com.myrippleapps.borak.couchdb.CouchDB;
 import com.myrippleapps.borak.couchdb.ResultListener;
 import com.myrippleapps.borak.couchdb.model.User;
 import com.myrippleapps.borak.dialog.HookUpDialog;
-import com.myrippleapps.borak.dialog.HookUpPasswordDialog;
 import com.myrippleapps.borak.extendables.SideBarActivity;
 import com.myrippleapps.borak.management.UsersManagement;
 
@@ -67,7 +66,7 @@ public class SettingsActivity extends SideBarActivity {
 	private Button mBtnChangePassword;
 	private ToggleButton mBtnShowPassword;
 	private EditText mEtPassword;
-	private HookUpPasswordDialog mPasswordDialog;
+//	private HookUpPasswordDialog mPasswordDialog;
 	private HookUpDialog mSendPasswordDialog;
 	private String mPassword;
 
@@ -112,7 +111,7 @@ public class SettingsActivity extends SideBarActivity {
 					}
 				});
 		
-		mPasswordDialog = new HookUpPasswordDialog(this, false);
+//		mPasswordDialog = new HookUpPasswordDialog(this, false);
 
 		mBtnChangePassword = (Button) findViewById(R.id.btnChangePassword);
 		mBtnChangePassword.setTypeface(SpikaApp.getTfMyriadProBold(),
@@ -242,13 +241,13 @@ public class SettingsActivity extends SideBarActivity {
 			if (requestCode == PASSCODE_PROTECT_ON) {
 				mBtnPasscodeProtect.setChecked(true);
 				SpikaApp.getPreferences().setPasscodeProtect(true);
-				Toast.makeText(this, "Enabled passcode protection", Toast.LENGTH_SHORT)
+				Toast.makeText(this, "Passcode protect on", Toast.LENGTH_SHORT)
 						.show();
 			}
 			if (requestCode == PASSCODE_PROTECT_OFF) {
 				mBtnPasscodeProtect.setChecked(false);
 				SpikaApp.getPreferences().setPasscodeProtect(false);
-				Toast.makeText(this, "Passcode protection has been disabled", Toast.LENGTH_SHORT)
+				Toast.makeText(this, "Passcode protect off", Toast.LENGTH_SHORT)
 						.show();
 			}
 		} else if (resultCode == Activity.RESULT_CANCELED) {
@@ -299,7 +298,7 @@ public class SettingsActivity extends SideBarActivity {
 
 				getLoginUserAsync();
 
-				Toast.makeText(SettingsActivity.this, "Successfully updated your password!",
+				Toast.makeText(SettingsActivity.this, "Saved",
 						Toast.LENGTH_SHORT).show();
 
 			} else {
@@ -308,7 +307,7 @@ public class SettingsActivity extends SideBarActivity {
 				 * user to state before update
 				 */
 
-				Toast.makeText(SettingsActivity.this, "Error while updating your password. Please try again later",
+				Toast.makeText(SettingsActivity.this, "Error",
 						Toast.LENGTH_SHORT).show();
 
 				SpikaApp.getPreferences().setUserPassword(currentPassword);

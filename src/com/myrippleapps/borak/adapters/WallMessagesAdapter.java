@@ -299,7 +299,7 @@ public class WallMessagesAdapter extends BaseAdapter {
 		long diff = System.currentTimeMillis()
 				- (Long.valueOf(timeOfCreationOrUpdate) * 1000);
 
-		 long diffs = diff / (1000);
+		// long diffs = diff / (1000);
 		long diffm = diff / (1000 * 60);
 		long diffh = diff / (1000 * 60 * 60);
 		long diffd = diff / (1000 * 60 * 60 * 24);

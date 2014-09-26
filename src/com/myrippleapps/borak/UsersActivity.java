@@ -303,10 +303,11 @@ public class UsersActivity extends SubMenuActivity {
 		});
 
 		firstMeasure = true;
-		final View seekBar = findViewById(R.id.seekBar);
+		final View seekBar = (View) findViewById(R.id.seekBar);
 		final RelativeLayout rlSeekBar = (RelativeLayout) findViewById(R.id.rlSeekBar);
 
-		final int MARGIN_SIZE = (int) getResources().getDimension(R.dimen.seekBar_margin) + 1;
+		final int MARGIN_SIZE = (int) getResources().getDimension(
+				R.dimen.seekBar_margin) + 1;
 
 		mTvFromAge = (TextView) findViewById(R.id.tvFromAge);
 		mTvFromAge.setText(String.valueOf(FROM_AGE));
@@ -317,7 +318,8 @@ public class UsersActivity extends SubMenuActivity {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 
-				if (event.getAction() == MotionEvent.ACTION_MOVE || event.getAction() == MotionEvent.ACTION_DOWN) {
+				if (event.getAction() == MotionEvent.ACTION_MOVE
+						|| event.getAction() == MotionEvent.ACTION_DOWN) {
 
 					int xPointTouch = Math.round(event.getX());
 
@@ -326,16 +328,22 @@ public class UsersActivity extends SubMenuActivity {
 						firstMeasure = false;
 					}
 
-					final RelativeLayout.LayoutParams layoutParams = new LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-					layoutParams.addRule(RelativeLayout.RIGHT_OF, R.id.viewLeft);
-					layoutParams.addRule(RelativeLayout.LEFT_OF, R.id.viewRight);
+					final RelativeLayout.LayoutParams layoutParams = new LayoutParams(
+							RelativeLayout.LayoutParams.WRAP_CONTENT,
+							RelativeLayout.LayoutParams.MATCH_PARENT);
+					layoutParams
+							.addRule(RelativeLayout.RIGHT_OF, R.id.viewLeft);
+					layoutParams
+							.addRule(RelativeLayout.LEFT_OF, R.id.viewRight);
 
-					RelativeLayout.LayoutParams currentParams = (RelativeLayout.LayoutParams) seekBar.getLayoutParams();
+					RelativeLayout.LayoutParams currentParams = (RelativeLayout.LayoutParams) seekBar
+							.getLayoutParams();
 
 					Rect rectSeekBar = new Rect();
 					seekBar.getLocalVisibleRect(rectSeekBar);
 					int xPointLeft = MARGIN_SIZE + currentParams.leftMargin;
-					int xPointRight = MARGIN_SIZE + mFullWidth - currentParams.rightMargin;
+					int xPointRight = MARGIN_SIZE + mFullWidth
+							- currentParams.rightMargin;
 
 					int distanceLeft = Math.abs(xPointTouch - xPointLeft);
 					int distanceRight = Math.abs(xPointTouch - xPointRight);
@@ -359,7 +367,9 @@ public class UsersActivity extends SubMenuActivity {
 						if (xPointTouch >= MARGIN_SIZE + mFullWidth) {
 							rightMargin = 0;
 						}
-						int toAge = (int) Math.round(((mFullWidth - rightMargin) * 1.0) / mFullWidth * (TO_AGE - FROM_AGE));
+						int toAge = (int) Math
+								.round(((mFullWidth - rightMargin) * 1.0)
+										/ mFullWidth * (TO_AGE - FROM_AGE));
 						mTvToAge.setText(String.valueOf(toAge));
 					}
 

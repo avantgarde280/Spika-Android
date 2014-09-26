@@ -66,9 +66,9 @@ public class MessagesUpdater {
 		new SpikaAsyncTask<Void, Void, ArrayList<Message>>(new GetMessages(), new GetMessagesAfterReload(), WallActivity.getInstance(), true).execute();
 	}
 
-	private static void getMessagesAsync (boolean regularRefresh) {
+	private static void getMessagesAsync (boolean reguralRefresh) {
 		gIsLoading = true;
-		new SpikaAsyncTask<Void, Void, ArrayList<Message>>(new GetMessages(), new GetMessagesFinish(), WallActivity.getInstance(), regularRefresh).execute();
+		new SpikaAsyncTask<Void, Void, ArrayList<Message>>(new GetMessages(), new GetMessagesFinish(), WallActivity.getInstance(), reguralRefresh).execute();
 	}
 	
 	private static class GetMessages implements Command<ArrayList<Message>> {
@@ -103,7 +103,7 @@ public class MessagesUpdater {
 			if (gIsLoading) {
 				UpdateMessagesInListView.updateListView(result);
 				for (Message message : result) {
-					CouchDB.getCommentsCountAsync(message, WallActivity.getInstance());
+					//CouchDB.getCommentsCountAsync(message, WallActivity.getInstance());
 				}
 			}
 

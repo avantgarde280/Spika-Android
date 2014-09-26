@@ -1,4 +1,3 @@
-
 package com.myrippleapps.borak.couchdb;
 
 import java.io.IOException;

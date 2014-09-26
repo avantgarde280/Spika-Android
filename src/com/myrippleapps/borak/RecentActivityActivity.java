@@ -40,9 +40,8 @@ import com.myrippleapps.borak.dialog.HookUpDialog;
 import com.myrippleapps.borak.extendables.SideBarActivity;
 import com.myrippleapps.borak.management.UsersManagement;
 import com.myrippleapps.borak.utils.Const;
-//import com.winsontan520.wversionmanager.library.WVersionManager;
 import com.google.android.gcm.GCMRegistrar;
-
+import com.winsontan520.wversionmanager.library.WVersionManager;
 /**
  * RecentActivityActivity
  * 
@@ -57,7 +56,7 @@ public class RecentActivityActivity extends SideBarActivity {
 	private static RecentActivityActivity sInstance;
 	private View hoverView;
 	private boolean pushHandledOnNewIntent = false;
-	private TextView mNoActivitiesView;
+    private TextView mNoActivitiesView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,20 +65,19 @@ public class RecentActivityActivity extends SideBarActivity {
 		sInstance = this;
 		setContentView(R.layout.activity_recent_activity);
 		setSideBar(getString(R.string.RECENT_ACTIVITY));
-		
-		/* Initiate version check */
-//		WVersionManager versionManager = new WVersionManager(this);
-//		versionManager.setVersionContentUrl("http://chat.myrippleapps.me/assets/version.json");
-//		versionManager.setUpdateUrl("http://chat.myrippleapps.me/assets/milytalk.apk");
-//		versionManager.checkVersion();
-		
 		initialization();
 		
 		showTutorial(getString(R.string.tutorial_recent));
+		
+	        /* Initiate version check */
+	        WVersionManager versionManager = new WVersionManager(this);
+	        versionManager.setVersionContentUrl("http://chat.myrippleapps.me/assets/version.json");
+	        versionManager.setUpdateUrl("http://chat.myrippleapps.me/assets/milytalk.apk");
+	        versionManager.checkVersion();
 
 		//String savedPushToken = SpikaApp.getPreferences().getUserPushToken();
         //if (savedPushToken.equals(null) || savedPushToken.equals("")) {
-			registerOnGCM();
+		registerOnGCM();
         //}
 	}
 	
@@ -213,7 +211,7 @@ public class RecentActivityActivity extends SideBarActivity {
 				});
 
 		mLlRecentActivity = (LinearLayout) findViewById(R.id.llRecentActivity);
-                mNoActivitiesView = (TextView) findViewById(R.id.tvNoRecentActivities);
+        mNoActivitiesView = (TextView) findViewById(R.id.tvNoRecentActivities);
 	}
 
 	@Override
@@ -255,8 +253,8 @@ public class RecentActivityActivity extends SideBarActivity {
 		GCMRegistrar.checkManifest(getApplicationContext());
 		
 		String registrationId = GCMRegistrar.getRegistrationId(getApplicationContext());
-		
-		GCMRegistrar.register(getApplicationContext(), Const.PUSH_SENDER_ID);
+
+        GCMRegistrar.register(getApplicationContext(), Const.PUSH_SENDER_ID);
 
 		if (registrationId.equals("") || registrationId.equals(null)) {
 
