@@ -103,16 +103,13 @@ public class GCMIntentService extends GCMBaseIntentService {
 		String pushMessage = intent.getStringExtra(Const.PUSH_MESSAGE);
 		String pushFromName = intent.getStringExtra(Const.PUSH_FROM_NAME);
 		try {
-			boolean appIsInForeground = new SpikaApp.ForegroundCheckAsync()
-					.execute(getApplicationContext()).get();
-			boolean screenLocked = ((KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE))
-					.inKeyguardRestrictedInputMode();
+			boolean appIsInForeground = new SpikaApp.ForegroundCheckAsync().execute(getApplicationContext()).get();
+			boolean screenLocked = ((KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE)).inKeyguardRestrictedInputMode();
 			if (appIsInForeground && !screenLocked) {
 
 				mPushBroadcast.replaceExtras(pushExtras);
 
-				LocalBroadcastManager.getInstance(this).sendBroadcast(
-						mPushBroadcast);
+				LocalBroadcastManager.getInstance(this).sendBroadcast(mPushBroadcast);
 			} else {
 				triggerNotification(this, pushMessage, pushFromName, pushExtras);
 			}
@@ -138,14 +135,11 @@ public class GCMIntentService extends GCMBaseIntentService {
 	}
 
 	@SuppressWarnings("deprecation")
-	public void triggerNotification(Context context, String message,
-			String fromName, Bundle pushExtras) {
+	public void triggerNotification(Context context, String message, String fromName, Bundle pushExtras) {
 
 		if (fromName != null) {
 			final NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-			Notification notification = new Notification(
-					R.drawable.icon_notification, message,
-					System.currentTimeMillis());
+			Notification notification = new Notification(R.drawable.icon_notification, message, System.currentTimeMillis());
 			notification.number = mNotificationCounter + 1;
 			mNotificationCounter = mNotificationCounter + 1;
 
@@ -153,15 +147,9 @@ public class GCMIntentService extends GCMBaseIntentService {
 			intent.replaceExtras(pushExtras);
 			intent.putExtra(Const.PUSH_INTENT, true);
 			intent.setAction(Long.toString(System.currentTimeMillis()));
-			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-					| Intent.FLAG_FROM_BACKGROUND
-					| Intent.FLAG_ACTIVITY_TASK_ON_HOME);
-			PendingIntent pendingIntent = PendingIntent.getActivity(this,
-					notification.number, intent,
-					PendingIntent.FLAG_UPDATE_CURRENT);
-			notification.setLatestEventInfo(this,
-					context.getString(R.string.app_name), message,
-					pendingIntent);
+			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_FROM_BACKGROUND | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+			PendingIntent pendingIntent = PendingIntent.getActivity(this, notification.number, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+			notification.setLatestEventInfo(this, context.getString(R.string.app_name), message, pendingIntent);
 			notification.defaults |= Notification.DEFAULT_VIBRATE;
 			notification.defaults |= Notification.DEFAULT_SOUND;
 			notification.flags |= Notification.FLAG_AUTO_CANCEL;
@@ -185,8 +173,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 		}
 		
 		@Override
-		public Boolean execute() throws JSONException, IOException,
-				SpikaException, IllegalStateException, SpikaForbiddenException {
+		public Boolean execute() throws JSONException, IOException, SpikaException, IllegalStateException, SpikaForbiddenException {
 
 			/* set new androidToken and onlineStatus */
 			UsersManagement.getLoginUser().setOnlineStatus(onlineStatus);

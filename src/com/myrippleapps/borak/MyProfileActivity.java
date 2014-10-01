@@ -164,9 +164,7 @@ public class MyProfileActivity extends SideBarActivity {
 		mEtUserEmail.setInputType(InputType.TYPE_NULL);
 
 		mSpinnerGender = (Spinner) findViewById(R.id.spinnerGender);
-		final ArrayAdapter<String> genderAdapter = new ArrayAdapter<String>(
-				this, android.R.layout.simple_spinner_item, getResources()
-						.getStringArray(R.array.gender)) {
+		final ArrayAdapter<String> genderAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.gender)) {
 
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
@@ -174,30 +172,24 @@ public class MyProfileActivity extends SideBarActivity {
 				((TextView) v).setTextSize(16);
 				((TextView) v).setTypeface(SpikaApp.getTfMyriadPro());
 				if (position == 2) {
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.light_gray_subtext));
-					((TextView) v).setText(getResources().getString(
-							R.string.tap_to_add_gender));
+					((TextView) v).setTextColor(getResources().getColor(R.color.light_gray_subtext));
+					((TextView) v).setText(getResources().getString(R.string.tap_to_add_gender));
 				} else {
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 				}
 				return v;
 			}
 
 			@Override
-			public View getDropDownView(int position, View convertView,
-					ViewGroup parent) {
+			public View getDropDownView(int position, View convertView, ViewGroup parent) {
 				View v = super.getDropDownView(position, convertView, parent);
 				((TextView) v).setTextSize(20);
 				((TextView) v).setTypeface(SpikaApp.getTfMyriadPro());
 				((TextView) v).setPadding(15, 15, 15, 15);
 				if (position == 2) {
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_neutral));
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_neutral));
 				} else {
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 				}
 				return v;
 			}
@@ -206,8 +198,7 @@ public class MyProfileActivity extends SideBarActivity {
 		mSpinnerGender.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 				switch (arg2) {
 				case 0:
 					mNewGender = Const.MALE;
@@ -232,9 +223,7 @@ public class MyProfileActivity extends SideBarActivity {
 		});
 
 		mSpinnerStatus = (Spinner) findViewById(R.id.spinnerStatus);
-		final ArrayAdapter<String> onlineStatusAdapter = new ArrayAdapter<String>(
-				this, android.R.layout.simple_spinner_item, getResources()
-						.getStringArray(R.array.online_status)) {
+		final ArrayAdapter<String> onlineStatusAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.online_status)) {
 			@Override
 			public View getView(int position, View convertView, ViewGroup parent) {
 				View v = super.getView(position, convertView, parent);
@@ -245,45 +234,34 @@ public class MyProfileActivity extends SideBarActivity {
 
 				switch (position) {
 				case 0:
-					statusIcon = getContext().getResources().getDrawable(
-							R.drawable.user_online_icon);
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					statusIcon = getContext().getResources().getDrawable(R.drawable.user_online_icon);
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 					break;
 				case 1:
-					statusIcon = getContext().getResources().getDrawable(
-							R.drawable.user_away_icon);
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					statusIcon = getContext().getResources().getDrawable(R.drawable.user_away_icon);
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 					break;
 				case 2:
-					statusIcon = getContext().getResources().getDrawable(
-							R.drawable.user_busy_icon);
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					statusIcon = getContext().getResources().getDrawable(R.drawable.user_busy_icon);
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 					break;
 				case 3:
-					statusIcon = getContext().getResources().getDrawable(
-							R.drawable.user_offline_icon);
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					statusIcon = getContext().getResources().getDrawable(R.drawable.user_offline_icon);
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 					break;
 				default:
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 					break;
 				}
 
 				((TextView) v).setCompoundDrawablePadding(10);
-				((TextView) v).setCompoundDrawablesWithIntrinsicBounds(
-						statusIcon, null, null, null);
+				((TextView) v).setCompoundDrawablesWithIntrinsicBounds(statusIcon, null, null, null);
 
 				return v;
 			}
 
 			@Override
-			public View getDropDownView(int position, View convertView,
-					ViewGroup parent) {
+			public View getDropDownView(int position, View convertView, ViewGroup parent) {
 				View v = super.getDropDownView(position, convertView, parent);
 				((TextView) v).setTextSize(20);
 				((TextView) v).setTypeface(SpikaApp.getTfMyriadPro());
@@ -292,38 +270,28 @@ public class MyProfileActivity extends SideBarActivity {
 
 				switch (position) {
 				case 0:
-					statusIcon = getContext().getResources().getDrawable(
-							R.drawable.user_online_icon);
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					statusIcon = getContext().getResources().getDrawable(R.drawable.user_online_icon);
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 					break;
 				case 1:
-					statusIcon = getContext().getResources().getDrawable(
-							R.drawable.user_away_icon);
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					statusIcon = getContext().getResources().getDrawable(R.drawable.user_away_icon);
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 					break;
 				case 2:
-					statusIcon = getContext().getResources().getDrawable(
-							R.drawable.user_busy_icon);
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					statusIcon = getContext().getResources().getDrawable(R.drawable.user_busy_icon);
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 					break;
 				case 3:
-					statusIcon = getContext().getResources().getDrawable(
-							R.drawable.user_offline_icon);
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					statusIcon = getContext().getResources().getDrawable(R.drawable.user_offline_icon);
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 					break;
 				default:
-					((TextView) v).setTextColor(getResources().getColor(
-							R.color.hookup_positive));
+					((TextView) v).setTextColor(getResources().getColor(R.color.hookup_positive));
 					break;
 				}
 
 				((TextView) v).setCompoundDrawablePadding(10);
-				((TextView) v).setCompoundDrawablesWithIntrinsicBounds(
-						statusIcon, null, null, null);
+				((TextView) v).setCompoundDrawablesWithIntrinsicBounds(statusIcon, null, null, null);
 				return v;
 			}
 		};
@@ -331,8 +299,7 @@ public class MyProfileActivity extends SideBarActivity {
 		mSpinnerStatus.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int arg2, long arg3) {
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 				switch (arg2) {
 				case 0:
 					mNewOnlineStatus = Const.ONLINE;
@@ -382,8 +349,7 @@ public class MyProfileActivity extends SideBarActivity {
 		mUserGender = UsersManagement.getLoginUser().getGender();
 		mNewGender = mUserGender;
 		mUserAvatarId = UsersManagement.getLoginUser().getAvatarFileId();
-		mUserAvatarThumbId = UsersManagement.getLoginUser()
-				.getAvatarThumbFileId();
+		mUserAvatarThumbId = UsersManagement.getLoginUser().getAvatarThumbFileId();
 		mNewAvatarId = mUserAvatarId;
 		mUserOnlineStatus = UsersManagement.getLoginUser().getOnlineStatus();
 		mUserEmail = SpikaApp.getPreferences().getUserEmail();
@@ -465,19 +431,15 @@ public class MyProfileActivity extends SideBarActivity {
 			mEtUserBirthday.setText(null);
 			mRlBirthday.setVisibility(View.GONE);
 		} else {
-			String birthdayString = DateFormat.format(
-					getString(R.string.hookup_date_format),
-					mUserBirthday * 1000).toString();
+			String birthdayString = DateFormat.format(getString(R.string.hookup_date_format), mUserBirthday * 1000).toString();
 			mEtUserBirthday.setText(birthdayString);
 		}
 
 		mEtUserEmail.setText(mUserEmail);
 
 		mUserAvatarId = UsersManagement.getLoginUser().getAvatarFileId();
-		mUserAvatarThumbId = UsersManagement.getLoginUser()
-				.getAvatarThumbFileId();
-		Utils.displayImage(mUserAvatarId, mIvProfileImage, mPbLoading,
-				ImageLoader.LARGE, R.drawable.user_stub_large, false);
+		mUserAvatarThumbId = UsersManagement.getLoginUser().getAvatarThumbFileId();
+		Utils.displayImage(mUserAvatarId, mIvProfileImage, mPbLoading, ImageLoader.LARGE, R.drawable.user_stub_large, false);
 	}
 
 	private void setProfileMode(ProfileMode newMode) {
@@ -635,8 +597,7 @@ public class MyProfileActivity extends SideBarActivity {
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
 		case GET_IMAGE_DIALOG:
-			mGetImageDialog = new Dialog(MyProfileActivity.this,
-					R.style.TransparentDialogTheme);
+			mGetImageDialog = new Dialog(MyProfileActivity.this, R.style.TransparentDialogTheme);
 			mGetImageDialog.getWindow().setGravity(Gravity.BOTTOM);
 			mGetImageDialog.setContentView(R.layout.dialog_get_image);
 			WindowManager.LayoutParams params = new WindowManager.LayoutParams();
@@ -646,57 +607,45 @@ public class MyProfileActivity extends SideBarActivity {
 			params.height = WindowManager.LayoutParams.WRAP_CONTENT;
 			window.setAttributes(params);
 
-			final Button btnGallery = (Button) mGetImageDialog
-					.findViewById(R.id.btnGallery);
-			btnGallery.setTypeface(SpikaApp.getTfMyriadProBold(),
-					Typeface.BOLD);
+			final Button btnGallery = (Button) mGetImageDialog.findViewById(R.id.btnGallery);
+			btnGallery.setTypeface(SpikaApp.getTfMyriadProBold(), Typeface.BOLD);
 			btnGallery.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {
 
-					Intent galleryIntent = new Intent(MyProfileActivity.this,
-							CameraCropActivity.class);
+					Intent galleryIntent = new Intent(MyProfileActivity.this, CameraCropActivity.class);
 					galleryIntent.putExtra("type", "gallery");
 					galleryIntent.putExtra("profile", true);
-					MyProfileActivity.this.startActivityForResult(
-							galleryIntent, UPDATE_IMAGE_REQUEST_CODE);
+					MyProfileActivity.this.startActivityForResult(galleryIntent, UPDATE_IMAGE_REQUEST_CODE);
 					mGetImageDialog.dismiss();
 
 				}
 			});
 
-			final Button btnCamera = (Button) mGetImageDialog
-					.findViewById(R.id.btnCamera);
-			btnCamera
-					.setTypeface(SpikaApp.getTfMyriadProBold(), Typeface.BOLD);
+			final Button btnCamera = (Button) mGetImageDialog.findViewById(R.id.btnCamera);
+			btnCamera.setTypeface(SpikaApp.getTfMyriadProBold(), Typeface.BOLD);
 			btnCamera.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {
 
-					Intent cameraIntent = new Intent(MyProfileActivity.this,
-							CameraCropActivity.class);
+					Intent cameraIntent = new Intent(MyProfileActivity.this, CameraCropActivity.class);
 					cameraIntent.putExtra("type", "camera");
 					cameraIntent.putExtra("profile", true);
-					MyProfileActivity.this.startActivityForResult(cameraIntent,
-							UPDATE_IMAGE_REQUEST_CODE);
+					MyProfileActivity.this.startActivityForResult(cameraIntent, UPDATE_IMAGE_REQUEST_CODE);
 					mGetImageDialog.dismiss();
 
 				}
 			});
 
-			final Button btnRemovePhoto = (Button) mGetImageDialog
-					.findViewById(R.id.btnRemovePhoto);
-			btnRemovePhoto.setTypeface(SpikaApp.getTfMyriadProBold(),
-					Typeface.BOLD);
+			final Button btnRemovePhoto = (Button) mGetImageDialog.findViewById(R.id.btnRemovePhoto);
+			btnRemovePhoto.setTypeface(SpikaApp.getTfMyriadProBold(), Typeface.BOLD);
 			btnRemovePhoto.setOnClickListener(new OnClickListener() {
 
 				public void onClick(View v) {
 
 					mNewAvatarId = "";
 					gProfileImage = null;
-					Utils.displayImage(mNewAvatarId, mIvProfileImage,
-							mPbLoading, ImageLoader.LARGE,
-							R.drawable.user_stub_large, false);
+					Utils.displayImage(mNewAvatarId, mIvProfileImage, mPbLoading, ImageLoader.LARGE, R.drawable.user_stub_large, false);
 					mGetImageDialog.dismiss();
 
 				}
@@ -709,21 +658,16 @@ public class MyProfileActivity extends SideBarActivity {
 			int intMaxMonth = Calendar.getInstance().get(Calendar.MONTH);
 			int intMaxDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
 
-			mGetBirthdayDialog = new DatePickerDialogWithRange(this,
-					new DatePickerDialog.OnDateSetListener() {
-						public void onDateSet(DatePicker view, int year,
-								int monthOfYear, int dayOfMonth) {
+			mGetBirthdayDialog = new DatePickerDialogWithRange(this, new DatePickerDialog.OnDateSetListener() {
+						public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 							Time chosenDate = new Time();
 							chosenDate.set(dayOfMonth, monthOfYear, year);
 							mNewBirthday = chosenDate.toMillis(true) / 1000;
-							CharSequence stringDate = DateFormat.format(
-									getString(R.string.hookup_date_format),
-									chosenDate.toMillis(true));
+							CharSequence stringDate = DateFormat.format(getString(R.string.hookup_date_format), chosenDate.toMillis(true));
 							mEtUserBirthday.setText(stringDate.toString());
 						}
 					}, intMaxYear, intMaxMonth, intMaxDay);
-			mGetBirthdayDialog
-					.setMessage(getString(R.string.when_is_your_birthday));
+			mGetBirthdayDialog.setMessage(getString(R.string.when_is_your_birthday));
 			return mGetBirthdayDialog;
 		default:
 			return null;
@@ -754,12 +698,8 @@ public class MyProfileActivity extends SideBarActivity {
 		@Override
 		public void onResultsSucceded(User result) {
 			User userByName = result;
-			if (userByName != null
-					&& !userByName.getId().equals(
-							UsersManagement.getLoginUser().getId())) {
-				Toast.makeText(MyProfileActivity.this,
-						getString(R.string.username_taken), Toast.LENGTH_SHORT)
-						.show();
+			if (userByName != null && !userByName.getId().equals(UsersManagement.getLoginUser().getId())) {
+				Toast.makeText(MyProfileActivity.this, getString(R.string.username_taken), Toast.LENGTH_SHORT).show();
 			} else {
 				updateUserAsync();
 			}
@@ -777,33 +717,26 @@ public class MyProfileActivity extends SideBarActivity {
 	private class UpdateUser implements Command<Boolean> {
 
 		@Override
-		public Boolean execute() throws JSONException, IOException,
-				SpikaException, IllegalStateException, SpikaForbiddenException {
+		public Boolean execute() throws JSONException, IOException, SpikaException, IllegalStateException, SpikaForbiddenException {
 			if (gProfileImage != null) {
 
-				String tmppath = MyProfileActivity.this.getExternalCacheDir()
-						+ "/" + Const.TMP_BITMAP_FILENAME;
-				Bitmap originalBitmap = BitmapFactory
-						.decodeFile(gProfileImagePath);
+				String tmppath = MyProfileActivity.this.getExternalCacheDir() + "/" + Const.TMP_BITMAP_FILENAME;
+				Bitmap originalBitmap = BitmapFactory.decodeFile(gProfileImagePath);
 
-				Bitmap avatarBitmap = Utils.scaleBitmap(originalBitmap,
-						Const.PICTURE_SIZE, Const.PICTURE_SIZE);
+				Bitmap avatarBitmap = Utils.scaleBitmap(originalBitmap, Const.PICTURE_SIZE, Const.PICTURE_SIZE);
 				Utils.saveBitmapToFile(avatarBitmap, tmppath);
 				String avatarFileId = CouchDB.uploadFile(tmppath);
 
-				Bitmap avatarThumb = Utils.scaleBitmap(originalBitmap,
-						Const.AVATAR_THUMB_SIZE, Const.AVATAR_THUMB_SIZE);
+				Bitmap avatarThumb = Utils.scaleBitmap(originalBitmap, Const.AVATAR_THUMB_SIZE, Const.AVATAR_THUMB_SIZE);
 				Utils.saveBitmapToFile(avatarThumb, tmppath);
 				String avatarThumbFileId = CouchDB.uploadFile(tmppath);
 
 				UsersManagement.getLoginUser().setAvatarFileId(avatarFileId);
-				UsersManagement.getLoginUser().setAvatarThumbFileId(
-						avatarThumbFileId);
+				UsersManagement.getLoginUser().setAvatarThumbFileId(avatarThumbFileId);
 
 			} else {
 				UsersManagement.getLoginUser().setAvatarFileId(mUserAvatarId);
-				UsersManagement.getLoginUser().setAvatarThumbFileId(
-						mUserAvatarThumbId);
+				UsersManagement.getLoginUser().setAvatarThumbFileId(mUserAvatarThumbId);
 			}
 
 			/* set new email, username and password */
@@ -841,8 +774,7 @@ public class MyProfileActivity extends SideBarActivity {
 				 * user to state before update
 				 */
 
-				Toast.makeText(MyProfileActivity.this, "Error",
-						Toast.LENGTH_SHORT).show();
+				Toast.makeText(MyProfileActivity.this, "Error", Toast.LENGTH_SHORT).show();
 
 				UsersManagement.setLoginUser(user);
 
@@ -850,8 +782,7 @@ public class MyProfileActivity extends SideBarActivity {
 				mUserAbout = UsersManagement.getLoginUser().getAbout();
 				mUserBirthday = UsersManagement.getLoginUser().getBirthday();
 				mUserGender = UsersManagement.getLoginUser().getGender();
-				mUserAvatarId = UsersManagement.getLoginUser()
-						.getAvatarFileId();
+				mUserAvatarId = UsersManagement.getLoginUser().getAvatarFileId();
 			}
 			setProfileMode(ProfileMode.CANCEL);
 		}
@@ -864,8 +795,7 @@ public class MyProfileActivity extends SideBarActivity {
 			mUserAbout = UsersManagement.getLoginUser().getAbout();
 			mUserBirthday = UsersManagement.getLoginUser().getBirthday();
 			mUserGender = UsersManagement.getLoginUser().getGender();
-			mUserAvatarId = UsersManagement.getLoginUser()
-					.getAvatarFileId();
+			mUserAvatarId = UsersManagement.getLoginUser().getAvatarFileId();
 		}
 	}
 }

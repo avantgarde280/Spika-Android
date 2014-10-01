@@ -4,6 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:background="@color/sidemenu_background"
+    android:scrollbars="none"
     android:clickable="true"
     android:visibility="visible" >
 
@@ -145,7 +146,7 @@
                             android:layout_toRightOf="@+id/ivUsers"
                             android:gravity="bottom"
                             android:text="@string/users"
-                            android:textColor="@color/side_bar_light_gray"
+                            android:textColor="@android:color/white"
                             android:textSize="18sp"
                             android:layout_alignBaseline="@+id/ivUsers"
                             android:clipToPadding="false" />
@@ -188,7 +189,7 @@
                             android:layout_toRightOf="@+id/ivGroups"
                             android:gravity="bottom"
                             android:text="@string/groups"
-                            android:textColor="@color/side_bar_light_gray"
+                            android:textColor="@android:color/white"
                             android:textSize="18sp"
                             android:layout_alignBaseline="@+id/ivGroups"
                             android:clipToPadding="false" />
@@ -231,7 +232,7 @@
                             android:layout_toRightOf="@+id/ivProfile"
                             android:gravity="bottom"
                             android:text="@string/profile"
-                            android:textColor="@color/side_bar_light_gray"
+                            android:textColor="@android:color/white"
                             android:textSize="18sp"
                             android:layout_alignBaseline="@+id/ivProfile"
                             android:clipToPadding="false" />
@@ -272,7 +273,7 @@
                             android:layout_toRightOf="@+id/ivInformation"
                             android:gravity="bottom"
                             android:text="@string/information"
-                            android:textColor="@color/side_bar_light_gray"
+                            android:textColor="@android:color/white"
                             android:textSize="18sp"
                             android:layout_alignBaseline="@+id/ivInformation"
                             android:clipToPadding="false" />
@@ -313,7 +314,7 @@
                             android:layout_toRightOf="@+id/ivSettings"
                             android:gravity="bottom"
                             android:text="@string/settings"
-                            android:textColor="@color/side_bar_light_gray"
+                            android:textColor="@android:color/white"
                             android:textSize="18sp"
                             android:clipToPadding="false"
                             android:layout_alignBaseline="@+id/ivSettings" />
@@ -355,7 +356,7 @@
                             android:layout_toRightOf="@+id/ivPrivateWall"
                             android:gravity="bottom"
                             android:text="@string/USER_SUPPORT"
-                            android:textColor="@color/side_bar_light_gray"
+                            android:textColor="@android:color/white"
                             android:textSize="18sp"
                             android:layout_alignBaseline="@+id/ivPrivateWall" />
                     </RelativeLayout>
@@ -395,7 +396,7 @@
                             android:layout_toRightOf="@+id/ivLogout"
                             android:gravity="bottom"
                             android:text="@string/logout"
-                            android:textColor="@color/side_bar_light_gray"
+                            android:textColor="@android:color/white"
                             android:textSize="18sp"
                             android:layout_alignBaseline="@+id/ivLogout" />
                     </RelativeLayout>
@@ -404,9 +405,7 @@
         </RelativeLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/sidemenu_shadow"
-	android:text="@string/copyright"
+    <TextView android:text="@string/version_text"
 	android:textSize="12sp"
 	android:gravity="center"
 	android:textColor="@color/loading_background"

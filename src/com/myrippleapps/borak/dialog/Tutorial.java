@@ -61,19 +61,20 @@ public class Tutorial extends Activity {
 	private static final String TEXT = "tutorial_text";
 
 	private final TranslateAnimation mSlideFromTop = new TranslateAnimation(
-			TranslateAnimation.RELATIVE_TO_PARENT, 0,
-			TranslateAnimation.RELATIVE_TO_PARENT, 0,
-			TranslateAnimation.RELATIVE_TO_SELF, (float) -1.0,
-			TranslateAnimation.RELATIVE_TO_SELF, (float) 0.0);
+	    TranslateAnimation.RELATIVE_TO_PARENT, 0,
+	    TranslateAnimation.RELATIVE_TO_PARENT, 0,
+	    TranslateAnimation.RELATIVE_TO_SELF, (float) -1.0,
+	    TranslateAnimation.RELATIVE_TO_SELF, (float) 0.0);
 
 	private final TranslateAnimation mSlideOutBottom = new TranslateAnimation(
-			TranslateAnimation.RELATIVE_TO_PARENT, 0,
-			TranslateAnimation.RELATIVE_TO_PARENT, 0,
-			TranslateAnimation.RELATIVE_TO_SELF, (float) 0.0,
-			TranslateAnimation.RELATIVE_TO_PARENT, (float) 1.0);
+	    TranslateAnimation.RELATIVE_TO_PARENT, 0,
+	    TranslateAnimation.RELATIVE_TO_PARENT, 0,
+	    TranslateAnimation.RELATIVE_TO_SELF, (float) 0.0,
+	    TranslateAnimation.RELATIVE_TO_PARENT, (float) 1.0);
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	    {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.hookup_tutorial);
 		sInstance = this;
@@ -81,8 +82,7 @@ public class Tutorial extends Activity {
 		LayoutParams params = getWindow().getAttributes();
 		params.height = LayoutParams.MATCH_PARENT;
 		params.width = LayoutParams.MATCH_PARENT;
-		getWindow().setAttributes(
-				(android.view.WindowManager.LayoutParams) params);
+		getWindow().setAttributes(params);
 
 		setDuration(LONG_ANIM_DURATION);
 		mTutorialLayout = (RelativeLayout) findViewById(R.id.rlTutorial);
@@ -91,85 +91,93 @@ public class Tutorial extends Activity {
 		setTranslateAnimations();
 		startTranslateAnimations();
 
-	}
+	    }
 
-	public static void show(Activity activity, String tutorialText) {
-		
+	public static void show(Activity activity, String tutorialText)
+	    {
+
 		Intent tutorialIntent = new Intent(activity, Tutorial.class);
 		tutorialIntent.putExtra(TEXT, tutorialText);
 		activity.startActivity(tutorialIntent);
-	}
+	    }
 
-	private void setDuration(int duration) {
-		switch (duration) {
-		case SHORT_ANIM_DURATION:
-			mAnimationDuration = getResources().getInteger(
-					android.R.integer.config_shortAnimTime);
-			break;
-		case MEDIUM_ANIM_DURATION:
-			mAnimationDuration = getResources().getInteger(
-					android.R.integer.config_mediumAnimTime);
-			break;
-		case LONG_ANIM_DURATION:
-			mAnimationDuration = getResources().getInteger(
-					android.R.integer.config_longAnimTime);
-			break;
-		default:
-			mAnimationDuration = mActivity.getResources().getInteger(
-					android.R.integer.config_mediumAnimTime);
-			break;
-		}
-	}
+	private void setDuration(int duration)
+	    {
+		switch ( duration )
+		    {
+			case SHORT_ANIM_DURATION:
+			    mAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
+			    break;
+			case MEDIUM_ANIM_DURATION:
+			    mAnimationDuration = getResources().getInteger(android.R.integer.config_mediumAnimTime);
+			    break;
+			case LONG_ANIM_DURATION:
+			    mAnimationDuration = getResources().getInteger(android.R.integer.config_longAnimTime);
+			    break;
+			default:
+			    mAnimationDuration = mActivity.getResources().getInteger(android.R.integer.config_mediumAnimTime);
+			    break;
+		    }
+	    }
 
 
-	private void setTranslateAnimations() {
+	private void setTranslateAnimations()
+	    {
 		mSlideFromTop.setFillAfter(false);
 		mSlideFromTop.setFillEnabled(false);
 		mSlideFromTop.setDuration(mAnimationDuration);
 		mSlideFromTop.setAnimationListener(new AnimationListener() {
 
-			public void onAnimationStart(Animation animation) {
-				mTutorialLayout.setVisibility(View.VISIBLE);
-			}
+			    public void onAnimationStart(Animation animation)
+				{
+				    mTutorialLayout.setVisibility(View.VISIBLE);
+				}
 
-			public void onAnimationRepeat(Animation animation) {
-			}
+			    public void onAnimationRepeat(Animation animation)
+				{
+				}
 
-			public void onAnimationEnd(Animation animation) {
+			    public void onAnimationEnd(Animation animation)
+				{
 
-			}
-		});
+				}
+			});
 
 		final Button buttonOk = (Button) findViewById(R.id.btnOk);
 		buttonOk.setOnClickListener(new View.OnClickListener() {
 
-			@Override
-			public void onClick(View arg0) {
-				mTutorialLayout.startAnimation(mSlideOutBottom);
+			    @Override
+			    public void onClick(View arg0)
+				{
+				    mTutorialLayout.startAnimation(mSlideOutBottom);
 
-			}
+				}
 
-		});
+			});
 
 		mSlideOutBottom.setDuration(mAnimationDuration);
 		mSlideOutBottom.setAnimationListener(new AnimationListener() {
 
-			public void onAnimationStart(Animation animation) {
-			}
+			    public void onAnimationStart(Animation animation)
+				{
+				}
 
-			public void onAnimationRepeat(Animation animation) {
-			}
+			    public void onAnimationRepeat(Animation animation)
+				{
+				}
 
-			public void onAnimationEnd(Animation animation) {
-				mTutorialLayout.setVisibility(View.GONE);
-				sInstance.finish();
-			}
-		});
+			    public void onAnimationEnd(Animation animation)
+				{
+				    mTutorialLayout.setVisibility(View.GONE);
+				    sInstance.finish();
+				}
+			});
 
-	}
+	    }
 
-	private void startTranslateAnimations() {
+	private void startTranslateAnimations()
+	    {
 		mTutorialLayout.startAnimation(mSlideFromTop);
-	}
+	    }
 
-}
+    }

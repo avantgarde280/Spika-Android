@@ -36,47 +36,56 @@ import com.google.gson.annotations.SerializedName;
  * Model class for recent activity notifications.
  */
 
-public class Notification {
+public class Notification
+{
 
-	public Notification(String targetId, int count) {
-		super();
-		this.mTargetId = targetId;
-		this.mCount = count;
-	}
+    public Notification(String targetId, int count)
+    {
+	super();
+	this.mTargetId = targetId;
+	this.mCount = count;
+    }
 
-	@SerializedName("target_id")
-	@Expose private String mTargetId;
-	@SerializedName("count")
-	@Expose private int mCount;
-	
-	private List<NotificationMessage> mNotificationMessages = new ArrayList<NotificationMessage>();
+    @SerializedName("target_id")
+    @Expose private String mTargetId;
+    @SerializedName("count")
+    @Expose private int mCount;
 
-	public Notification() {
-	}
+    private List<NotificationMessage> mNotificationMessages = new ArrayList<NotificationMessage>();
 
-	public String getTargetId() {
-		return mTargetId;
-	}
+    public Notification()
+    {
+    }
 
-	public void setTargetId(String targetId) {
-		this.mTargetId = targetId;
-	}
+    public String getTargetId()
+    {
+	return mTargetId;
+    }
 
-	public int getCount() {
-		return mCount;
-	}
+    public void setTargetId(String targetId)
+    {
+	this.mTargetId = targetId;
+    }
 
-	public void setCount(int count) {
-		this.mCount = count;
-	}
+    public int getCount()
+    {
+	return mCount;
+    }
 
-	public List<NotificationMessage> getMessages() {
-		return mNotificationMessages;
-	}
+    public void setCount(int count)
+    {
+	this.mCount = count;
+    }
 
-	public void setMessages(List<NotificationMessage> notificationMessages) {
-		this.mNotificationMessages = notificationMessages;
-	}
+    public List<NotificationMessage> getMessages()
+    {
+	return mNotificationMessages;
+    }
+
+    public void setMessages(List<NotificationMessage> notificationMessages)
+    {
+	this.mNotificationMessages = notificationMessages;
+    }
 
 
 }

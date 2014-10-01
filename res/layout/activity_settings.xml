@@ -180,6 +180,16 @@
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+	    
+	    <TextView android:gravity="center"
+		android:text="@string/copyright"
+		android:layout_alignParentBottom="true"
+		android:textSize="10sp"
+		android:textColor="@android:color/black"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		/>
         </RelativeLayout>
 
         <ImageView

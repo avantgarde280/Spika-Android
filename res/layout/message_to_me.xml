@@ -52,7 +52,7 @@
             android:background="@drawable/wall_msg_you"
             android:clipToPadding="false"
             android:paddingBottom="5dp"
-            android:paddingLeft="15dp"
+            android:paddingLeft="20dp"
             android:paddingRight="5dp"
             android:paddingTop="5dp" >
 
@@ -84,10 +84,8 @@
                 android:id="@+id/messageText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_gravity="left"
-                android:gravity="left"
-                android:textColor="@color/dark_gray_text"
+                android:gravity="center"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"
                 android:visibility="visible" />
         </RelativeLayout>

@@ -24,9 +24,10 @@
 	    />
     
         <TextView android:gravity="center"
-	    android:text="©2014 Myrippleapps. version test-test aje"
+	    android:text="@string/version_text"
+	    android:textStyle="bold"
 	    android:textSize="14sp"
-	    android:textColor="#c0392b"
+	    android:textColor="@android:color/white"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:textAppearance="?android:attr/textAppearanceSmall"

@@ -43,13 +43,36 @@
     
     <ListView android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/rlAddServer"
+	android:layout_above="@+id/devNotes"
         android:listSelector="#00000000"
         android:divider="@drawable/sign_in_divider"
         android:background="@color/sign_in_gray"
+        android:layout_marginLeft="20dp"
+	android:layout_marginRight="20dp"
+	android:layout_marginTop="20dp"
+        android:dividerHeight="1dp">    
+    </ListView>
+    
+    <RelativeLayout
+        android:id="@+id/devNotes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:dividerHeight="1dp"></ListView>
+	android:layout_alignParentBottom="true"
+	android:gravity="center"
+        android:padding="20dp"
+        android:background="@color/sign_in_gray" >
+	<TextView android:text="@string/devnotes"
+	    android:textStyle="bold"
+	    android:textSize="14sp"
+	    android:textColor="@android:color/white"
+	    android:gravity="center"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"/>
+    </RelativeLayout>
+	
 
     <RelativeLayout
         android:id="@+id/rlNoInternetNotification"

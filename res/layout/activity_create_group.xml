@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:scrollbars="none"
     tools:context=".CreateGroupActivity" >
 
     <include layout="@layout/activity_sidebar" />

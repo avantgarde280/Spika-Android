@@ -61,7 +61,7 @@
                 android:layout_toRightOf="@+id/ivMyContacts"
                 android:gravity="bottom"
                 android:text="@string/my_contacts"
-                android:textColor="@color/side_bar_light_gray"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:clipToPadding="false"
                 android:layout_alignBaseline="@+id/ivMyContacts" />
@@ -102,7 +102,7 @@
                 android:clipToPadding="false"
                 android:gravity="bottom"
                 android:text="@string/search"
-                android:textColor="@color/side_bar_light_gray"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:layout_alignBaseline="@+id/ivSearch" />
         </RelativeLayout>
@@ -142,7 +142,7 @@
                 android:clipToPadding="false"
                 android:gravity="bottom"
                 android:text="@string/explore"
-                android:textColor="@color/side_bar_light_gray"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:layout_alignBaseline="@+id/ivExplore" />
         </RelativeLayout>

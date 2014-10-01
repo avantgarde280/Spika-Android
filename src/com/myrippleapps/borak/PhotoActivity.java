@@ -87,8 +87,7 @@ public class PhotoActivity extends SpikaActivity {
 		onClickListeners();
 
 		mComments = new ArrayList<Comment>();
-		new GetCommentsAsync(PhotoActivity.this, mMessage, mComments,
-				mCommentsAdapter, mLvComments, true).execute(mMessage.getId());
+		new GetCommentsAsync(PhotoActivity.this, mMessage, mComments, mCommentsAdapter, mLvComments, true).execute(mMessage.getId());
 		scrollListViewToBottom();
 	}
 	
@@ -106,8 +105,7 @@ public class PhotoActivity extends SpikaActivity {
 
 		mLvComments = (ListView) findViewById(R.id.lvPhotoComments);
 		LayoutInflater inflater = getLayoutInflater();
-		ViewGroup photoHolder = (ViewGroup) inflater.inflate(
-				R.layout.photo_holder, mLvComments, false);
+		ViewGroup photoHolder = (ViewGroup) inflater.inflate(R.layout.photo_holder, mLvComments, false);
 		mLvComments.addHeaderView(photoHolder, null, false);
 		mLvComments.setSelection(0);
 		mLvComments.setCacheColorHint(0);
@@ -126,12 +124,9 @@ public class PhotoActivity extends SpikaActivity {
 		mPbLoading = (ProgressBar) findViewById(R.id.pbLoadingForImage);
 
 		if (mMessage != null) {
-			Utils.displayImage(
-						mMessage.getImageFileId(), mIvPhotoImage, mPbLoading,
-						ImageLoader.LARGE, R.drawable.image_stub, false);
+			Utils.displayImage(mMessage.getImageFileId(), mIvPhotoImage, mPbLoading, ImageLoader.LARGE, R.drawable.image_stub, false);
 			
-			LayoutHelper.scaleWidthAndHeight(this, 5f,
-					mBtnAvatarUser);
+			LayoutHelper.scaleWidthAndHeight(this, 5f, mBtnAvatarUser);
 
 			CouchDB.findAvatarIdAndDisplay(mMessage.getFromUserId(), mBtnAvatarUser, this);
 
@@ -150,8 +145,7 @@ public class PhotoActivity extends SpikaActivity {
 			public void onClick(View arg0) {
 				String commentText = mEtComment.getText().toString();
 				if (!commentText.equals("")) {
-					Comment comment = CommentManagement
-							.createComment(commentText, mMessage.getId());
+					Comment comment = CommentManagement.createComment(commentText, mMessage.getId());
 					scrollListViewToBottom();
 					
 					CouchDB.createCommentAsync(comment, new CreateCommentFinish(), PhotoActivity.this, true);
@@ -178,8 +172,7 @@ public class PhotoActivity extends SpikaActivity {
 	private String getSubTextDateAndUser(Message message) {
 		String subText = null;
 		long timeOfCreationOrUpdate = message.getCreated();
-		subText = Utils.getFormattedDateTime(timeOfCreationOrUpdate) + " by "
-				+ message.getFromUserName();
+		subText = Utils.getFormattedDateTime(timeOfCreationOrUpdate) + " by " + message.getFromUserName();
 		return subText;
 	}
 
@@ -188,8 +181,7 @@ public class PhotoActivity extends SpikaActivity {
 		@Override
 		public void onResultsSucceded(String commentId) {
 			if (commentId != null) {
-				new GetCommentsAsync(PhotoActivity.this, mMessage, mComments,
-						mCommentsAdapter, mLvComments, false).execute(mMessage.getId());
+				new GetCommentsAsync(PhotoActivity.this, mMessage, mComments, mCommentsAdapter, mLvComments, false).execute(mMessage.getId());
 			} else {
 				Toast.makeText(PhotoActivity.this, "Error with creating comment", Toast.LENGTH_SHORT).show();
 			}

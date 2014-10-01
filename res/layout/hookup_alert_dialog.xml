@@ -3,16 +3,25 @@
     android:orientation="vertical"
     android:layout_width="285dp"
     android:layout_height="wrap_content"
-    android:background="@color/loading_background"
     android:gravity="center"
     android:layout_centerHorizontal="true">
 
     <RelativeLayout
+	android:id="@+id/rlheaderDialogLayout"
+	android:layout_width="match_parent"
+	android:layout_height="36dp"
+	android:layout_above="@+id/rlAlertDialogLayout"
+	android:background="@drawable/header_top_rect"
+	android:paddingBottom="0dp">
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/rlAlertDialogLayout"
         android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@color/loading_background" >
+        android:layout_height="wrap_content"
+	android:layout_below="@+id/rlheaderDialogLayout"
+	android:background="@drawable/dialog_rect"
+	android:paddingTop="0dp">
         
         <com.myrippleapps.borak.view.MyriadProTextView
             android:id="@+id/tvMessage"
@@ -21,6 +30,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
 	    android:paddingTop="10dp"
+	    android:paddingBottom="10dp"
             android:textSize="15sp"
             android:gravity="center"
             android:text="@string/max_favorites_alert"
@@ -28,15 +38,14 @@
             android:textColor="@color/light_gray_subtext"
             android:textIsSelectable="false" />
 
-    </RelativeLayout>
-    <LinearLayout
+        <LinearLayout
             android:id="@+id/llControlButtons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tvMessage"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10dp" >
+            android:paddingBottom="10dp" >
 
             <Button
                 android:id="@+id/btnDialog"
@@ -48,9 +57,7 @@
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-
+		    
 	</LinearLayout>
-
-
-
+    </RelativeLayout>
 </LinearLayout>

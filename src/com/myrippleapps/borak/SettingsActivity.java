@@ -1,3 +1,5 @@
+
+
 /*
  * The MIT License (MIT)
  * 
@@ -53,8 +55,8 @@ import com.myrippleapps.borak.management.UsersManagement;
  * Has options for clearing memory cache, changing password and setting passcode protect.
  */
 
-public class SettingsActivity extends SideBarActivity {
-
+public class SettingsActivity extends SideBarActivity 
+    {
 	private EditText mEtServerUrl;
 	private ToggleButton mBtnPasscodeProtect;
 	private Button mBtnClearCache;
@@ -66,274 +68,279 @@ public class SettingsActivity extends SideBarActivity {
 	private Button mBtnChangePassword;
 	private ToggleButton mBtnShowPassword;
 	private EditText mEtPassword;
-//	private HookUpPasswordDialog mPasswordDialog;
+//    private HookUpPasswordDialog mPasswordDialog;
 	private HookUpDialog mSendPasswordDialog;
 	private String mPassword;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	    {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
 		setSideBar(getString(R.string.SETTINGS));
 		initialization();
-	}
+	    }
 
 	private class SendPasswordListener implements ResultListener<Void> {
 		@Override
-		public void onResultsSucceded(Void result) {
-		}
+		public void onResultsSucceded(Void result)
+		    {
+
+		    }
+
 		@Override
-		public void onResultsFail() {			
-		}
-	}
-	
-	private void initialization() {
+		public void onResultsFail()
+		    {
 
+		    }
+	    }
+
+	private void initialization()
+	    {
 		getLoginUserAsync();
-		
 		mSendPasswordDialog = new HookUpDialog(this);
-		mSendPasswordDialog.setOnButtonClickListener(HookUpDialog.BUTTON_OK,
-				new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						CouchDB.sendPassword(SpikaApp.getPreferences().getUserEmail(), new SendPasswordListener() , SettingsActivity.this, true);
-						mSendPasswordDialog.dismiss();
-					}
-				});
-		mSendPasswordDialog.setOnButtonClickListener(
-				HookUpDialog.BUTTON_CANCEL, new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						mSendPasswordDialog.dismiss();
-
-					}
-				});
-		
-//		mPasswordDialog = new HookUpPasswordDialog(this, false);
-
+		mSendPasswordDialog.setOnButtonClickListener(HookUpDialog.BUTTON_OK, new OnClickListener()
+			{
+			    @Override
+			    public void onClick(View v)
+				{
+				    CouchDB.sendPassword(SpikaApp.getPreferences().getUserEmail(), new SendPasswordListener(), SettingsActivity.this, true);
+				    mSendPasswordDialog.dismiss();
+				}
+			});
+		mSendPasswordDialog.setOnButtonClickListener(HookUpDialog.BUTTON_CANCEL, new OnClickListener()
+			{
+			    @Override
+			    public void onClick(View v)
+				{
+				    mSendPasswordDialog.dismiss();
+				}
+			});
+//    mPasswordDialog = new HookUpPasswordDialog(this, false);
 		mBtnChangePassword = (Button) findViewById(R.id.btnChangePassword);
-		mBtnChangePassword.setTypeface(SpikaApp.getTfMyriadProBold(),
-				Typeface.BOLD);
-		mBtnChangePassword.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-//				mPasswordDialog.show(mPassword);
-				mSendPasswordDialog.show(getString(R.string.confirm_email)
-						+ "\n" + SpikaApp.getPreferences().getUserEmail());
-
-			}
-		});
-
+		mBtnChangePassword.setTypeface(SpikaApp.getTfMyriadProBold(), Typeface.BOLD);
+		mBtnChangePassword.setOnClickListener(new OnClickListener()
+			{
+			    @Override
+			    public void onClick(View v)
+				{
+//		      mPasswordDialog.show(mPassword);
+				    mSendPasswordDialog.show(getString(R.string.confirm_email) + "\n" + SpikaApp.getPreferences().getUserEmail());
+				}
+			});
 		mEtPassword = (EditText) findViewById(R.id.etPassword);
 		mEtPassword.setTypeface(SpikaApp.getTfMyriadPro());
 		mEtPassword.setInputType(InputType.TYPE_NULL);
-		mEtPassword.setTransformationMethod(PasswordTransformationMethod
-				.getInstance());
+		mEtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
 		mEtPassword.setText(mPassword);
 
 		mBtnShowPassword = (ToggleButton) findViewById(R.id.btnShowPassword);
-		mBtnShowPassword
-				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-					@Override
-					public void onCheckedChanged(CompoundButton buttonView,
-							boolean isChecked) {
-						if (isChecked) {
-							mEtPassword.setTransformationMethod(null);
-						} else {
-							mEtPassword
-									.setTransformationMethod(PasswordTransformationMethod
-											.getInstance());
-						}
-
+		mBtnShowPassword.setOnCheckedChangeListener(new OnCheckedChangeListener()
+			{
+			    @Override
+			    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+				{
+				    if (isChecked)
+					{
+					    mEtPassword.setTransformationMethod(null);
 					}
-				});
+				    else
+					{
+					    mEtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+					}
+				}
+			});
 		mBtnShowPassword.setChecked(false);
 
 		mClearCacheDialog = new HookUpDialog(this);
 		mClearCacheDialog.setMessage(getString(R.string.clear_cache_message));
-		mClearCacheDialog.setOnButtonClickListener(HookUpDialog.BUTTON_OK,
-				new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						SpikaApp.clearCache();
-						mClearCacheDialog.dismiss();
-
-					}
-				});
-		mClearCacheDialog.setOnButtonClickListener(
-				HookUpDialog.BUTTON_CANCEL, new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						mClearCacheDialog.dismiss();
-
-					}
-				});
+		mClearCacheDialog.setOnButtonClickListener(HookUpDialog.BUTTON_OK, new OnClickListener()
+			{
+			    @Override
+			    public void onClick(View v)
+				{
+				    SpikaApp.clearCache();
+				    mClearCacheDialog.dismiss();
+				}
+			});
+		mClearCacheDialog.setOnButtonClickListener(HookUpDialog.BUTTON_CANCEL, new OnClickListener()
+			{
+			    @Override
+			    public void onClick(View v)
+				{
+				    mClearCacheDialog.dismiss();
+				}
+			});
 
 		mEtServerUrl = (EditText) findViewById(R.id.etServerUrl);
 		mEtServerUrl.setTypeface(SpikaApp.getTfMyriadPro());
 		mEtServerUrl.setText(CouchDB.getUrl());
 		mBtnClearCache = (Button) findViewById(R.id.btnClearCache);
-		mBtnClearCache.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				mClearCacheDialog.show();
-
-			}
-		});
+		mBtnClearCache.setOnClickListener(new OnClickListener()
+			{
+			    @Override
+			    public void onClick(View v)
+				{
+				    mClearCacheDialog.show();
+				}
+			});
 
 		mBtnPasscodeProtect = (ToggleButton) findViewById(R.id.btnPasscodeProtect);
-		if (SpikaApp.getPreferences().getPasscodeProtect() == true) {
+
+		if (SpikaApp.getPreferences().getPasscodeProtect() == true)
+		    {
 			mBtnPasscodeProtect.setChecked(true);
-		} else {
+		    }
+		else
+		    {
 			mBtnPasscodeProtect.setChecked(false);
-		}
-		
-		mBtnPasscodeProtect.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent passcodeIntent = new Intent(
-						SettingsActivity.this, PasscodeActivity.class);
-				if (SpikaApp.getPreferences().getPasscodeProtect() == true) {
-					
-					startActivityForResult(passcodeIntent,
-							PASSCODE_PROTECT_OFF);
-				} else {
-					SpikaApp.getPreferences().setPasscode("");
-					startActivityForResult(passcodeIntent,
-							PASSCODE_PROTECT_ON);
-				}
-				
-			}
-		});
-
-		mBtnPasscodeProtect
-				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-					@Override
-					public void onCheckedChanged(CompoundButton buttonView,
-							boolean isChecked) {
-						if (isChecked) {
-							mBtnPasscodeProtect
-									.setBackgroundResource(R.drawable.toggle_button_on);
-							
-						} else {
-							mBtnPasscodeProtect
-									.setBackgroundResource(R.drawable.toggle_button_off);
-							
-						}
-
+		    }
+		mBtnPasscodeProtect.setOnClickListener(new OnClickListener()
+			{
+			    @Override
+			    public void onClick(View v)
+				{
+				    Intent passcodeIntent = new Intent(SettingsActivity.this, PasscodeActivity.class);
+				    if (SpikaApp.getPreferences().getPasscodeProtect() == true)
+					{
+					    startActivityForResult(passcodeIntent, PASSCODE_PROTECT_OFF);
 					}
-				});
+				    else
+					{
+					    SpikaApp.getPreferences().setPasscode("");
+					    startActivityForResult(passcodeIntent, PASSCODE_PROTECT_ON);
+					}
+				}
+			});
 
-	}
+		mBtnPasscodeProtect.setOnCheckedChangeListener(new OnCheckedChangeListener()
+			{
+			    @Override
+			    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+				{
+				    if (isChecked)
+					{
+					    mBtnPasscodeProtect.setBackgroundResource(R.drawable.toggle_button_on);
+					}
+				    else
+					{
+					    mBtnPasscodeProtect.setBackgroundResource(R.drawable.toggle_button_off);
+					}
+				}
+			});
+	    }
 
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (resultCode == Activity.RESULT_OK) {
-			if (requestCode == PASSCODE_PROTECT_ON) {
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	    {
+		if (resultCode == Activity.RESULT_OK)
+		    {
+			if (requestCode == PASSCODE_PROTECT_ON)
+			    {
 				mBtnPasscodeProtect.setChecked(true);
 				SpikaApp.getPreferences().setPasscodeProtect(true);
-				Toast.makeText(this, "Passcode protect on", Toast.LENGTH_SHORT)
-						.show();
-			}
-			if (requestCode == PASSCODE_PROTECT_OFF) {
+				Toast.makeText(this, "Passcode protect on", Toast.LENGTH_SHORT).show();
+			    }
+
+			if (requestCode == PASSCODE_PROTECT_OFF)
+			    {
 				mBtnPasscodeProtect.setChecked(false);
 				SpikaApp.getPreferences().setPasscodeProtect(false);
-				Toast.makeText(this, "Passcode protect off", Toast.LENGTH_SHORT)
-						.show();
-			}
-		} else if (resultCode == Activity.RESULT_CANCELED) {
-			if (SpikaApp.getPreferences().getPasscodeProtect() == true) {
+				Toast.makeText(this, "Passcode protect off", Toast.LENGTH_SHORT).show();
+			    }
+		    }
+		else if (resultCode == Activity.RESULT_CANCELED)
+		    {
+			if (SpikaApp.getPreferences().getPasscodeProtect() == true)
+			    {
 				mBtnPasscodeProtect.setChecked(true);
-			} else {
+			    }
+			else
+			    {
 				mBtnPasscodeProtect.setChecked(false);
-			}
-		}
-
+			    }
+		    }
 		super.onActivityResult(requestCode, resultCode, data);
-	}
+	    }
 
 	@Override
-	protected void setObjectsNull() {
+	protected void setObjectsNull()
+	    {
 		mClearCacheDialog = null;
 		super.setObjectsNull();
-	}
+	    }
 
-	public void setNewPassword(String newPassword) {
+	public void setNewPassword(String newPassword)
+	    {
 		hideKeyboard();
 		updatePasswordAsync(newPassword);
-	}
+	    }
 
-	private void updatePasswordAsync (String newPassword) {
+	private void updatePasswordAsync(String newPassword)
+	    {
 		String currentPassword = SpikaApp.getPreferences().getUserPassword();
 		SpikaApp.getPreferences().setUserPassword(newPassword);
 		CouchDB.updateUserAsync(UsersManagement.getLoginUser(), new UpdatePasswordFinish(currentPassword, newPassword), SettingsActivity.this, true);
-	}
-	
+	    }
+
 	private class UpdatePasswordFinish implements ResultListener<Boolean> {
-		
 		String currentPassword;
 		String newPassword;
-		
-		public UpdatePasswordFinish(String currentPassword, String newPassword) {
+
+		public UpdatePasswordFinish(String currentPassword, String newPassword)
+		    {
 			this.currentPassword = currentPassword;
 			this.newPassword = newPassword;
-		}
-		
-		@Override
-		public void onResultsSucceded(Boolean result) {
-			if (result) {
-				/* update successful */
+		    }
 
+		@Override
+		public void onResultsSucceded(Boolean result)
+		    {
+			if (result)
+			    {
+				/* update successful */
 				mPassword = newPassword;
 				mEtPassword.setText(newPassword);
-
 				getLoginUserAsync();
-
-				Toast.makeText(SettingsActivity.this, "Saved",
-						Toast.LENGTH_SHORT).show();
-
-			} else {
+				Toast.makeText(SettingsActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+			    }
+			else
+			    {
 				/*
 				 * something went wrong with update profile, returning logged in
 				 * user to state before update
 				 */
-
-				Toast.makeText(SettingsActivity.this, "Error",
-						Toast.LENGTH_SHORT).show();
-
+				Toast.makeText(SettingsActivity.this, "Error", Toast.LENGTH_SHORT).show();
 				SpikaApp.getPreferences().setUserPassword(currentPassword);
 				mPassword = currentPassword;
-			}
-		}
+			    }
+		    }
 
 		@Override
-		public void onResultsFail() {
+		public void onResultsFail()
+		    {
 			SpikaApp.getPreferences().setUserPassword(currentPassword);
 			mPassword = currentPassword;
-		}
-	}
+		    }
+	    }
 
-	private void getLoginUserAsync () {
+	private void getLoginUserAsync()
+	    {
 		CouchDB.findUserByIdAsync(UsersManagement.getLoginUser().getId(), new GetLoginUserFinish(), SettingsActivity.this, true);
-	}
-	
+	    }
+
 	private class GetLoginUserFinish implements ResultListener<User> {
 		@Override
-		public void onResultsSucceded(User result) {
+		public void onResultsSucceded(User result)
+		    {
 			UsersManagement.setLoginUser(result);
 			mPassword = SpikaApp.getPreferences().getUserPassword();
-		}
+		    }
+
 		@Override
-		public void onResultsFail() {			
-		}
-	}
-}
+		public void onResultsFail()
+		    {
+
+		    }
+	    }
+    }

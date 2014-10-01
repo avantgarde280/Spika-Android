@@ -74,40 +74,43 @@ public class SpikaApp extends Application {
 	private TranslateAnimation mSlideInRight;
 
 	private final TranslateAnimation mSlideFromTop = new TranslateAnimation(
-			TranslateAnimation.RELATIVE_TO_PARENT, 0,
-			TranslateAnimation.RELATIVE_TO_PARENT, 0,
-			TranslateAnimation.RELATIVE_TO_SELF, (float) -1.0,
-			TranslateAnimation.RELATIVE_TO_SELF, (float) 0);
+	    TranslateAnimation.RELATIVE_TO_PARENT, 0,
+	    TranslateAnimation.RELATIVE_TO_PARENT, 0,
+	    TranslateAnimation.RELATIVE_TO_SELF, (float) -1.0,
+	    TranslateAnimation.RELATIVE_TO_SELF, (float) 0);
 
 	private final TranslateAnimation mSlideOutTop = new TranslateAnimation(
-			TranslateAnimation.RELATIVE_TO_PARENT, 0,
-			TranslateAnimation.RELATIVE_TO_PARENT, 0,
-			TranslateAnimation.RELATIVE_TO_SELF, (float) 0,
-			TranslateAnimation.RELATIVE_TO_SELF, (float) -1.0);
+	    TranslateAnimation.RELATIVE_TO_PARENT, 0,
+	    TranslateAnimation.RELATIVE_TO_PARENT, 0,
+	    TranslateAnimation.RELATIVE_TO_SELF, (float) 0,
+	    TranslateAnimation.RELATIVE_TO_SELF, (float) -1.0);
 
-	public static TranslateAnimation getSlideFromTop() {
+	public static TranslateAnimation getSlideFromTop()
+	    {
 		return sInstance.mSlideFromTop;
-	}
+	    }
 
-	public static TranslateAnimation getSlideOutTop() {
+	public static TranslateAnimation getSlideOutTop()
+	    {
 		return sInstance.mSlideOutTop;
-	}
+	    }
 
 	private int mTransport;
 
-	public static SpikaApp getInstance() {
+	public static SpikaApp getInstance()
+	    {
 		return sInstance;
-	}
+	    }
 
 	private LocalBroadcastManager mLocalBroadcastManager;
 
 	@Override
-	public void onCreate() {
+	public void onCreate()
+	    {
 		super.onCreate();
 		sInstance = this;
 		mPreferences = new Preferences(this);
-		mPreferences.clearFlagsForTutorialEachBoot(getApplicationContext()
-				.getPackageName());
+		mPreferences.clearFlagsForTutorialEachBoot(getApplicationContext().getPackageName());
 		gOpenFromBackground = true;
 		mFileDir = new FileDir(this);
 
@@ -116,19 +119,17 @@ public class SpikaApp extends Application {
 		mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
 
 		// Create typefaces
-		mTfMyriadPro = Typeface.createFromAsset(getAssets(),
-				"fonts/Roboto-Regular.ttf");
-		mTfMyriadProBold = Typeface.createFromAsset(getAssets(),
-				"fonts/Roboto-Bold.ttf");
+		mTfMyriadPro = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
+		mTfMyriadProBold = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Bold.ttf");
 
 		setTransportBasedOnScreenDensity(42);
 
 		// Example interpolator; could use linear or accelerate interpolator
 		// instead
+		
 		final AccelerateDecelerateInterpolator accDecInterpolator = new AccelerateDecelerateInterpolator();
 		final LinearInterpolator linearInterpolator = new LinearInterpolator();
-		final int slidingDuration = getResources().getInteger(
-				R.integer.sliding_duration);
+		final int slidingDuration = getResources().getInteger(R.integer.sliding_duration);
 
 		// Set up animations
 		mSlideInLeft = new TranslateAnimation(-mTransport, 0, 0, 0);
@@ -155,75 +156,87 @@ public class SpikaApp extends Application {
 
 		mSlideFromTop.setFillAfter(true);
 		mSlideFromTop.setFillEnabled(true);
-		mSlideFromTop.setDuration(this.getResources().getInteger(
-				android.R.integer.config_mediumAnimTime));
+		mSlideFromTop.setDuration(this.getResources().getInteger(android.R.integer.config_mediumAnimTime));
 		mSlideFromTop.setInterpolator(linearInterpolator);
 
-		mSlideOutTop.setDuration(this.getResources().getInteger(
-				android.R.integer.config_mediumAnimTime));
+		mSlideOutTop.setDuration(this.getResources().getInteger(android.R.integer.config_mediumAnimTime));
 		mSlideOutTop.setInterpolator(linearInterpolator);
 
 		String strUUID = UUID.randomUUID().toString();
 		Logger.debug("uuid", strUUID);
-		
-		mBaseUrl=mPreferences.getUserServerURL();
-	}
 
-	public static Typeface getTfMyriadPro() {
+		mBaseUrl = mPreferences.getUserServerURL();
+	    }
+
+	public static Typeface getTfMyriadPro()
+	    {
 		return sInstance.mTfMyriadPro;
-	}
+	    }
 
-	public static void setTfMyriadPro(Typeface tfMyriadPro) {
+	public static void setTfMyriadPro(Typeface tfMyriadPro)
+	    {
 		sInstance.mTfMyriadPro = tfMyriadPro;
-	}
+	    }
 
-	public static Typeface getTfMyriadProBold() {
+	public static Typeface getTfMyriadProBold()
+	    {
 		return sInstance.mTfMyriadProBold;
-	}
+	    }
 
-	public static void setTfMyriadProBold(Typeface tfMyriadProBold) {
+	public static void setTfMyriadProBold(Typeface tfMyriadProBold)
+	    {
 		sInstance.mTfMyriadProBold = tfMyriadProBold;
-	}
+	    }
 
-	public static TranslateAnimation getSlideOutLeft() {
+	public static TranslateAnimation getSlideOutLeft()
+	    {
 		return sInstance.mSlideOutLeft;
-	}
+	    }
 
-	public static void setSlideOutLeft(TranslateAnimation slideOutLeft) {
+	public static void setSlideOutLeft(TranslateAnimation slideOutLeft)
+	    {
 		sInstance.mSlideOutLeft = slideOutLeft;
-	}
+	    }
 
-	public static TranslateAnimation getSlideOutRight() {
+	public static TranslateAnimation getSlideOutRight()
+	    {
 		return sInstance.mSlideOutRight;
-	}
+	    }
 
-	public static void setSlideOutRight(TranslateAnimation slideOutRight) {
+	public static void setSlideOutRight(TranslateAnimation slideOutRight)
+	    {
 		sInstance.mSlideOutRight = slideOutRight;
-	}
+	    }
 
-	public static TranslateAnimation getSlideInLeft() {
+	public static TranslateAnimation getSlideInLeft()
+	    {
 		return sInstance.mSlideInLeft;
-	}
+	    }
 
-	public static void setSlideInLeft(TranslateAnimation slideInLeft) {
+	public static void setSlideInLeft(TranslateAnimation slideInLeft)
+	    {
 		sInstance.mSlideInLeft = slideInLeft;
-	}
+	    }
 
-	public static TranslateAnimation getSlideInRight() {
+	public static TranslateAnimation getSlideInRight()
+	    {
 		return sInstance.mSlideInRight;
-	}
+	    }
 
-	public static void setSlideInRight(TranslateAnimation slideInRight) {
+	public static void setSlideInRight(TranslateAnimation slideInRight)
+	    {
 		sInstance.mSlideInRight = slideInRight;
-	}
+	    }
 
-	public static int getTransport() {
+	public static int getTransport()
+	    {
 		return sInstance.mTransport;
-	}
+	    }
 
-	public static void setTransport(int transport) {
+	public static void setTransport(int transport)
+	    {
 		sInstance.mTransport = transport;
-	}
+	    }
 
 	/**
 	 * Sets sliding transport based on screen density and required offset width
@@ -232,124 +245,144 @@ public class SpikaApp extends Application {
 	 * 
 	 * @param sideWidthInDp
 	 */
-	public static void setTransportBasedOnScreenDensity(int sideWidthInDp) {
-		WindowManager wm = (WindowManager) sInstance
-				.getSystemService(Context.WINDOW_SERVICE);
+	public static void setTransportBasedOnScreenDensity(int sideWidthInDp)
+	    {
+		WindowManager wm = (WindowManager) sInstance.getSystemService(Context.WINDOW_SERVICE);
 		Display display = wm.getDefaultDisplay();
 		DisplayMetrics metrics = new DisplayMetrics();
 		display.getMetrics(metrics);
 
-		double sideWidthInPx = TypedValue.applyDimension(
-				TypedValue.COMPLEX_UNIT_DIP, sideWidthInDp, sInstance
-						.getResources().getDisplayMetrics());
+		double sideWidthInPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, sideWidthInDp, sInstance.getResources().getDisplayMetrics());
 
 		double transportRate = 1 - sideWidthInPx / metrics.widthPixels;
-		sInstance.mTransport = (int) Math.floor(metrics.widthPixels
-				* transportRate);
-	}
+		sInstance.mTransport = (int) Math.floor(metrics.widthPixels * transportRate);
+	    }
 
 	public static class ForegroundCheckAsync extends
-			AsyncTask<Context, Void, Boolean> {
+	AsyncTask<Context, Void, Boolean>{
 		@Override
-		protected Boolean doInBackground(Context... params) {
+		protected Boolean doInBackground(Context... params)
+		    {
 			final Context context = params[0];
 			return isAppOnForeground(context);
-		}
+		    }
 
-		private boolean isAppOnForeground(Context context) {
-			ActivityManager activityManager = (ActivityManager) context
-					.getSystemService(Context.ACTIVITY_SERVICE);
-			List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager
-					.getRunningAppProcesses();
-			if (appProcesses == null) {
+		private boolean isAppOnForeground(Context context)
+		    {
+			ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+			List<ActivityManager.RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();
+			if ( appProcesses == null )
+			    {
 				return false;
-			}
+			    }
 			final String packageName = context.getPackageName();
-			for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
-				if (appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND
-						&& appProcess.processName.equals(packageName)) {
+			for ( ActivityManager.RunningAppProcessInfo appProcess : appProcesses )
+			    {
+				if ( appProcess.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND && appProcess.processName.equals(packageName) )
+				    {
 					return true;
-				}
-			}
+				    }
+			    }
 			return false;
-		}
-	}
+		    }
+	    }
 
 	/**
 	 * Checks whether this app has mobile or wireless connection
 	 * 
 	 * @return
 	 */
-	public static boolean hasNetworkConnection() {
+	public static boolean hasNetworkConnection()
+	    {
 		boolean hasConnectedWifi = false;
 		boolean hasConnectedMobile = false;
 
-		final ConnectivityManager connectivityManager = (ConnectivityManager) sInstance
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		final ConnectivityManager connectivityManager = (ConnectivityManager) sInstance.getSystemService(Context.CONNECTIVITY_SERVICE);
 		final NetworkInfo[] netInfo = connectivityManager.getAllNetworkInfo();
-		for (NetworkInfo ni : netInfo) {
-			if (ni.getTypeName().equalsIgnoreCase("WIFI"))
-				if (ni.isConnected())
+		for ( NetworkInfo ni : netInfo )
+		    {
+			if ( ni.getTypeName().equalsIgnoreCase("WIFI") )
+			    {
+				if ( ni.isConnected() )
+				    {
 					hasConnectedWifi = true;
-			if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
-				if (ni.isConnected())
+				    }
+			    }
+			if ( ni.getTypeName().equalsIgnoreCase("MOBILE") )
+			    {
+				if ( ni.isConnected() )
+				    {
 					hasConnectedMobile = true;
-		}
+				    }
+			    }
+		    }
 		boolean hasNetworkConnection = hasConnectedWifi || hasConnectedMobile;
 		return hasNetworkConnection;
-	}
+	    }
 
-	public static Preferences getPreferences() {
+	public static Preferences getPreferences()
+	    {
 		return sInstance.mPreferences;
-	}
+	    }
 
-	public static void setPreferences(Preferences preferences) {
+	public static void setPreferences(Preferences preferences)
+	    {
 		sInstance.mPreferences = preferences;
-	}
+	    }
 
-	public static void clearCache() {
+	public static void clearCache()
+	    {
 		File cache = sInstance.getCacheDir();
 		cache.delete();
 		ImageLoader.getImageLoader().clearCache();
 		sInstance.mFileDir.clear();
-	}
+	    }
 
-	public static FileDir getFileDir() {
+	public static FileDir getFileDir()
+	    {
 		return sInstance.mFileDir;
-	}
+	    }
 
-	public static void setFileDir(FileDir fileDir) {
+	public static void setFileDir(FileDir fileDir)
+	    {
 		sInstance.mFileDir = fileDir;
-	}
+	    }
 
-	public static LocalBroadcastManager getLocalBroadcastManager() {
+	public static LocalBroadcastManager getLocalBroadcastManager()
+	    {
 		return sInstance.mLocalBroadcastManager;
-	}
+	    }
 
-	public static void setLocalBroadcastManager(
-			LocalBroadcastManager localBroadcastManager) {
+	public static void setLocalBroadcastManager(LocalBroadcastManager localBroadcastManager)
+	    {
 		sInstance.mLocalBroadcastManager = localBroadcastManager;
-	}
-	
-	public void setBaseUrl(String url, String name){
+	    }
+
+	public void setBaseUrl(String url, String name)
+	    {
 		getPreferences().setUserServerURL(url);
-		if(name != null && !name.equals("")){
+		if ( name != null && !name.equals("") )
+		    {
 			getPreferences().setUserServerName(name);
-		}else{
+		    }else
+		    {
 			getPreferences().setUserServerName(url);
-		}
-		mBaseUrl=getPreferences().getUserServerURL();
-	}
-	
-	public String getBaseUrl(){
-		return mBaseUrl+"/";
-	}
-	
-	public String getBaseUrlWithApi(){
-		return mBaseUrl+"/"+Const.API_FOLDER;
-	}
-	
-	public String getBaseUrlWithSufix(String sufix){
-		return mBaseUrl+"/"+ Const.API_FOLDER +sufix;
-	}
-}
+		    }
+		mBaseUrl = getPreferences().getUserServerURL();
+	    }
+
+	public String getBaseUrl()
+	    {
+		return mBaseUrl + "/";
+	    }
+
+	public String getBaseUrlWithApi()
+	    {
+		return mBaseUrl + "/" + Const.API_FOLDER;
+	    }
+
+	public String getBaseUrlWithSufix(String sufix)
+	    {
+		return mBaseUrl + "/" + Const.API_FOLDER + sufix;
+	    }
+    }

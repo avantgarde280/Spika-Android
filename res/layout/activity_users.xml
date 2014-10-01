@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sidemenu_background"
+    android:background="@drawable/main_background"
+    android:scrollbars="none"
     tools:context=".UsersActivity" >
 
     <include layout="@layout/activity_sidebar" />

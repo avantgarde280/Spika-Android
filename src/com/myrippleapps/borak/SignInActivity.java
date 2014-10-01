@@ -127,11 +127,9 @@ public class SignInActivity extends Activity {
 	}
 
 	private void showTutorial(String textTutorial) {
-		if (SpikaApp.getPreferences().getShowTutorial(
-				Utils.getClassNameInStr(this))) {
+		if (SpikaApp.getPreferences().getShowTutorial(Utils.getClassNameInStr(this))) {
 			Tutorial.show(this, textTutorial);
-			SpikaApp.getPreferences().setShowTutorial(false,
-					Utils.getClassNameInStr(this));
+			SpikaApp.getPreferences().setShowTutorial(false, Utils.getClassNameInStr(this));
 		}
 	}
 
@@ -143,8 +141,7 @@ public class SignInActivity extends Activity {
 		new FileManagement(getApplicationContext());
 
 		mSendPasswordDialog = new HookUpDialog(this);
-		mSendPasswordDialog.setOnButtonClickListener(HookUpDialog.BUTTON_OK,
-				new OnClickListener() {
+		mSendPasswordDialog.setOnButtonClickListener(HookUpDialog.BUTTON_OK, new OnClickListener() {
 
 					@Override
 					public void onClick(View v) {
@@ -152,8 +149,7 @@ public class SignInActivity extends Activity {
 						mSendPasswordDialog.dismiss();
 					}
 				});
-		mSendPasswordDialog.setOnButtonClickListener(
-				HookUpDialog.BUTTON_CANCEL, new OnClickListener() {
+		mSendPasswordDialog.setOnButtonClickListener(HookUpDialog.BUTTON_CANCEL, new OnClickListener() {
 
 					@Override
 					public void onClick(View v) {
@@ -183,15 +179,12 @@ public class SignInActivity extends Activity {
 		});
 		mBtnActive = (Button) findViewById(R.id.btnActive);
 		mBtnActive.setTypeface(SpikaApp.getTfMyriadProBold(), Typeface.BOLD);
-		mBtnActive
-				.setBackgroundResource(R.drawable.rounded_rect_positive_selector);
+		mBtnActive.setBackgroundResource(R.drawable.rounded_rect_positive_selector);
 		mBtnInactive = (Button) findViewById(R.id.btnInactive);
 		mBtnInactive.setTypeface(SpikaApp.getTfMyriadProBold(), Typeface.BOLD);
-		mBtnInactive
-				.setBackgroundResource(R.drawable.rounded_rect_neutral_selector);
+		mBtnInactive.setBackgroundResource(R.drawable.rounded_rect_neutral_selector);
 		mBtnForgotPassword = (Button) findViewById(R.id.btnForgotPassword);
-		mBtnForgotPassword
-				.setTextColor(new ColorStateList(new int[][] {
+		mBtnForgotPassword.setTextColor(new ColorStateList(new int[][] {
 						new int[] { android.R.attr.state_pressed },
 						new int[] {} }, new int[] { Color.rgb(190, 190, 190),
 						Color.rgb(125, 125, 125), }));
@@ -204,8 +197,7 @@ public class SignInActivity extends Activity {
 			}
 		});
 		mBtnSendPassword = (Button) findViewById(R.id.btnSendPassword);
-		mBtnSendPassword.setTypeface(SpikaApp.getTfMyriadProBold(),
-				Typeface.BOLD);
+		mBtnSendPassword.setTypeface(SpikaApp.getTfMyriadProBold(), Typeface.BOLD);
 		mBtnSendPassword.setVisibility(View.GONE);
 		
 		
@@ -217,12 +209,10 @@ public class SignInActivity extends Activity {
 
 				if (isEmailValid(mEtSendPasswordEmail.getText().toString())) 
 				{
-					mSendPasswordDialog.show(getString(R.string.confirm_email)
-							+ "\n" + mEtSendPasswordEmail.getText().toString());
+					mSendPasswordDialog.show(getString(R.string.confirm_email) + "\n" + mEtSendPasswordEmail.getText().toString());
 				} else {
 
-					final HookUpDialog dialog = new HookUpDialog(
-							SignInActivity.this);
+					final HookUpDialog dialog = new HookUpDialog(SignInActivity.this);
 					dialog.showOnlyOK(getString(R.string.email_not_valid));
 				}
 			}
@@ -268,8 +258,7 @@ public class SignInActivity extends Activity {
 	}
 
 	private void getEmailAndPasswordFromIntent() {
-		String passwordFromPrefs = getIntent().getStringExtra(
-				"password_from_prefs");
+		String passwordFromPrefs = getIntent().getStringExtra("password_from_prefs");
 		String emailFromPrefs = getIntent().getStringExtra("email_from_prefs");
 		if (passwordFromPrefs != null && emailFromPrefs != null) {
 			mEtSignInEmail.setText(emailFromPrefs);
@@ -279,10 +268,8 @@ public class SignInActivity extends Activity {
 
 	private void checkToken() {
 		if (isInvalidToken()) {
-			final HookUpAlertDialog invalidTokenDialog = new HookUpAlertDialog(
-					this);
-			invalidTokenDialog.show(getString(R.string.invalid_token_message),
-					ButtonType.CLOSE);
+			final HookUpAlertDialog invalidTokenDialog = new HookUpAlertDialog(this);
+			invalidTokenDialog.show(getString(R.string.invalid_token_message), ButtonType.CLOSE);
 		}
 	}
 
@@ -538,8 +525,7 @@ public class SignInActivity extends Activity {
 	{
 		@Override
 		public void onResultsSucceded(Void result) {
-			final HookUpAlertDialog emailSentDialog = new HookUpAlertDialog(
-			SignInActivity.this);
+			final HookUpAlertDialog emailSentDialog = new HookUpAlertDialog(SignInActivity.this);
 			emailSentDialog.show(getString(R.string.email_sent), ButtonType.OK);
 		}
 

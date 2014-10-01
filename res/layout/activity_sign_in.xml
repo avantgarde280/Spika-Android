@@ -2,67 +2,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerVertical="true"
+    android:gravity="center"
     android:background="@drawable/splash"
     tools:context=".MainActivity" >
-
-<RelativeLayout android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerInParent="true">
-    <RelativeLayout
-        android:id="@+id/rlServerField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@android:color/transparent"
-	>
+    
+<RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+	android:gravity="center">
 	
-	<TextView
-	    android:text="@string/MAIN_TITLE"
-	    android:textSize="60sp"
-	    android:textColor="#c0392b"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:textStyle="bold"
-	    android:gravity="center"
-	    android:textAppearance="?android:attr/textAppearanceLarge"
-	/>
-
-        <ImageView
-            android:id="@+id/ivServerIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:contentDescription="@null"
-            android:src="@drawable/icon_server"
-	    android:visibility="invisible"/>
-
-        <com.myrippleapps.borak.view.SimpleAutoFitTextView
-            android:id="@+id/tvServerSelect"
+        <RelativeLayout
+            android:id="@+id/rlServerField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/ivServerIcon"
-            android:layout_toLeftOf="@+id/ivArrowIcon"
-            android:background="@null"
-            android:singleLine="true"
-            android:gravity="center|left"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-	    android:visibility="invisible"/>
+            android:background="@android:color/transparent">
+	    
+	    <TextView
+	        android:text="@string/MAIN_TITLE"
+	        android:textSize="60sp"
+	        android:textColor="#c0392b"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:textStyle="bold"
+	        android:gravity="center"
+	        android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-        <ImageView
-            android:id="@+id/ivArrowIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:contentDescription="@null"
-            android:src="@drawable/icon_server_select"
-	    android:visibility="invisible"/>
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/ivServerIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_server"
+	        android:visibility="invisible"/>
+
+            <com.myrippleapps.borak.view.SimpleAutoFitTextView
+                android:id="@+id/tvServerSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/ivServerIcon"
+                android:layout_toLeftOf="@+id/ivArrowIcon"
+                android:background="@null"
+                android:singleLine="true"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+	        android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/ivArrowIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_server_select"
+	        android:visibility="invisible"/>
+        </RelativeLayout>
     
     <RelativeLayout
         android:id="@+id/rlSignInTitle"
@@ -111,14 +110,12 @@
         android:layout_below="@+id/rlSignInTitle"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="0dp"
 	android:layout_marginBottom="0dp">
 
         <LinearLayout
             android:id="@+id/llSignInBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:background="@color/sign_in_gray"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -200,7 +197,6 @@
             android:id="@+id/llSignUpBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:background="@color/sign_in_gray"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -316,7 +312,6 @@
             android:id="@+id/llForgotPasswordBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:background="@color/sign_in_gray"
             android:focusable="true"
             android:focusableInTouchMode="true"
@@ -421,7 +416,6 @@
             android:textStyle="bold"
             android:visibility="visible" />
     </LinearLayout>
-
     <RelativeLayout
         android:id="@+id/rlNoInternetNotification"
         android:layout_width="wrap_content"
@@ -441,6 +435,15 @@
 
         <include layout="@layout/push_notification" />
     </RelativeLayout>
-
 </RelativeLayout>
+    <TextView android:gravity="center"
+	android:text="@string/version_text"
+	android:layout_alignParentBottom="true"
+	android:textStyle="bold"
+	android:textSize="12sp"
+	android:textColor="@android:color/white"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:textAppearance="?android:attr/textAppearanceSmall"/>
+    
 </RelativeLayout>

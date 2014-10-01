@@ -43,8 +43,8 @@ import com.myrippleapps.borak.extendables.SideBarActivity;
 import com.myrippleapps.borak.management.UsersManagement;
 import com.myrippleapps.borak.utils.Const;
 import com.myrippleapps.borak.utils.Preferences;
-import com.winsontan520.wversionmanager.library.WVersionManager;
-//import com.crittercism.app.Crittercism;
+//import com.winsontan520.wversionmanager.library.WVersionManager;
+import com.crittercism.app.Crittercism;
 
 /**
  * SplashScreenActivity
@@ -61,184 +61,203 @@ public class SplashScreenActivity extends Activity {
 	public static String mUpdateUrl = "http://chat.myrippleapps.me/assets/version.json";
 	public static String mApkUrl = "http://chat.myrippleapps.me/assets/milytalk.apk";
 //	public static final int mRemindMe = 1;
-    
-	
+
+
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	    {
 		super.onCreate(savedInstanceState);
 
 		SplashScreenActivity.sInstance = this;
 		setContentView(R.layout.activity_splash_screen);
 
 		/* Initiate Crittercism */
-//		Crittercism.init(getApplicationContext(), Const.CRITTERCISM_APP_ID);
+		Crittercism.init(getApplicationContext(), Const.CRITTERCISM_APP_ID);
 
 		new CouchDB();
 		// new UsersManagement();
-		
-		if (SpikaApp.hasNetworkConnection()) {
 
-			if (checkIfUserSignIn()) {
+		if ( SpikaApp.hasNetworkConnection() )
+		    {
+
+			if ( checkIfUserSignIn() )
+			    {
 				mSavedEmail = SpikaApp.getPreferences().getUserEmail();
 				mSavedPassword = SpikaApp.getPreferences().getUserPassword();
 
 				mUser = new User();
-				
+
 				CouchDB.authAsync(mSavedEmail, mSavedPassword, new AuthListener(), SplashScreenActivity.this, false);
-			} else {
+			    }else
+			    {
 				new Handler().postDelayed(new Runnable() {
 
-					@Override
-					public void run() {
-						startActivity(new Intent(SplashScreenActivity.this,
-								SignInActivity.class));
-						checkVersion();
-						finish();
+					    @Override
+					    public void run()
+						{
+						    startActivity(new Intent(SplashScreenActivity.this, SignInActivity.class));
+//						checkVersion();
+						    finish();
+						}
+					}, 2000);
+			    }
+		    }else
+		    {
+			new Handler().postDelayed(new Runnable() {
+				    @Override
+				    public void run()
+					{
+					    Intent intent = new Intent(SplashScreenActivity.this, RecentActivityActivity.class);
+					    intent.putExtra(Const.SIGN_IN, true);
+					    SplashScreenActivity.this.startActivity(intent);
+					    Toast.makeText(SplashScreenActivity.this, getString(R.string.no_internet_connection), Toast.LENGTH_LONG).show();
 					}
 				}, 2000);
-			}
-		} else {
-			new Handler().postDelayed(new Runnable() {
-				@Override
-				public void run() {
-					Intent intent = new Intent(SplashScreenActivity.this,
-							RecentActivityActivity.class);
-					intent.putExtra(Const.SIGN_IN, true);
-					SplashScreenActivity.this.startActivity(intent);
-					Toast.makeText(SplashScreenActivity.this,
-							getString(R.string.no_internet_connection),
-							Toast.LENGTH_LONG).show();
-				}
-			}, 2000);
-		}
-	}
-	
-	public void checkVersion() {
-                WVersionManager versionManager = new WVersionManager(this);
-		versionManager.setVersionContentUrl(mUpdateUrl);
-		versionManager.setUpdateUrl(mApkUrl);
+		    }
+	    }
+
+//	public void checkVersion() {
+//                WVersionManager versionManager = new WVersionManager(this);
+//		versionManager.setVersionContentUrl(mUpdateUrl);
+//		versionManager.setUpdateUrl(mApkUrl);
 //		versionManager.setReminderTimer(mRemindMe);
-		versionManager.checkVersion();
-	}
-	
-	private boolean checkIfUserSignIn() {
+//		versionManager.setTitle("New BETA Available");
+//		versionManager.checkVersion();
+//	}
+
+	private boolean checkIfUserSignIn()
+	    {
 		boolean isSessionSaved = false;
 		Preferences prefs = SpikaApp.getPreferences();
-		if (prefs.getUserEmail() == null && prefs.getUserPassword() == null) {
+		if ( prefs.getUserEmail() == null && prefs.getUserPassword() == null )
+		    {
 			isSessionSaved = false;
-		} else if (prefs.getUserEmail().equals("")
-				&& prefs.getUserPassword().equals("")) {
+		    }else if ( prefs.getUserEmail().equals("") && prefs.getUserPassword().equals("") )
+		    {
 			isSessionSaved = false;
-		} else {
+		    }else
+		    {
 			isSessionSaved = true;
-		}
+		    }
 		return isSessionSaved;
-	}
+	    }
 
-	private void signIn(User u) {
-		
+	private void signIn(User u)
+	    {
+
 		UsersManagement.setLoginUser(u);
 		UsersManagement.setToUser(u);
 		UsersManagement.setToGroup(null);
-		
-		boolean openPushNotification = getIntent().getBooleanExtra(
-				Const.PUSH_INTENT, false);
-		
-		Intent intent = new Intent(SplashScreenActivity.this,
-				RecentActivityActivity.class);
-		if (openPushNotification)  {
+
+		boolean openPushNotification = getIntent().getBooleanExtra(Const.PUSH_INTENT, false);
+
+		Intent intent = new Intent(SplashScreenActivity.this, RecentActivityActivity.class);
+		if ( openPushNotification )
+		    {
 			intent = getIntent();
-			intent.setClass(SplashScreenActivity.this,
-					RecentActivityActivity.class);
-		}
-		
+			intent.setClass(SplashScreenActivity.this, RecentActivityActivity.class);
+		    }
+
 		//parse URI hookup://user/[ime korisnika] and hookup://group/[ime grupe]
 		Uri userUri = getIntent().getData();
 		//If opened from link
-		if (userUri != null) {
+		if ( userUri != null )
+		    {
         		String scheme = userUri.getScheme(); 		// "hookup"
         		String host = userUri.getHost(); 		// "user" or "group"
-        		if (host.equals("user")) {
+        		if ( host.equals("user") )
+			    {
                 		List<String> params = userUri.getPathSegments();
                 		String userName = params.get(0); 	// "ime korisnika"
         		    	intent.putExtra(Const.USER_URI_INTENT, true);
         		    	intent.putExtra(Const.USER_URI_NAME, userName);
-        		} else if (host.equals("group")) {
+			    }else if ( host.equals("group") )
+			    {
                 		List<String> params = userUri.getPathSegments();
                 		String groupName = params.get(0); 	// "ime grupe"
         		    	intent.putExtra(Const.GROUP_URI_INTENT, true);
         		    	intent.putExtra(Const.GROUP_URI_NAME, groupName);
-        		}
-		}
-			
+			    }
+		    }
+
 		intent.putExtra(Const.SIGN_IN, true);
 		SplashScreenActivity.this.startActivity(intent);
-		checkVersion();
+//		checkVersion();
 		finish();
-	}
-	
-	private void checkPassProtect (User user) {
-				
-		if (SpikaApp.getPreferences().getPasscodeProtect()) 
-		{
-			Intent passcode = new Intent(SplashScreenActivity.this,
-					PasscodeActivity.class);
+	    }
+
+	private void checkPassProtect(User user)
+	    {
+
+		if ( SpikaApp.getPreferences().getPasscodeProtect() ) 
+		    {
+			Intent passcode = new Intent(SplashScreenActivity.this, PasscodeActivity.class);
 			passcode.putExtra("protect", true);
 			SplashScreenActivity.this.startActivityForResult(passcode, 0);
-			checkVersion();
-		} 
-		else
-		{
+//			checkVersion();
+		    }else
+		    {
 			signIn(user);
-		}
-	}
-	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (resultCode == Activity.RESULT_OK) {
-			signIn(mUser);
-		}
-		else {
-			finish();
-		}
-		super.onActivityResult(requestCode, resultCode, data);
-	}
+		    }
+	    }
 
-	private boolean authentificationOk(User user) {
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	    {
+		if ( resultCode == Activity.RESULT_OK )
+		    {
+			signIn(mUser);
+		    }else
+		    {
+			finish();
+		    }
+		super.onActivityResult(requestCode, resultCode, data);
+	    }
+
+	private boolean authentificationOk(User user)
+	    {
 
 		boolean authentificationOk = false;
 
-		if (user.getEmail() != null && !user.getEmail().equals("")) {
-			if (user.getEmail().equals(mSavedEmail)) {
+		if ( user.getEmail() != null && !user.getEmail().equals("") )
+		    {
+			if ( user.getEmail().equals(mSavedEmail) )
+			    {
 				authentificationOk = true;
-			}
-		}
+			    }
+		    }
 		return authentificationOk;
-	}
-	
+	    }
+
 	private class AuthListener implements ResultListener<String>
-	{
+	    {
 		@Override
-		public void onResultsSucceded(String result) {
+		public void onResultsSucceded(String result)
+		    {
 			boolean tokenOk = result.equals(Const.LOGIN_SUCCESS);
 			mUser = UsersManagement.getLoginUser();
-			if (tokenOk && mUser!=null) {
-				if (authentificationOk(mUser)) {
+			if ( tokenOk && mUser != null )
+			    {
+				if ( authentificationOk(mUser) )
+				    {
 					new Handler().postDelayed(new Runnable() {
 
-						@Override
-						public void run() {
-							checkPassProtect(mUser);
-						}
-					}, 2000);
-				}
-			} else {
+						    @Override
+						    public void run()
+							{
+							    checkPassProtect(mUser);
+							}
+						}, 2000);
+				    }
+			    }else
+			    {
 				SideBarActivity.appLogout(false, false, true);
-			}
-		}
+			    }
+		    }
 		@Override
-		public void onResultsFail() {
+		public void onResultsFail()
+		    {
 			SideBarActivity.appLogout(false, true, false);
-		}
-	}
-}
+		    }
+	    }
+    }
